@@ -1,5 +1,6 @@
 language: android
 jdk: oraclejdk8
+
 android:
   components:
     # Uncomment the lines below if you want to
@@ -24,5 +25,12 @@ android:
     - sys-img-armeabi-v7a-android-22
     - sys-img-armeabi-v7a-android-17
 
+<<<<<<< HEAD
 before_install:
   - bash .travis-android-license-bugfix.sh
+=======
+licenses:
+    - 'android-sdk-preview-license-.+'
+    - 'android-sdk-license-.+'
+    - 'google-gdk-license-.+'
+>>>>>>> e3c5041609a4505e8b03747ab1471a0c966014c1
