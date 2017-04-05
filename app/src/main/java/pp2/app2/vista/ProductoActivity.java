@@ -47,7 +47,9 @@ public class ProductoActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Toast.makeText(getApplicationContext(), "Se agregó el producto " + producto_id + " al carrito (mentira)", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),
+                        "Se agregó el producto " + producto_id + " al carrito (mentira)",
+                        Toast.LENGTH_SHORT).show();
 
             }
         });

@@ -16,7 +16,8 @@ import pp2.app2.modelo.Producto;
  * Created by fcazzari on 25/03/2017.
  */
 
-public class ProductoAdapter extends BaseAdapter{
+/*
+public class ProductoAdapter extends BaseAdapter {
 
     private List<Producto> productos;
     private LayoutInflater inflater;
@@ -74,3 +75,5 @@ public class ProductoAdapter extends BaseAdapter{
         TextView tituloProducto;
     }
 }
+
+*/
