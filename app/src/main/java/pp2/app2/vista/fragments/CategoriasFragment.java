@@ -49,8 +49,6 @@ public class CategoriasFragment extends Fragment {
         LinearLayout.LayoutParams params2 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         button.setLayoutParams(params2);
 
-        button.setText("hay" + appController.getCategorias().size());
-
         ViewGroup viewGroup = (ViewGroup) view;
         linearLayout.addView(button);
         viewGroup.addView(linearLayout);
