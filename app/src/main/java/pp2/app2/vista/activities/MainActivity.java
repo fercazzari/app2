@@ -84,7 +84,10 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_catalogo) {
 
-            Intent intent = new Intent(this, CatalogoActivity.class);
+            // Intent intent = new Intent(this, CatalogoActivity.class);
+            // startActivity(intent);
+
+            Intent intent = new Intent(this, CategoriasActivity.class);
             startActivity(intent);
 
         } else if (id == R.id.nav_carrito) {
