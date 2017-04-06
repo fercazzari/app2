@@ -5,6 +5,6 @@ package pp2.app2.helpers;
  */
 
 public class Constantes {
-    public final static String nombreAplicacion = "Super en casa";
+    public final static String nombreAplicacion = "Super En Casa";
     public final static String URL = "http://localhost:8080/";
 }

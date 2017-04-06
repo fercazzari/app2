@@ -2,11 +2,8 @@ package pp2.app2.vista;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -22,26 +19,26 @@ import java.util.List;
 import java.util.Map;
 
 import pp2.app2.R;
-import pp2.app2.helpers.HttpHandler;
-import pp2.app2.modelo.Producto;
+import pp2.app2.helpers.ApiConnector;
 
-public class CatalogoActivity extends Activity {
+public class CatalogoActivityOLD extends Activity {
 
     // private List<Producto> productos;
-    // private CatalogoController catalogoController;
+    // private AppController catalogoController;
 
-    private String TAG = CatalogoActivity.class.getSimpleName();
+    private String TAG = CatalogoActivityOLD.class.getSimpleName();
     private ListView lv;
     private ProgressDialog progressDialog;
     private static String url = "https://api.myjson.com/bins/1gz3i3";
+    // private static String url = "http://localhost:8080/superencasa/rest/catalogo/obtenerCategorias";
     private List<Map<String, String>> productos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_catalogo);
+        setContentView(R.layout.activityold_catalogo);
 
-        /* this.catalogoController = new CatalogoController();
+        /* this.catalogoController = new AppController();
         this.productos = catalogoController.getCatalogo(getResources());
 
         lv = (ListView) findViewById(R.id.ListViewCatalogo);
@@ -56,7 +53,7 @@ public class CatalogoActivity extends Activity {
                 Producto producto = (Producto) lv.getItemAtPosition(position);
 
                 // para pasar data entre activities
-                Intent intent = new Intent(CatalogoActivity.this, ProductoActivity.class);
+                Intent intent = new Intent(CatalogoActivityOLD.this, ProductoActivity.class);
                 Bundle b = new Bundle();
                 b.putInt("id", producto.getId());
                 intent.putExtras(b);
@@ -79,7 +76,7 @@ public class CatalogoActivity extends Activity {
         protected void onPreExecute() {
             super.onPreExecute();
 
-            progressDialog = new ProgressDialog(CatalogoActivity.this);
+            progressDialog = new ProgressDialog(CatalogoActivityOLD.this);
             progressDialog.setMessage("Estamos armando el catálogo...");
             progressDialog.setCancelable(false);
             progressDialog.show();
@@ -88,8 +85,8 @@ public class CatalogoActivity extends Activity {
         @Override
         protected Void doInBackground(Void... arg0) {
 
-            HttpHandler hh = new HttpHandler();
-            String json = hh.makeServiceCall(url);
+            ApiConnector apiConnector = new ApiConnector();
+            String json = apiConnector.callService(url);
 
             if (json != null) {
                 try {
@@ -104,6 +101,7 @@ public class CatalogoActivity extends Activity {
                         String nombre = c.getString("nombre");
                         String descripcion = c.getString("descripcion");
 
+                        // TODO map -> Producto + constructor
                         Map<String, String> producto = new HashMap<>();
 
                         producto.put("id", id);
@@ -113,7 +111,6 @@ public class CatalogoActivity extends Activity {
                         productos.add(producto);
                     }
                 } catch (final JSONException e) {
-                    // Log.e(TAG, "Error en el parseo del json: " + e.getMessage());
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
@@ -126,7 +123,6 @@ public class CatalogoActivity extends Activity {
 
                 }
             } else {
-                // Log.e(TAG, "No pudimos obtener el json.");
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
@@ -147,15 +143,11 @@ public class CatalogoActivity extends Activity {
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
 
-            // Dismiss the progress dialog
             if (progressDialog.isShowing())
                 progressDialog.dismiss();
 
-            /**
-             * Updating parsed JSON data into ListView
-             * */
             ListAdapter adapter = new SimpleAdapter(
-                    CatalogoActivity.this, productos,
+                    CatalogoActivityOLD.this, productos,
                     R.layout.item, new String[]{"nombre", "descripcion"},
                     new int[]{R.id.nombre,
                     R.id.descripcion});

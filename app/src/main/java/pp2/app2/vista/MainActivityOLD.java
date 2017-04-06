@@ -7,16 +7,16 @@ import android.view.View;
 
 import pp2.app2.R;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivityOLD extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activityold_main);
     }
 
     public void verCatalogo(View view) {
-        Intent intent = new Intent(this, CatalogoActivity.class);
+        Intent intent = new Intent(this, CatalogoActivityOLD.class);
         startActivity(intent);
     }
 
