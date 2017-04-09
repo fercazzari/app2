@@ -28,7 +28,8 @@ public class CategoriasActivity extends AppCompatActivity {
 
     ListView lv_categorias;
     List<Categoria> categorias;
-    String url = "http://192.168.1.16:8080/superencasa/rest/catalogo/obtenerMenuPrincipal";
+    String url = "https://api.myjson.com/bins/guk23";
+    // String url = "http://192.168.1.16:8080/superencasa/rest/catalogo/obtenerMenuPrincipal";
     ProgressDialog dialog;
 
     @Override

@@ -15,11 +15,12 @@ public class CarritoTest {
     @Before
     public void setUp() throws Exception {
         this.carrito = new Carrito();
+        assertTrue(this.carrito.agregarItem(new Producto(1, "manzana", 1)));
     }
 
     @Test
     public void agregarItem() {
-        assertTrue(this.carrito.agregarItem(new Producto(1, "manzana", 1)));
+        assertTrue(this.carrito.agregarItem(new Producto(2, "anana", 1)));
     }
 
     @Test
