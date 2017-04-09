@@ -9,7 +9,8 @@ import java.util.List;
 
 public class Carrito {
 
-private List<Producto> productos;
+    private Usuario usuario;
+    private List<Producto> productos;
 
     Carrito() {
         this.productos = new LinkedList<Producto>();
@@ -21,6 +22,10 @@ private List<Producto> productos;
 
     public boolean eliminarItem(Producto producto) {
         return this.productos.remove(producto);
+    }
+
+    public int getCantidad () {
+        return this.productos.size();
     }
 
 }

@@ -24,8 +24,10 @@ public class CarritoTest {
     }
 
     @Test
-    public void eliminarItem(){
-        assertTrue(this.carrito.eliminarItem(new Producto(1, "manzana", 1)));
+    public void getCantidad() {
+        int esperado = 1;
+        int actual = this.carrito.getCantidad();
+        assertEquals(esperado, actual);
     }
 
 }
