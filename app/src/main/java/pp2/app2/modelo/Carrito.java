@@ -23,8 +23,4 @@ public class Carrito {
         return this.productos.size();
     }
 
-    public double getTotal() {
-        return 0;
-    }
-
 }
