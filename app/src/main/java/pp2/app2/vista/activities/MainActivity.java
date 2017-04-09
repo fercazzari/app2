@@ -20,17 +20,9 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        /* FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        }); */
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -40,6 +32,9 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        
+
     }
 
     @Override
@@ -84,13 +79,13 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_catalogo) {
 
-            // Intent intent = new Intent(this, CatalogoActivity.class);
-            // startActivity(intent);
-
             Intent intent = new Intent(this, CategoriasActivity.class);
             startActivity(intent);
 
         } else if (id == R.id.nav_carrito) {
+
+            Intent intent = new Intent(this, CarritoActivity.class);
+            startActivity(intent);
 
         } else if (id == R.id.nav_compartir) {
 

@@ -1,10 +1,14 @@
 package pp2.app2.vista.activities;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
@@ -37,7 +41,7 @@ public class CategoriasActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_categorias);
 
-        lv_categorias = (ListView)findViewById(R.id.categorias);
+        lv_categorias = (ListView) findViewById(R.id.categorias);
 
         dialog = new ProgressDialog(this);
         dialog.setMessage("Cargando...");
@@ -51,13 +55,31 @@ public class CategoriasActivity extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError volleyError) {
-                Toast.makeText(getApplicationContext(), "Todo mal...", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "No se encontraron categorías.", Toast.LENGTH_SHORT).show();
                 dialog.dismiss();
             }
         });
 
         RequestQueue rQueue = Volley.newRequestQueue(CategoriasActivity.this);
         rQueue.add(request);
+
+        // item elegido
+        lv_categorias.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                Categoria elegida = (Categoria) lv_categorias.getItemAtPosition(i);
+
+                // para pasarle la categoria elegida al catalogo
+                Intent intent = new Intent(getApplicationContext(), CatalogoActivity.class);
+                intent.putExtra("id_categoria", String.valueOf(elegida.getId()));
+                // Toast.makeText(getApplicationContext(), String.valueOf(elegida.getId()), Toast.LENGTH_SHORT).show();
+                // TODO intent.putExtra("nombre", elegida.getNombre());
+                startActivity(intent);
+
+            }
+        });
     }
 
     void parseJsonDataCategorias(String jsonString) {

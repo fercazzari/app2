@@ -13,27 +13,29 @@
         android:orientation="horizontal"
         android:layout_marginTop="18dp">
 
-        <ImageView
-            android:id="@+id/iv_imagen"
+        <TextView
+            android:id="@+id/producto_categoria"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="5dip"
-            android:adjustViewBounds="true"
-            android:scaleType="fitXY">
+            android:layout_marginLeft="18dp"
+            android:layout_marginStart="18dp"
+            android:layout_toRightOf="@+id/LinearLayoutHeader"
+            android:text="TextView"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@+id/LinearLayoutHeader" />
 
-        </ImageView>
-
-        <TextView android:layout_height="wrap_content"
-            android:id="@+id/tv_detalles"
-            android:layout_width="fill_parent"
-            android:layout_weight="0.14"
-            android:textColor="#000000"
+        <TextView
+            android:id="@+id/producto_nombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/LinearLayoutHeader"
+            android:layout_marginTop="37dp"
+            android:text="TextView"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginLeft="12dp"
-            android:layout_marginStart="12dp">
-        </TextView>
+            android:layout_alignParentStart="true" />
 
     </LinearLayout>
 
@@ -56,5 +58,6 @@
         </android.support.design.widget.FloatingActionButton>
 
     </LinearLayout>
+
 
 </RelativeLayout>

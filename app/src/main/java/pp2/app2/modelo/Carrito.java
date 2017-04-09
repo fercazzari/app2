@@ -9,7 +9,6 @@ import java.util.List;
 
 public class Carrito {
 
-    private Usuario usuario;
     private List<Producto> productos;
 
     Carrito() {
@@ -20,12 +19,12 @@ public class Carrito {
         return this.productos.add(producto);
     }
 
-    public boolean eliminarItem(Producto producto) {
-        return this.productos.remove(producto);
-    }
-
     public int getCantidad () {
         return this.productos.size();
+    }
+
+    public double getTotal() {
+        return 0;
     }
 
 }

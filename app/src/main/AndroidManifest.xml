@@ -22,7 +22,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".vista.activities.CategoriasActivity"></activity>
+        <activity android:name=".vista.activities.CategoriasActivity" />
+        <activity android:name=".vista.activities.CarritoActivity" />
+        <activity android:name=".vista.activities.CatalogoActivity"></activity>
     </application>
 
 </manifest>

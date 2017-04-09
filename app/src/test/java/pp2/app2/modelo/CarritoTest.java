@@ -30,4 +30,11 @@ public class CarritoTest {
         assertEquals(esperado, actual);
     }
 
+    @Test
+    public void getTotal() {
+        double esperado = 0;
+        double actual = 0;
+        assertEquals(esperado, actual);
+    }
+
 }
