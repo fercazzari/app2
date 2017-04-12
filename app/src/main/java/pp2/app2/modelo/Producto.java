@@ -9,15 +9,15 @@ public class Producto implements Item {
     private int idCategoria;
 
     public Producto() {
-
+        this.id = 0;
+        this.nombre = "";
+        this.idCategoria = 0;
     }
 
     public Producto (int id, String nombre, int idCategoria) {
-
         this.id = id;
         this.nombre = nombre;
         this.idCategoria = idCategoria;
-
     }
 
     public int getId() {

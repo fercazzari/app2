@@ -6,7 +6,8 @@ public class Categoria {
     private String nombre;
 
     Categoria() {
-
+        this.id = 0;
+        this.nombre = "";
     }
 
     public Categoria(int id, String nombre) {
@@ -34,4 +35,5 @@ public class Categoria {
     public String toString() {
         return this.id + " " + this.nombre;
     }
+
 }

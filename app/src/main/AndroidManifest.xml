@@ -3,6 +3,8 @@
     package="pp2.app2">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
     <application
         android:allowBackup="true"
@@ -24,7 +26,8 @@
         </activity>
         <activity android:name=".vista.activities.CategoriasActivity" />
         <activity android:name=".vista.activities.CarritoActivity" />
-        <activity android:name=".vista.activities.CatalogoActivity"></activity>
+        <activity android:name=".vista.activities.CatalogoActivity" />
+        <activity android:name=".vista.activities.TestActivity"></activity>
     </application>
 
 </manifest>

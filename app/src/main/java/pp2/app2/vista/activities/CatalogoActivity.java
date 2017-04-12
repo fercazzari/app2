@@ -104,9 +104,7 @@ public class CatalogoActivity extends AppCompatActivity {
                                     o.getString("nombre"),
                                     Integer.valueOf(o.getString("categoria")))
                     );
-
                 }
-
             }
 
             if (this.productos.isEmpty()) {

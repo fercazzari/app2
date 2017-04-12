@@ -1,5 +1,6 @@
 package pp2.app2.vista.activities;
 
+import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -37,23 +38,18 @@ public class ProductoActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Toast.makeText(getApplicationContext(),
+                Intent intent = new Intent(getApplicationContext(), CarritoActivity.class);
+                intent.putExtra("id_producto", String.valueOf(actual.getId()));
+                intent.putExtra("nombre_producto", actual.getNombre());
+                intent.putExtra("categoria_producto", String.valueOf(actual.getIdCategoria()));
+                startActivity(intent);
+
+                /* Toast.makeText(getApplicationContext(),
                         "Se agregó el producto " + actual.getNombre() + " al carrito (mentira)",
-                        Toast.LENGTH_SHORT).show();
+                        Toast.LENGTH_SHORT).show(); */
 
             }
         });
-
-        /* para recibir data de activities
-        Bundle b = getIntent().getExtras();
-        producto_id = -1;
-        if(b != null)
-            producto_id = b.getInt("id");
-
-        // busco en el catalogo por id
-        catalogoController = new AppController();
-        List<Producto> productos = catalogoController.getCatalogo(getResources());
-        this.actual = catalogoController.getProducto(productos, producto_id); */
 
     }
 }

@@ -11,7 +11,7 @@ public class Carrito {
 
     private List<Producto> productos;
 
-    Carrito() {
+    public Carrito() {
         this.productos = new LinkedList<Producto>();
     }
 
@@ -21,6 +21,10 @@ public class Carrito {
 
     public int getCantidad () {
         return this.productos.size();
+    }
+
+    public List<Producto> getItems () {
+        return this.productos;
     }
 
 }
