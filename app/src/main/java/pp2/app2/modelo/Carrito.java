@@ -25,7 +25,7 @@ public class Carrito {
     }
 
     public boolean eliminarItem(Producto producto) {
-        carritoUOW.registrarDirty(producto);
+        carritoUOW.registrarRemoved(producto);
         return this.productos.remove(producto);
     }
 
@@ -40,4 +40,5 @@ public class Carrito {
     public CarritoUOW getUOW () {
         return this.carritoUOW;
     }
+
 }

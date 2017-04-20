@@ -5,25 +5,27 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
-
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
-
 import pp2.app2.R;
 import pp2.app2.helpers.Constantes;
 import pp2.app2.modelo.Carrito;
 import pp2.app2.modelo.Producto;
 
-@Path("/testActivity")
 public class TestActivity extends AppCompatActivity {
 
     Carrito carrito;
@@ -48,7 +50,7 @@ public class TestActivity extends AppCompatActivity {
         });
     }
 
-    public boolean sincronizar(View view, Carrito carrito, Button  btn) {
+    public boolean sincronizar(View view, Carrito carrito, Button btn) {
 
         if (hayConexion()) {
 
@@ -74,15 +76,41 @@ public class TestActivity extends AppCompatActivity {
         }
     }
 
-    /* @Path("/mandarCarritoUOW")
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    public String mandarCarritoUOW (Carrito carrito) {
+    public void mandarCarritoUOW(Carrito carrito) {
         Gson gson = new Gson();
-        return gson.toJson(carrito.getUOW());
-    }  */
+        gson.toJson(carrito.getUOW());
+
+        String url = "http://localhost:8080/superencasa/rest/carrito/test";
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Toast.makeText(TestActivity.this,response,Toast.LENGTH_LONG).show();
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(TestActivity.this,error.toString(),Toast.LENGTH_LONG).show();
+                    }
+                }){
+            @Override
+            protected Map<String,String> getParams(){
+                Map<String,String> params = new HashMap<String, String>();
+                params.put("test","hello");
+                return params;
+            }
+
+        };
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
+
+    }
 
     public boolean getConfirmacion() {
+        // desde el web service
         Random random = new Random();
         return random.nextBoolean();
     }
