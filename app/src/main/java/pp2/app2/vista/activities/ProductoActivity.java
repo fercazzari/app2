@@ -44,9 +44,9 @@ public class ProductoActivity extends AppCompatActivity {
                 intent.putExtra("categoria_producto", String.valueOf(actual.getIdCategoria()));
                 startActivity(intent);
 
-                /* Toast.makeText(getApplicationContext(),
+                Toast.makeText(getApplicationContext(),
                         "Se agregó el producto " + actual.getNombre() + " al carrito (mentira)",
-                        Toast.LENGTH_SHORT).show(); */
+                        Toast.LENGTH_SHORT).show();
 
             }
         });

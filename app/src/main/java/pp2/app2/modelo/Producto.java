@@ -1,32 +1,38 @@
 package pp2.app2.modelo;
 
-import pp2.app2.helpers.UnitOfWork;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
-public class Producto implements Item {
+public class Producto {
 
-    private int id;
+    @SerializedName("idProducto")
+    @Expose
+    private Integer idProducto;
+    @SerializedName("nombre")
+    @Expose
     private String nombre;
-    private int idCategoria;
+    @SerializedName("idCategoria")
+    @Expose
+    private Integer idCategoria;
 
     public Producto() {
-        this.id = 0;
+        this.idProducto = 0;
         this.nombre = "";
         this.idCategoria = 0;
     }
 
     public Producto (int id, String nombre, int idCategoria) {
-        this.id = id;
+        this.idProducto = id;
         this.nombre = nombre;
         this.idCategoria = idCategoria;
     }
 
     public int getId() {
-        return id;
+        return idProducto;
     }
 
     public void setId(int id) {
-        this.id = id;
-        markDirty();
+        this.idProducto = id;
     }
 
     public String getNombre() {
@@ -35,7 +41,6 @@ public class Producto implements Item {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-        markDirty();
     }
 
     public int getIdCategoria() {
@@ -44,28 +49,11 @@ public class Producto implements Item {
 
     public void setIdCategoria(int idCategoria) {
         this.idCategoria = idCategoria;
-        markDirty();
     }
 
     @Override
     public String toString() {
-        return this.id + " " + this.nombre + " " + this.getIdCategoria();
-    }
-
-    public void markNew () {
-        UnitOfWork.getCurrent().registrarNew(this);
-    }
-
-    protected void markClean () {
-        UnitOfWork.getCurrent().registrarClean(this);
-    }
-
-    protected void markDirty () {
-        UnitOfWork.getCurrent().registrarDirty(this);
-    }
-
-    protected void markRemoved () {
-        UnitOfWork.getCurrent().registrarRemoved(this);
+        return this.idProducto + " " + this.nombre + " " + this.getIdCategoria();
     }
 }
 

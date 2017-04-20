@@ -10,7 +10,7 @@ public interface ApplicationController {
 
     /* APPLICATION CONTROLLER
        A centralized point for handling screen navigation and the flow of an application.
-       An Application Controller has two main responsibilities: deciding which domain logic
+       An Application ApplicationController has two main responsibilities: deciding which domain logic
        to run and deciding the view with which display the response.
        input -> app controller -> domain command -> view
      */

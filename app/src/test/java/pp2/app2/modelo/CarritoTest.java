@@ -3,6 +3,9 @@ package pp2.app2.modelo;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.LinkedList;
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 /**
@@ -28,6 +31,16 @@ public class CarritoTest {
         int esperado = 1;
         int actual = this.carrito.getCantidad();
         assertEquals(esperado, actual);
+    }
+
+    @Test
+    public void getItems() {
+        List<Producto> esperado = new LinkedList<Producto>();
+        List<Producto> incorrecto = new LinkedList<Producto>();
+        List<Producto> actual = this.carrito.getItems();
+
+        // TODO
+
     }
 
 }
