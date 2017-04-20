@@ -7,7 +7,16 @@
         android:layout_width="fill_parent"
         android:id="@+id/LinearLayoutItem">
 
-        <TextView android:id="@+id/test"
+        <Button
+            android:id="@+id/btn_sincronizar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sincronizar"
+            android:layout_weight="4.61"
+            android:onClick="sincronizar" />
+
+        <TextView
+            android:id="@+id/test"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1">

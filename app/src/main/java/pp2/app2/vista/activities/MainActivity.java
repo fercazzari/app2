@@ -89,17 +89,9 @@ public class MainActivity extends AppCompatActivity
             Intent intent = new Intent(this, CarritoActivity.class);
             startActivity(intent);
 
-        } else if (id == R.id.nav_compartir) {
-
-            if (this.hayConexion()) {
-
+        } else if (id == R.id.nav_test) {
                 Intent intent = new Intent(this, TestActivity.class);
                 startActivity(intent);
-
-            } else {
-                Toast.makeText(getApplicationContext(), "No hay conexión.", Toast.LENGTH_SHORT).show();
-            }
-
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -107,10 +99,4 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    private boolean hayConexion() {
-        ConnectivityManager connectivityManager
-                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
-    }
 }

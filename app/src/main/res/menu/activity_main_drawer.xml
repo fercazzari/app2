@@ -18,12 +18,12 @@
 
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="Test">
         <menu>
             <item
-                android:id="@+id/nav_compartir"
+                android:id="@+id/nav_test"
                 android:icon="@drawable/ic_menu_share"
-                android:title="Compartir" />
+                android:title="Test" />
         </menu>
     </item>
 
