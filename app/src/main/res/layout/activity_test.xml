@@ -1,18 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-    <LinearLayout
+    <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_width="fill_parent"
         android:id="@+id/LinearLayoutItem">
 
-        <Button
-            android:id="@+id/btn_sincronizar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Sincronizar"
-            android:layout_weight="4.61"
-            android:onClick="sincronizar" />
+    <Button
+        android:id="@+id/btn_sincronizar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sincronizar random"
+        android:layout_weight="4.61"
+        android:onClick="sincronizar"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
-    </LinearLayout>
+    <Button
+        android:id="@+id/btn_sincro1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="4.61"
+        android:text="Sincronizacion - Caso 1"
+        android:layout_marginTop="21dp"
+        android:layout_below="@+id/btn_sincronizar"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:id="@+id/btn_sincro2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="4.61"
+        android:text="Sincronizacion - Caso 2"
+        android:layout_below="@+id/btn_sincro1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="30dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+    <Button
+        android:id="@+id/btn_sincro3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="4.61"
+        android:text="Sincronizacion - Caso 3"
+        android:layout_below="@+id/btn_sincro2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="22dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+    <Button
+        android:id="@+id/btn_sincro4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="4.61"
+        android:text="Sincronizacion - Caso 4"
+        android:layout_below="@+id/btn_sincro3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>
