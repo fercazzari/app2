@@ -12,8 +12,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import pp2.app2.R;
-import pp2.app2.vista.activities.CarritoActivity;
-import pp2.app2.vista.activities.CategoriasActivity;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -79,13 +77,7 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_catalogo) {
 
-            Intent intent = new Intent(this, CategoriasActivity.class);
-            startActivity(intent);
-
         } else if (id == R.id.nav_carrito) {
-
-            Intent intent = new Intent(this, CarritoActivity.class);
-            startActivity(intent);
 
         } else if (id == R.id.nav_test) {
                 Intent intent = new Intent(this, UnicaActivity.class);
