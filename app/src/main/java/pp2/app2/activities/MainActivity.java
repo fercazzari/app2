@@ -1,9 +1,6 @@
-package pp2.app2.vista.activities;
+package pp2.app2.activities;
 
-import android.content.Context;
 import android.content.Intent;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -13,10 +10,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import pp2.app2.R;
-import pp2.app2.modelo.Carrito;
+import pp2.app2.vista.activities.CarritoActivity;
+import pp2.app2.vista.activities.CategoriasActivity;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -91,7 +88,7 @@ public class MainActivity extends AppCompatActivity
             startActivity(intent);
 
         } else if (id == R.id.nav_test) {
-                Intent intent = new Intent(this, TestActivity.class);
+                Intent intent = new Intent(this, UnicaActivity.class);
                 startActivity(intent);
         }
 

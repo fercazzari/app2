@@ -36,21 +36,36 @@ public class CarritoUOW implements UnitOfWork {
     }
 
     @Override
-    public void commit() {
+    public boolean commit() {
+        return true;
     }
 
     @Override
-    public void rollback() {
+    public boolean rollback() {
+        return false;
     }
 
     @Override
-    public void clear() {
+    public boolean clear() {
         this.nuevos.clear();
         this.modificados.clear();
         this.eliminados.clear();
+        return true;
     }
 
     public boolean isEmpty () {
         return this.nuevos.isEmpty() && this.modificados.isEmpty()  && this.eliminados.isEmpty();
+    }
+
+    public Set<Producto> getNuevos () {
+        return this.nuevos;
+    }
+
+    public Set<Producto> getModificados () {
+        return this.nuevos;
+    }
+
+    public Set<Producto> getEliminados () {
+        return this.nuevos;
     }
 }

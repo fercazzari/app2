@@ -1,11 +1,10 @@
-package pp2.app2.vista.activities;
+package pp2.app2.activities;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -26,7 +25,7 @@ import pp2.app2.helpers.Constantes;
 import pp2.app2.modelo.Carrito;
 import pp2.app2.modelo.Producto;
 
-public class TestActivity extends AppCompatActivity {
+public class UnicaActivity extends AppCompatActivity {
 
     Carrito carrito;
 
@@ -86,13 +85,13 @@ public class TestActivity extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        Toast.makeText(TestActivity.this,response,Toast.LENGTH_LONG).show();
+                        Toast.makeText(UnicaActivity.this,response,Toast.LENGTH_LONG).show();
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(TestActivity.this,error.toString(),Toast.LENGTH_LONG).show();
+                        Toast.makeText(UnicaActivity.this,error.toString(),Toast.LENGTH_LONG).show();
                     }
                 }){
             @Override

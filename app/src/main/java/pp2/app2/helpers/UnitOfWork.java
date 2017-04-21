@@ -8,10 +8,10 @@ public interface UnitOfWork {
 
     public void registrarRemoved(Object o);
 
-    public void commit();
+    public boolean commit();
 
-    public void rollback();
+    public boolean rollback();
 
-    public void clear();
+    public boolean clear();
 
 }

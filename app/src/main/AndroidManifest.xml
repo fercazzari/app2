@@ -15,7 +15,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".vista.activities.ProductoActivity" />
         <activity
-            android:name=".vista.activities.MainActivity"
+            android:name=".activities.MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -27,7 +27,7 @@
         <activity android:name=".vista.activities.CategoriasActivity" />
         <activity android:name=".vista.activities.CarritoActivity" />
         <activity android:name=".vista.activities.CatalogoActivity" />
-        <activity android:name=".vista.activities.TestActivity"></activity>
+        <activity android:name=".activities.UnicaActivity"></activity>
     </application>
 
 </manifest>
