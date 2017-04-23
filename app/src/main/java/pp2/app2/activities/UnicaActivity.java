@@ -2,7 +2,6 @@ package pp2.app2.activities;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -129,7 +128,7 @@ public class UnicaActivity extends AppCompatActivity {
 
     public void sincronizar(View view, Carrito carrito, Button btn) {
 
-        if (hayConexion()) {
+        if (Conexion.hayConexion((ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE))) {
 
             if (carrito.hayQueSincronizar())
             {
@@ -168,7 +167,7 @@ public class UnicaActivity extends AppCompatActivity {
 
     public void sincronizar_caso2(View view, Carrito carrito, Button btn) {
 
-        if (hayConexion()) {
+        if (Conexion.hayConexion((ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE))) {
 
             // mandarCarritoUOW(carrito);
             boolean sincroMock = true;
@@ -190,7 +189,7 @@ public class UnicaActivity extends AppCompatActivity {
 
     public boolean sincronizar_caso3(View view, Carrito carrito, Button btn) {
 
-        if (hayConexion()) {
+        if (Conexion.hayConexion((ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE))) {
 
             // mandarCarritoUOW(carrito);
             boolean sincroMock = false;
@@ -279,12 +278,4 @@ public class UnicaActivity extends AppCompatActivity {
         Random random = new Random();
         return random.nextBoolean();
     }
-
-    private boolean hayConexion() {
-        ConnectivityManager connectivityManager
-                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
-    }
-
 }

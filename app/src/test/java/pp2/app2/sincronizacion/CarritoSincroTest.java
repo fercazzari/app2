@@ -17,45 +17,107 @@ import static org.junit.Assert.assertTrue;
 
 public class CarritoSincroTest {
     DatosTemp dbTemp = Constantes.dbTemp;
-    Carrito carrito = dbTemp.getCarritoTemp();
     boolean sincronizacionExitosa;
     boolean sincronizacionFallida;
 
     @Test
     public void agregarProductos()
     {
-        assertTrue(carrito.getUOW().getNuevos().isEmpty());
-        carrito.agregarItem(new Producto(99, "Shampoo", 99));
-        assertFalse(carrito.getUOW().getNuevos().isEmpty());
+        Carrito carritoTest = dbTemp.getCarritoTemp();
+        assertTrue(carritoTest.getUOW().getNuevos().isEmpty());
+        carritoTest.agregarItem(new Producto(99, "Shampoo", 99));
+        assertFalse(carritoTest.getUOW().getNuevos().isEmpty());
     }
 
     @Test
     public void eliminarProductos()
     {
-        assertTrue(carrito.getUOW().getEliminados().isEmpty());
-        carrito.eliminarItem(carrito.getItems().remove(1));
-        assertFalse(carrito.getUOW().getEliminados().isEmpty());
+        Carrito carritoTest = dbTemp.getCarritoTemp();
+        assertTrue(carritoTest.getUOW().getEliminados().isEmpty());
+        carritoTest.eliminarItem(carritoTest.getItems().remove(0));
+        assertFalse(carritoTest.getUOW().getEliminados().isEmpty());
     }
 
     @Test
     public void hayQueSincronizar()
     {
-        assertFalse(carrito.hayQueSincronizar());
-        carrito.agregarItem(new Producto(99, "Shampoo", 99));
-        assertTrue(carrito.hayQueSincronizar());
+        Carrito carritoTest = dbTemp.getCarritoTemp();
+        assertFalse(carritoTest.hayQueSincronizar());
+        carritoTest.agregarItem(new Producto(99, "Shampoo", 99));
+        assertTrue(carritoTest.hayQueSincronizar());
     }
 
-    @Test
+    @Test //1
     public void SincronizacionExitosa()
     {
         //Si la respuesta de sincronizacion es correcta el carritoUOW debe estar limpio
         //Como la respuesta de sincronizacion es un boolean y no una sincronizacion real,
-        //se usara el while para asegurarnos que haya una conexion erronea, y otro para una sincronizacion correcta.
-        carrito.agregarItem(new Producto(99, "Shampoo", 99));
-        while (!Conexion.sincronizar(carrito.getUOW()))
+        //se usara el while para asegurarnos que haya una conexion correcta.
+        Carrito carritoTest = dbTemp.getCarritoTemp();
+        carritoTest.agregarItem(new Producto(99, "Shampoo", 99));
+        while (!Conexion.sincronizar(carritoTest.getUOW()))
         {
-            //Estoy aca
+            assertFalse(carritoTest.getUOW().isEmpty());
+            sincronizacionExitosa = Conexion.sincronizar(carritoTest.getUOW());
         }
+        carritoTest.sincronizado();
+        assertTrue(carritoTest.getUOW().isEmpty());
+    }
 
+    @Test //2
+    public void SincronizacionErronea()
+    {
+        //Si la respuesta de sincronizacion es correcta el carritoUOW debe estar limpio
+        //Como la respuesta de sincronizacion es un boolean y no una sincronizacion real,
+        //se usara el while para asegurarnos que haya una conexion erronea.
+        Carrito carritoTest = dbTemp.getCarritoTemp();
+        while (Conexion.sincronizar(carritoTest.getUOW()))
+        {
+            carritoTest.sincronizado();
+            carritoTest.agregarItem(new Producto(99, "Shampoo", 99));
+            assertTrue(carritoTest.getUOW().isEmpty());
+            sincronizacionExitosa = Conexion.sincronizar(carritoTest.getUOW());
+        }
+        assertFalse(carritoTest.getUOW().isEmpty());
+    }
+
+    @Test //3
+    public void sincronizarCarritoVacio()
+    {
+        Carrito carritoTest = dbTemp.getCarritoTemp();
+        assertFalse(carritoTest.getItems().isEmpty());
+        carritoTest.vaciar();
+        assertTrue(carritoTest.getItems().isEmpty());
+        assertTrue(carritoTest.hayQueSincronizar());
+    }
+
+    @Test //4 y 5 Podes chequear si hay conexion, pero no si sincroniza o no hasta que
+    //el metodo de sincronizar no este afuera del activity.
+    public void probarConexion()
+    {
+        assertFalse(Conexion.hayConexion(null));
+    }
+
+    @Test //6
+    public void carritoSinCambiosAddRemove()
+    {
+        Carrito nuevoCarritoTest = new Carrito();
+        assertFalse(nuevoCarritoTest.hayQueSincronizar());
+        nuevoCarritoTest.agregarItem(new Producto(99, "Shampoo", 99));
+        assertTrue(nuevoCarritoTest.hayQueSincronizar());
+        nuevoCarritoTest.eliminarItem(new Producto(99, "Shampoo", 99));
+        assertFalse(nuevoCarritoTest.hayQueSincronizar());
+    }
+
+    @Test //6.2
+    public void carritoSinCambiosRemoveAdd()
+    {
+        Carrito carritoTest = dbTemp.getCarritoTemp();
+        //Suponemos que se realizo la sincronizacion ok
+        carritoTest.sincronizado();
+        Producto productoEliminado = carritoTest.getItems().get(0);
+        assertTrue(carritoTest.hayQueSincronizar());
+        carritoTest.agregarItem(productoEliminado);
+        assertFalse(carritoTest.hayQueSincronizar());
     }
 }

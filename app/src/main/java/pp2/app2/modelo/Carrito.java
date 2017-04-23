@@ -43,11 +43,20 @@ public class Carrito {
 
     public boolean hayQueSincronizar()
     {
-        return this.getUOW().hayCambios();
+        return !this.getUOW().isEmpty();
     }
 
     public void sincronizado()
     {
         this.carritoUOW.clear();
+    }
+
+    public void vaciar()
+    {
+        for (Producto p : productos)
+        {
+            this.carritoUOW.registrarRemoved(p);
+        }
+        this.productos.clear();
     }
 }
