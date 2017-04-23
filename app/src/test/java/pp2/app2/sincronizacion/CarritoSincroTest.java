@@ -2,6 +2,7 @@ package pp2.app2.sincronizacion;
 
 import org.junit.Test;
 
+import pp2.app2.helpers.Conexion;
 import pp2.app2.helpers.Constantes;
 import pp2.app2.modelo.Carrito;
 import pp2.app2.modelo.DatosTemp;
@@ -17,6 +18,8 @@ import static org.junit.Assert.assertTrue;
 public class CarritoSincroTest {
     DatosTemp dbTemp = Constantes.dbTemp;
     Carrito carrito = dbTemp.getCarritoTemp();
+    boolean sincronizacionExitosa;
+    boolean sincronizacionFallida;
 
     @Test
     public void agregarProductos()
@@ -35,8 +38,24 @@ public class CarritoSincroTest {
     }
 
     @Test
-    public void sincronizarCarritoLocal()
+    public void hayQueSincronizar()
+    {
+        assertFalse(carrito.hayQueSincronizar());
+        carrito.agregarItem(new Producto(99, "Shampoo", 99));
+        assertTrue(carrito.hayQueSincronizar());
+    }
+
+    @Test
+    public void SincronizacionExitosa()
     {
         //Si la respuesta de sincronizacion es correcta el carritoUOW debe estar limpio
+        //Como la respuesta de sincronizacion es un boolean y no una sincronizacion real,
+        //se usara el while para asegurarnos que haya una conexion erronea, y otro para una sincronizacion correcta.
+        carrito.agregarItem(new Producto(99, "Shampoo", 99));
+        while (!Conexion.sincronizar(carrito.getUOW()))
+        {
+            //Estoy aca
+        }
+
     }
 }

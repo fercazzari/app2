@@ -68,4 +68,9 @@ public class CarritoUOW implements UnitOfWork {
     public Set<Producto> getEliminados () {
         return this.nuevos;
     }
+
+    public boolean hayCambios()
+    {
+        return !(this.nuevos.isEmpty() && this.modificados.isEmpty() && this.eliminados.isEmpty());
+    }
 }

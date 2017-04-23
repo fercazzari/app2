@@ -41,4 +41,13 @@ public class Carrito {
         return this.carritoUOW;
     }
 
+    public boolean hayQueSincronizar()
+    {
+        return this.getUOW().hayCambios();
+    }
+
+    public void sincronizado()
+    {
+        this.carritoUOW.clear();
+    }
 }

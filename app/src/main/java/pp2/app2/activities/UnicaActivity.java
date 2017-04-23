@@ -20,7 +20,9 @@ import com.google.gson.Gson;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
+
 import pp2.app2.R;
+import pp2.app2.helpers.Conexion;
 import pp2.app2.helpers.Constantes;
 import pp2.app2.modelo.Carrito;
 import pp2.app2.modelo.Producto;
@@ -125,11 +127,26 @@ public class UnicaActivity extends AppCompatActivity {
 
     }
 
-    public boolean sincronizar(View view, Carrito carrito, Button btn) {
+    public void sincronizar(View view, Carrito carrito, Button btn) {
 
         if (hayConexion()) {
 
-            // mandarCarritoUOW(carrito);
+            if (carrito.hayQueSincronizar())
+            {
+                if (Conexion.sincronizar(carrito.getUOW()))
+                {
+                    carrito.sincronizado();
+                    Toast.makeText(getApplicationContext(), Constantes.msg_sincro_ok, Toast.LENGTH_SHORT).show();
+                    carrito.getUOW().clear();
+                    btn.setEnabled(false);
+                }
+                else
+                {
+                    Toast.makeText(getApplicationContext(), Constantes.msg_sincro_mal, Toast.LENGTH_SHORT).show();
+                    btn.setEnabled(true);
+                }
+            }
+            /*
             boolean sincroMock = getConfirmacion();
 
             if (sincroMock) {
@@ -142,16 +159,14 @@ public class UnicaActivity extends AppCompatActivity {
                 btn.setEnabled(true);
                 return false;
             }
+            */
 
         } else {
-
             Toast.makeText(getApplicationContext(), Constantes.msg_no_conexion, Toast.LENGTH_SHORT).show();
-            return false;
-
         }
     }
 
-    public boolean sincronizar_caso2(View view, Carrito carrito, Button btn) {
+    public void sincronizar_caso2(View view, Carrito carrito, Button btn) {
 
         if (hayConexion()) {
 
@@ -162,18 +177,14 @@ public class UnicaActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), Constantes.msg_sincro_ok, Toast.LENGTH_SHORT).show();
                 carrito.getUOW().clear();
                 btn.setEnabled(false);
-                return true;
             } else {
                 Toast.makeText(getApplicationContext(), Constantes.msg_sincro_mal, Toast.LENGTH_SHORT).show();
                 btn.setEnabled(true);
-                return false;
             }
 
         } else {
 
             Toast.makeText(getApplicationContext(), Constantes.msg_no_conexion, Toast.LENGTH_SHORT).show();
-            return false;
-
         }
     }
 
