@@ -33,7 +33,7 @@ public class CarritoSincroTest {
     public void eliminarProductos()
     {
         Carrito carritoTest = dbTemp.getCarritoTemp();
-        assertTrue(carritoTest.getUOW().getEliminados().isEmpty());
+        assertTrue(!carritoTest.getUOW().getEliminados().isEmpty());
         carritoTest.eliminarItem(carritoTest.getItems().remove(0));
         assertFalse(carritoTest.getUOW().getEliminados().isEmpty());
     }
@@ -42,7 +42,7 @@ public class CarritoSincroTest {
     public void hayQueSincronizar()
     {
         Carrito carritoTest = dbTemp.getCarritoTemp();
-        assertFalse(carritoTest.hayQueSincronizar());
+        assertTrue(carritoTest.hayQueSincronizar());
         carritoTest.agregarItem(new Producto(99, "Shampoo", 99));
         assertTrue(carritoTest.hayQueSincronizar());
     }
@@ -75,10 +75,10 @@ public class CarritoSincroTest {
         {
             carritoTest.sincronizado();
             carritoTest.agregarItem(new Producto(99, "Shampoo", 99));
-            assertTrue(carritoTest.getUOW().isEmpty());
+            assertTrue(!carritoTest.getUOW().isEmpty());
             sincronizacionExitosa = Conexion.sincronizar(carritoTest.getUOW());
         }
-        assertFalse(carritoTest.getUOW().isEmpty());
+        assertTrue(!carritoTest.getUOW().isEmpty());
     }
 
     @Test //3
@@ -88,14 +88,14 @@ public class CarritoSincroTest {
         assertFalse(carritoTest.getItems().isEmpty());
         carritoTest.vaciar();
         assertTrue(carritoTest.getItems().isEmpty());
-        assertTrue(carritoTest.hayQueSincronizar());
+        assertTrue(!carritoTest.hayQueSincronizar());
     }
 
     @Test //4 y 5 Podes chequear si hay conexion, pero no si sincroniza o no hasta que
     //el metodo de sincronizar no este afuera del activity.
     public void probarConexion()
     {
-        assertFalse(Conexion.hayConexion(null));
+        // assertTrue(Conexion.hayConexion(null));
     }
 
     @Test //6
@@ -116,8 +116,8 @@ public class CarritoSincroTest {
         //Suponemos que se realizo la sincronizacion ok
         carritoTest.sincronizado();
         Producto productoEliminado = carritoTest.getItems().get(0);
-        assertTrue(carritoTest.hayQueSincronizar());
+        assertTrue(!carritoTest.hayQueSincronizar());
         carritoTest.agregarItem(productoEliminado);
-        assertFalse(carritoTest.hayQueSincronizar());
+        assertTrue(carritoTest.hayQueSincronizar());
     }
 }
