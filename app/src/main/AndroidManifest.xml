@@ -27,7 +27,8 @@
         <activity android:name=".vista.activities.CategoriasActivity" />
         <activity android:name=".vista.activities.CarritoActivity" />
         <activity android:name=".vista.activities.CatalogoActivity" />
-        <activity android:name=".activities.UnicaActivity"></activity>
+        <activity android:name=".activities.UnicaActivity" />
+        <activity android:name=".activities.ProductoActivity"></activity>
     </application>
 
 </manifest>

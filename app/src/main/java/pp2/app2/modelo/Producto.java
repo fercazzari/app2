@@ -1,47 +1,33 @@
 package pp2.app2.modelo;
 
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
+import pp2.app2.helpers.IdentityField;
 
 public class Producto {
 
-    @SerializedName("idProducto")
-    @Expose
-    private Integer idProducto;
-    @SerializedName("nombre")
-    @Expose
+    private IdentityField id;
     private String nombre;
-    @SerializedName("idCategoria")
-    @Expose
-    private Integer idCategoria;
 
-    public Producto() {
-        this.idProducto = 0;
+    public Producto () {
+        this.id = new IdentityField(0);
         this.nombre = "";
-        this.idCategoria = 0;
     }
 
-    public Producto (int id, String nombre, int idCategoria) {
-        this.idProducto = id;
+    public Producto (IdentityField id, String nombre) {
+        this.id = id;
         this.nombre = nombre;
-        this.idCategoria = idCategoria;
     }
 
-    public int getId() {
-        return idProducto;
+    public IdentityField getId() {
+        return id;
     }
 
     public String getNombre() {
         return nombre;
     }
 
-    public int getIdCategoria() {
-        return idCategoria;
-    }
-
     @Override
     public String toString() {
-        return this.idProducto + " " + this.nombre + " " + this.getIdCategoria();
+        return this.nombre;
     }
 
     @Override
@@ -53,9 +39,7 @@ public class Producto {
         if (getClass() != obj.getClass())
             return false;
         Producto other = (Producto) obj;
-        if (idCategoria != other.idCategoria)
-            return false;
-        if (idProducto != other.idProducto)
+        if (id.getField() != other.id.getField())
             return false;
         if (nombre == null) {
             if (other.nombre != null)

@@ -2,6 +2,7 @@ package pp2.app2.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -67,6 +68,7 @@ public class MainActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
+
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -76,17 +78,18 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_escanear) {
 
         } else if (id == R.id.nav_catalogo) {
+            Intent intent = new Intent(this, ProductoActivity.class);
+            startActivity(intent);
 
         } else if (id == R.id.nav_carrito) {
 
         } else if (id == R.id.nav_test) {
-                Intent intent = new Intent(this, UnicaActivity.class);
-                startActivity(intent);
+            /* Intent intent = new Intent(this, UnicaActivity.class);
+            startActivity(intent); */
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
 }

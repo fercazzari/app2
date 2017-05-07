@@ -3,6 +3,7 @@ package pp2.app2.helpers;
 import org.junit.Before;
 import org.junit.Test;
 
+import pp2.app2.modelo.DatosTemp;
 import pp2.app2.modelo.Producto;
 
 import static junit.framework.Assert.assertEquals;
@@ -14,6 +15,7 @@ import static junit.framework.Assert.assertTrue;
 public class CarritoUOWTest {
 
     CarritoUOW carritoOUW;
+    DatosTemp datosTemp = new DatosTemp();
 
     @Before
     public void setUp() {
@@ -28,18 +30,18 @@ public class CarritoUOWTest {
 
         int esperado, actual;
 
-        this.carritoOUW.registrarNew(new Producto(1, "anana", 1));
+        this.carritoOUW.registrarNew(new Producto(new IdentityField(1), "anana"));
         esperado = 1;
         actual = this.carritoOUW.getNuevos().size();
         assertEquals(esperado, actual);
 
-        this.carritoOUW.registrarDirty(new Producto(1, "anana", 1));
+        this.carritoOUW.registrarDirty(new Producto(new IdentityField(1), "anana"));
         esperado = 1;
         actual = this.carritoOUW.getModificados().size();
         assertEquals(esperado, actual);
 
-        this.carritoOUW.registrarNew(new Producto(2, "kiwi", 1));
-        this.carritoOUW.registrarRemoved(new Producto(2, "kiwi", 1));
+        this.carritoOUW.registrarNew(new Producto(new IdentityField(2), "kiwi"));
+        this.carritoOUW.registrarRemoved(new Producto(new IdentityField(2), "kiwi"));
         esperado = 1;
         actual = this.carritoOUW.getEliminados().size();
         assertEquals(esperado, actual);

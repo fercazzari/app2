@@ -7,6 +7,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import pp2.app2.helpers.CarritoUOW;
+import pp2.app2.helpers.IdentityField;
 
 import static org.junit.Assert.*;
 
@@ -20,19 +21,18 @@ public class CarritoTest {
     @Before
     public void setUp() throws Exception {
         this.carrito = new Carrito();
-        assertTrue(this.carrito.agregarItem(new Producto(1, "manzana", 1)));
+        assertTrue(this.carrito.agregarItem(new Producto(new IdentityField(1), "manzana")));
     }
 
     @Test
     public void agregarItem() {
-        assertTrue(this.carrito.agregarItem(new Producto(2, "anana", 1)));
+        assertTrue(this.carrito.agregarItem(new Producto(new IdentityField(2), "anana")));
     }
 
     @Test
     public void eliminarItem () {
         assertTrue(!this.carrito.getItems().isEmpty());
-        this.carrito.eliminarItem(new Producto(1, "manzana", 1));
-        // TODO
+        this.carrito.eliminarItem(new Producto(new IdentityField(3), "manzana"));
     }
 
     @Test
@@ -48,7 +48,7 @@ public class CarritoTest {
         List<Producto> incorrecto = new LinkedList<Producto>();
         List<Producto> actual = this.carrito.getItems();
 
-        esperado.add(new Producto(1, "manzana", 1));
+        esperado.add(new Producto(new IdentityField(1), "manzana"));
 
         assertEquals(esperado, actual);
         assertNotEquals(incorrecto, actual);
