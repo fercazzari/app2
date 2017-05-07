@@ -1,6 +1,5 @@
 package pp2.app2.activities;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -22,6 +21,7 @@ public class CompraActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_compra);
 
+        // todos los details del producto para agregarlo al carrito
         String id_producto = getIntent().getStringExtra("id_producto");
         String nombre_producto = getIntent().getStringExtra("nombre_producto");
         String precio_producto = getIntent().getStringExtra("precio_producto");
@@ -41,9 +41,8 @@ public class CompraActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-
+                // TODO sincronizar el carrito con el ws
                 Toast.makeText(CompraActivity.this, "Compra finalizada. Retirá el producto por el local y pagá en efectivo.", Toast.LENGTH_SHORT).show();
-
             }
         });
 

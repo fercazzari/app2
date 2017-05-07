@@ -17,22 +17,24 @@ import static org.junit.Assert.*;
 public class CarritoTest {
 
     private Carrito carrito;
+    DatosTemp datosTemp;
 
     @Before
     public void setUp() throws Exception {
         this.carrito = new Carrito();
-        assertTrue(this.carrito.agregarItem(new Producto(new IdentityField(1), "manzana")));
+        this.datosTemp = new DatosTemp();
+        assertTrue(this.carrito.agregarItem(datosTemp.obtenerProducto(100)));
     }
 
     @Test
     public void agregarItem() {
-        assertTrue(this.carrito.agregarItem(new Producto(new IdentityField(2), "anana")));
+        assertTrue(this.carrito.agregarItem(datosTemp.obtenerProducto(101)));
     }
 
     @Test
     public void eliminarItem () {
         assertTrue(!this.carrito.getItems().isEmpty());
-        this.carrito.eliminarItem(new Producto(new IdentityField(3), "manzana"));
+        this.carrito.eliminarItem(datosTemp.obtenerProducto(101));
     }
 
     @Test
@@ -48,7 +50,7 @@ public class CarritoTest {
         List<Producto> incorrecto = new LinkedList<Producto>();
         List<Producto> actual = this.carrito.getItems();
 
-        esperado.add(new Producto(new IdentityField(1), "manzana"));
+        esperado.add(datosTemp.obtenerProducto(100));
 
         assertEquals(esperado, actual);
         assertNotEquals(incorrecto, actual);

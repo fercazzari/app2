@@ -78,7 +78,7 @@ public class CarritoSincroTest {
             assertTrue(!carritoTest.getUOW().isEmpty());
             sincronizacionExitosa = Conexion.sincronizar(carritoTest.getUOW());
         }
-        assertTrue(carritoTest.getUOW().isEmpty());
+        assertTrue(!carritoTest.getUOW().isEmpty());
     }
 
     @Test //3
