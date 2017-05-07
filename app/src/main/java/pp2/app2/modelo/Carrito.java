@@ -59,4 +59,12 @@ public class Carrito {
         }
         this.productos.clear();
     }
+
+    public double getTotal() {
+        double total = 0;
+        for (Producto p : this.productos) {
+            total += p.getPrecio();
+        }
+        return total;
+    }
 }

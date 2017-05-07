@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="pp2.app2.activities.CompraActivity">
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="495dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_editor_absoluteY="8dp">
+
+        <TextView
+            android:id="@+id/lbl_compra"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:text="Compra"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:layout_editor_absoluteY="16dp" />
+
+        <Button
+            android:id="@+id/button_finalizar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="FINALIZAR COMPRA"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:layout_editor_absoluteY="182dp"
+            android:layout_below="@+id/txt_total"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="47dp" />
+
+        <TextView
+            android:id="@+id/lbl_cantidad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/lbl_compra"
+            android:layout_marginTop="43dp"
+            android:text="Cantidad de artículos:" />
+
+        <TextView
+            android:id="@+id/txt_cantidad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:layout_alignBaseline="@+id/lbl_cantidad"
+            android:layout_alignBottom="@+id/lbl_cantidad"
+            android:layout_toRightOf="@+id/lbl_cantidad"
+            android:layout_toEndOf="@+id/lbl_cantidad" />
+
+        <TextView
+            android:id="@+id/lbl_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/lbl_cantidad"
+            android:layout_marginTop="23dp"
+            android:text="Precio total: $" />
+
+        <TextView
+            android:id="@+id/txt_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:layout_alignBaseline="@+id/lbl_total"
+            android:layout_alignBottom="@+id/lbl_total"
+            android:layout_toRightOf="@+id/lbl_total"
+            android:layout_toEndOf="@+id/lbl_total" />
+
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>

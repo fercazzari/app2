@@ -30,18 +30,18 @@ public class CarritoUOWTest {
 
         int esperado, actual;
 
-        this.carritoOUW.registrarNew(new Producto(new IdentityField(1), "anana"));
+        this.carritoOUW.registrarNew(datosTemp.obtenerProducto(100));
         esperado = 1;
         actual = this.carritoOUW.getNuevos().size();
         assertEquals(esperado, actual);
 
-        this.carritoOUW.registrarDirty(new Producto(new IdentityField(1), "anana"));
+        this.carritoOUW.registrarDirty(datosTemp.obtenerProducto(100));
         esperado = 1;
         actual = this.carritoOUW.getModificados().size();
         assertEquals(esperado, actual);
 
-        this.carritoOUW.registrarNew(new Producto(new IdentityField(2), "kiwi"));
-        this.carritoOUW.registrarRemoved(new Producto(new IdentityField(2), "kiwi"));
+        this.carritoOUW.registrarNew(datosTemp.obtenerProducto(101));
+        this.carritoOUW.registrarRemoved(datosTemp.obtenerProducto(101));
         esperado = 1;
         actual = this.carritoOUW.getEliminados().size();
         assertEquals(esperado, actual);
