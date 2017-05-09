@@ -42,7 +42,7 @@ public class CompraActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // TODO sincronizar el carrito con el ws
-                Toast.makeText(CompraActivity.this, "Compra finalizada. Retirá el producto por el local y pagá en efectivo.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(CompraActivity.this, "Compra finalizada. Retirá el producto por el local!", Toast.LENGTH_SHORT).show();
             }
         });
 
