@@ -18,4 +18,9 @@ public class MensajesComunes
     {
         //cartelito(Constantes.msg_error_general);
     }
+
+    protected static void informarFuncionalidadNoDisponible()
+    {
+        //cartelito(Constantes.msg_funcionalidad_no_disponible);
+    }
 }

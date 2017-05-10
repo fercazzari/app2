@@ -2,9 +2,11 @@ package pp2.app2.controlador;
 
 import pp2.app2.controlador.Comandos.ComandoPedido;
 import pp2.app2.controlador.Comandos.ComandoMostrarProducto;
+import pp2.app2.controlador.Comandos.ComandoProcesarSolicitud;
 import pp2.app2.modelo.Carrito;
 import pp2.app2.modelo.Domicilio;
 import pp2.app2.modelo.Producto;
+import pp2.app2.modelo.SolicitudDeCompra;
 
 /**
  * Created by fcazzari on 05/05/2017.
@@ -14,20 +16,36 @@ public class ApplicationController {
 
     private ComandoPedido pedido;
     private ComandoMostrarProducto mostrarProducto;
+    private ComandoProcesarSolicitud procesarSolicitud;
 
-    public void accionBtnComprar(Producto producto)
+    public void accionBtnPrepararPedido(Producto producto)
     {
         //Analizar de que de que vista viene si es necesario
         //Llamar al comando que corresponde
-        Carrito carritoDeCompras = new Carrito();
+        Carrito carritoDeCompras = new Carrito();//Es un carrito, pero igual por ahora funciona solo para un producto
         carritoDeCompras.agregarItem(producto);
         pedido = new ComandoPedido(carritoDeCompras);
-        int resultadoPedido= pedido.realizarPedido();
+        int resultadoPedido= pedido.execute();
         //Matar vista o no
         switch (resultadoPedido)
         {
             case 0:
-                mostrarVistaPedidoOk();
+                //Esto es el caso básico para comprar, después vuela y vamos con lo que sigue que es agregar un domicilio de entrega
+                //Instanciar la solicitud (siempre va a estar en memoria)
+                //Agregarle el producto
+                //Llamar a la vista correspondiente
+                procesarSolicitud();       //Esta es la accion final
+/*                if(false)//tengoElDomicilio)
+                {
+                    //Mostrar vista con domicilio/s Registrados
+                    mostrarVistaDomicilios();
+                }
+                else
+                {
+                    //Mostrar vista para ingresar domicilio
+                    mostrarVistaNuevoDomicilio();
+                }
+  */
                 break;
             case 1:
                 informarSinStock();
@@ -39,46 +57,47 @@ public class ApplicationController {
                 MensajesComunes.informarErrorGeneral();
                 break;
         }
-        //Llamar a la vista correspondiente
-        if(false)//tengoElDomicilio)
-        {
-            //Mostrar vista con domicilio/s Registrados
-            //Le pregunto si quiere que se entregue en ese domicilio
-        }
-        else
-        {
-            //Mostrar vista para ingresar domicilio
-            //Le pido que ingrese los datos del domicilio
-        }
     }
 
     public void accionEntregarEnOtroDomicilio()
     {
         //Mostrar vista para ingresar domicilio
+        mostrarVistaNuevoDomicilio();
     }
 
-    public void aceptarDomicilioDeEntrega(Domicilio domicilioDeEntrega)
+    public void accionAceptarDomicilioDeEntrega(Domicilio domicilioDeEntrega)
     {
         //Falta mucho codigo
+        //Instanciar solicitud
+        //Agregarle el domicilio
+        mostrarVistaMediosDePago();
+    }
 
+    public void accionAceptarPagoEnEfectivo()
+    {
+
+    }
+
+    public void accionPagoConTarjeta()
+    {
         if(false)//tengoLosDatosDeLaTarjeta)
         {
             //Mostrar vista con tarjeta/s registradas
-            //Le pregunto si quiere pagar con esa tarjeta
+            mostrarVistaTarjetas();
         }
         else
         {
             //Mostrar vista para ingresar medio de pago
-            //Le pido que ingrese los datos de la tarjeta
+            mostrarVistaNuevaTarjeta();
         }
     }
 
     public void accionVerificarTarjeta()
     {
-
+        //Comando que verifique la validez de la tarjeta
     }
 
-    public void confirmarCompra()
+    public void accionConfirmarCompra()
     {
 
     }
@@ -96,8 +115,46 @@ public class ApplicationController {
 
     }
 
+    private void mostrarVistaDomicilios()
+    {
+        //Le pregunto si quiere que se entregue en ese domicilio
+    }
+
+    private void mostrarVistaNuevoDomicilio()
+    {
+
+    }
+
+    private void mostrarVistaNuevaTarjeta()
+    {
+        //Le pido que ingrese los datos de la tarjeta
+    }
+
+    private void mostrarVistaMediosDePago()
+    {
+
+    }
+
+    private void mostrarVistaTarjetas()
+    {
+        //Le pregunto si quiere pagar con esa tarjeta
+    }
+
     private void informarSinStock()
     {
         //cartelito(Constantes.msg_sin_stock);
+    }
+
+    private void procesarSolicitud()
+    {
+        procesarSolicitud = new ComandoProcesarSolicitud(new SolicitudDeCompra());//instanciaSolicitud());
+        switch (procesarSolicitud.ejecutar())
+        {
+            case 0:
+                mostrarVistaPedidoOk();
+                break;
+            default:
+                break;
+        }
     }
 }
