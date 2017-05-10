@@ -14,6 +14,9 @@ public class Constantes {
     public final static String msg_sincro_ok = "Se sincronizo.";
     public final static String msg_sincro_mal = "No se sincronizo.";
 
+    public final static String msg_sin_stock = "No hay stock del producto";
+    public final static String msg_error_general = "Error general";
+
     public static final DatosTemp dbTemp = new DatosTemp();
 
     public static boolean getRespuestaDeSincronizacion() {
