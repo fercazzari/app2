@@ -148,7 +148,7 @@ public class ApplicationController {
     private void procesarSolicitud()
     {
         procesarSolicitud = new ComandoProcesarSolicitud(new SolicitudDeCompra());//instanciaSolicitud());
-        switch (procesarSolicitud.ejecutar())
+        switch (procesarSolicitud.execute())
         {
             case 0:
                 mostrarVistaPedidoOk();
