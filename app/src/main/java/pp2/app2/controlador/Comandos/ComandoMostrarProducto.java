@@ -12,7 +12,13 @@ public class ComandoMostrarProducto
 
     public ComandoMostrarProducto(Producto producto)
     {
-
+        this.producto = producto;
     }
 
+    public Producto obtenerDetalles()
+    {
+        //Conectarase a la api y obtener los detalles
+        //Si se conecta ok agregar al producto los detalles, si no devolver el producto, en la vista se mostrará sin los detalles
+        return producto;
+    }
 }

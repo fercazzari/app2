@@ -6,20 +6,21 @@ import pp2.app2.modelo.Carrito;
  * Created by jalvarez on 10/05/2017.
  */
 
-public class ComandoComprar
+public class ComandoPedido
 {
     private Carrito carrito;
     //El resto de los atributos pueden se cosas que pueden pasar cuando compras
 
-    public ComandoComprar(Carrito carrito)
+    public ComandoPedido(Carrito carrito)
     {
         this.carrito = carrito;
     }
 
     //Podria ser un int y manejar errores, obviamente como recomienda gateway, desde el cliente
-    public int realizarCompra()
+    public int realizarPedido()
     {
         //Conectarse al servidor y realizar el pedido
+        //Hay que documentar que significa cada número de error
         return 0;
     }
 }
