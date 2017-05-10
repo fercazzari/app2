@@ -30,7 +30,7 @@
         <activity android:name=".activities.UnicaActivity" />
         <activity android:name=".activities.ProductoActivity" />
         <activity android:name=".activities.CompraActivity" />
-        <activity android:name=".activities.RecomendacionActivity"></activity>
+        <activity android:name=".activities.RecomendacionActivity" />
     </application>
 
 </manifest>

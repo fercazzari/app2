@@ -74,11 +74,11 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         
-        int id = item.getItemId();
+        switch(item.getItemId()) {
 
-        if (id == R.id.nav_comprar) {
-            Intent intent = new Intent(this, ProductoActivity.class);
-            startActivity(intent);
+            case R.id.nav_comprar:
+                ApplicationController.onRequestMenuComprar(this);
+                break;
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

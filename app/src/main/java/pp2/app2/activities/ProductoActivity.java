@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import pp2.app2.R;
+import pp2.app2.controlador.ApplicationController;
 import pp2.app2.modelo.DatosTemp;
 import pp2.app2.modelo.Producto;
 
@@ -36,14 +37,15 @@ public class ProductoActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                // el onClick sería agregar al carrito. Por ahora va a ser comprar!
+                /* el onClick sería agregar al carrito. Por ahora va a ser comprar!
                 Intent intent = new Intent(getApplicationContext(), CompraActivity.class);
                 intent.putExtra("id_producto", String.valueOf(actual.getId().getField()));
                 intent.putExtra("nombre_producto", actual.getNombre());
                 intent.putExtra("precio_producto", String.valueOf(actual.getPrecio()));
 
-                startActivity(intent);
-                
+                startActivity(intent); */
+                ApplicationController.onRequestComprar(getApplicationContext(), actual);
+
             }
         });
 
