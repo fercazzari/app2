@@ -28,14 +28,16 @@ public class ProductoActivity extends AppCompatActivity {
 
         this.actual = new Producto(actual.getId(), actual.getNombre(), actual.getPrecio());
 
-        TextView producto_nombre = (TextView)findViewById(R.id.producto_nombre);
+        final TextView producto_nombre = (TextView)findViewById(R.id.producto_nombre);
         producto_nombre.setText(actual.getNombre());
 
-        Button button_comprar = (Button) findViewById(R.id.button_comprar);
-        button_comprar.setOnClickListener( new View.OnClickListener() {
+        Button btn_preparar_pedido = (Button) findViewById(R.id.button_comprar);
+        btn_preparar_pedido.setOnClickListener( new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
+
+//                 ApplicationController.accionBtnPrepararPedido();
 
                 /* el onClick sería agregar al carrito. Por ahora va a ser comprar!
                 Intent intent = new Intent(getApplicationContext(), CompraActivity.class);
@@ -44,7 +46,7 @@ public class ProductoActivity extends AppCompatActivity {
                 intent.putExtra("precio_producto", String.valueOf(actual.getPrecio()));
 
                 startActivity(intent); */
-                ApplicationController.onRequestComprar(getApplicationContext(), actual);
+
 
             }
         });

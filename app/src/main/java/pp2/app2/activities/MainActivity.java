@@ -14,6 +14,7 @@ import android.view.MenuItem;
 
 import pp2.app2.R;
 import pp2.app2.controlador.ApplicationController;
+import pp2.app2.modelo.Producto;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -77,7 +78,8 @@ public class MainActivity extends AppCompatActivity
         switch(item.getItemId()) {
 
             case R.id.nav_comprar:
-                ApplicationController.onRequestMenuComprar(this);
+                Intent intent = new Intent(getApplicationContext(), ProductoActivity.class);
+                startActivity(intent);
                 break;
         }
 
