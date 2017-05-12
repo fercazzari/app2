@@ -15,7 +15,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".activities.MainActivity"
-            android:label="@string/title_activity_main"
+            android:label="Super En Casa"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,9 +24,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".activities.UnicaActivity" />
-        <activity android:name=".activities.ProductoActivity" />
-        <activity android:name=".activities.CompraActivity" />
-        <activity android:name=".activities.RecomendacionActivity" />
+        <activity android:name=".activities.ProductoActivity"
+            android:label="Producto"/>
+        <activity android:name=".activities.CompraActivity"
+            android:label="Compra"/>
+        <activity android:name=".activities.SugerenciaActivity"
+            android:label="Sugerencia"/>
     </application>
 
 </manifest>

@@ -14,6 +14,7 @@ import android.view.MenuItem;
 
 import pp2.app2.R;
 import pp2.app2.controlador.ApplicationController;
+import pp2.app2.modelo.DatosTemp;
 import pp2.app2.modelo.Producto;
 
 public class MainActivity extends AppCompatActivity
@@ -78,8 +79,11 @@ public class MainActivity extends AppCompatActivity
         switch(item.getItemId()) {
 
             case R.id.nav_comprar:
-                Intent intent = new Intent(getApplicationContext(), ProductoActivity.class);
-                startActivity(intent);
+
+                DatosTemp datosTemp = new DatosTemp();
+                Producto producto = datosTemp.obtenerProducto(100);
+
+                ApplicationController.recibirCommand("menuComprar", getApplicationContext(), producto);
                 break;
         }
 
