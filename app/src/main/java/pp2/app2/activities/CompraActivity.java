@@ -1,5 +1,7 @@
 package pp2.app2.activities;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +11,8 @@ import android.widget.Toast;
 
 import pp2.app2.R;
 import pp2.app2.controlador.ApplicationController;
+import pp2.app2.helpers.Conexion;
+import pp2.app2.helpers.Constantes;
 import pp2.app2.helpers.IdentityField;
 import pp2.app2.modelo.Carrito;
 import pp2.app2.modelo.Producto;
@@ -47,5 +51,30 @@ public class CompraActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void sincronizar(View view, Carrito carrito, Button btn) {
+
+        if (Conexion.hayConexion((ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE))) {
+
+            if (carrito.hayQueSincronizar())
+            {
+                if (Conexion.sincronizar(carrito.getUOW()))
+                {
+                    carrito.sincronizado();
+                    Toast.makeText(getApplicationContext(), Constantes.msg_sincro_ok, Toast.LENGTH_SHORT).show();
+                    carrito.getUOW().clear();
+                    btn.setEnabled(false);
+                }
+                else
+                {
+                    Toast.makeText(getApplicationContext(), Constantes.msg_sincro_mal, Toast.LENGTH_SHORT).show();
+                    btn.setEnabled(true);
+                }
+            }
+
+        } else {
+            Toast.makeText(getApplicationContext(), Constantes.msg_no_conexion, Toast.LENGTH_SHORT).show();
+        }
     }
 }

@@ -23,7 +23,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.UnicaActivity" />
         <activity
             android:name=".activities.ProductoActivity"
             android:label="Producto" />
