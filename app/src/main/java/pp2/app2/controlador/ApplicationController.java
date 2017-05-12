@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 
 import pp2.app2.activities.CompraActivity;
+import pp2.app2.activities.CompraFinalizadaActivity;
 import pp2.app2.activities.ProductoActivity;
 import pp2.app2.activities.SugerenciaActivity;
 import pp2.app2.controlador.Comandos.ComandoPedido;
@@ -39,6 +40,9 @@ public class ApplicationController {
                 break;
             case "aceptarSugerencia":
                 break;
+            case "verCompraFinalizada":
+                mostrarCompraFinalizada(contexto, producto);
+                break;
         }
     }
 
@@ -66,6 +70,13 @@ public class ApplicationController {
         i.putExtra("nombre_producto", producto.getNombre());
         i.putExtra("precio_producto", String.valueOf(producto.getPrecio()));
 
+        context.startActivity( i );
+    }
+
+    public static void mostrarCompraFinalizada (Context context, Producto producto) {
+
+        Intent i = new Intent(context, CompraFinalizadaActivity.class);
+        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity( i );
     }
 

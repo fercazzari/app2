@@ -24,12 +24,16 @@
             </intent-filter>
         </activity>
         <activity android:name=".activities.UnicaActivity" />
-        <activity android:name=".activities.ProductoActivity"
-            android:label="Producto"/>
-        <activity android:name=".activities.CompraActivity"
-            android:label="Compra"/>
-        <activity android:name=".activities.SugerenciaActivity"
-            android:label="Sugerencia"/>
+        <activity
+            android:name=".activities.ProductoActivity"
+            android:label="Producto" />
+        <activity
+            android:name=".activities.CompraActivity"
+            android:label="Compra" />
+        <activity
+            android:name=".activities.SugerenciaActivity"
+            android:label="Sugerencia" />
+        <activity android:name=".activities.CompraFinalizadaActivity"></activity>
     </application>
 
 </manifest>

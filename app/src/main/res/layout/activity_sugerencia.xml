@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="pp2.app2.activities.RecomendadosActivity">
+    tools:context="pp2.app2.activities.SugerenciaActivity">
 
     <TextView
         android:id="@+id/txt_recomendado"

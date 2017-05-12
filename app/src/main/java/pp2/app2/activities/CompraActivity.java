@@ -8,6 +8,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import pp2.app2.R;
+import pp2.app2.controlador.ApplicationController;
 import pp2.app2.helpers.IdentityField;
 import pp2.app2.modelo.Carrito;
 import pp2.app2.modelo.Producto;
@@ -26,9 +27,10 @@ public class CompraActivity extends AppCompatActivity {
         String nombre_producto = getIntent().getStringExtra("nombre_producto");
         String precio_producto = getIntent().getStringExtra("precio_producto");
 
+        final Producto producto = new Producto(new IdentityField(Integer.valueOf(id_producto)), nombre_producto, Double.valueOf(precio_producto));
+
         this.carrito = new Carrito();
-        this.carrito.agregarItem(
-                new Producto(new IdentityField(Integer.valueOf(id_producto)), nombre_producto, Double.valueOf(precio_producto)));
+        this.carrito.agregarItem(producto);
 
         TextView tv_cantidad = (TextView)findViewById(R.id.txt_cantidad);
         tv_cantidad.setText(String.valueOf(this.carrito.getCantidad()));
@@ -41,8 +43,7 @@ public class CompraActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                // TODO sincronizar el carrito con el ws
-                Toast.makeText(CompraActivity.this, "Compra finalizada. Retirá el producto por el local!", Toast.LENGTH_SHORT).show();
+                ApplicationController.recibirCommand("verCompraFinalizada", getApplicationContext(), producto);
             }
         });
 
