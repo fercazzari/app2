@@ -1,8 +1,6 @@
 package pp2.app2.activities;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -14,7 +12,7 @@ import android.view.MenuItem;
 
 import pp2.app2.R;
 import pp2.app2.controlador.ApplicationController;
-import pp2.app2.modelo.DatosTemp;
+import pp2.app2.helpers.DatosTemp;
 import pp2.app2.modelo.Producto;
 
 public class MainActivity extends AppCompatActivity

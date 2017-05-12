@@ -1,6 +1,5 @@
 package pp2.app2.activities;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,7 +8,7 @@ import android.widget.TextView;
 
 import pp2.app2.R;
 import pp2.app2.controlador.ApplicationController;
-import pp2.app2.modelo.DatosTemp;
+import pp2.app2.helpers.DatosTemp;
 import pp2.app2.modelo.Producto;
 
 public class ProductoActivity extends AppCompatActivity {

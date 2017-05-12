@@ -5,7 +5,7 @@ import org.junit.Test;
 import pp2.app2.helpers.Conexion;
 import pp2.app2.helpers.Constantes;
 import pp2.app2.modelo.Carrito;
-import pp2.app2.modelo.DatosTemp;
+import pp2.app2.helpers.DatosTemp;
 import pp2.app2.modelo.Producto;
 
 import static org.junit.Assert.assertFalse;

@@ -5,14 +5,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import java.util.Map;
 
 import pp2.app2.R;
 import pp2.app2.controlador.ApplicationController;
 import pp2.app2.helpers.IdentityField;
-import pp2.app2.modelo.DatosTemp;
+import pp2.app2.helpers.DatosTemp;
 import pp2.app2.modelo.Producto;
 
 public class SugerenciaActivity extends AppCompatActivity {

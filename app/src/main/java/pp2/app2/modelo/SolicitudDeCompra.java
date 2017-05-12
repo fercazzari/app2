@@ -11,7 +11,7 @@ public class SolicitudDeCompra
 {
     private List<Item> items;
     private Domicilio domicilioEntrega;
-    private MedioDePago medioDePago;
+    // private MedioDePago medioDePago;
 
     public SolicitudDeCompra()
     {
@@ -26,10 +26,14 @@ public class SolicitudDeCompra
             if (i.esProducto(p))
             {
                 indice = items.indexOf(i);
-                i.agregarUnidad();
+                // i.agregarUnidad();
                 return;
             }
         }
         items.add(new Item(p, 1));
+    }
+
+    public List<Item> getItems () {
+        return this.items;
     }
 }

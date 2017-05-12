@@ -1,9 +1,11 @@
-package pp2.app2.modelo;
+package pp2.app2.helpers;
 
 import java.util.LinkedList;
 import java.util.List;
 
 import pp2.app2.helpers.IdentityField;
+import pp2.app2.modelo.Carrito;
+import pp2.app2.modelo.Producto;
 
 /**
  * Created by Jony on 23/04/2017.

@@ -14,7 +14,6 @@ import pp2.app2.modelo.Carrito;
 import pp2.app2.modelo.Domicilio;
 import pp2.app2.modelo.Producto;
 import pp2.app2.modelo.SolicitudDeCompra;
-import pp2.app2.modelo.Sugerencia;
 
 /**
  * Created by fcazzari on 05/05/2017.

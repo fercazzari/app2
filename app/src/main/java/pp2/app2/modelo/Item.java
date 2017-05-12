@@ -19,6 +19,4 @@ public class Item
         return false;
     }
 
-    public void agregarUnidad() {
-    }
 }

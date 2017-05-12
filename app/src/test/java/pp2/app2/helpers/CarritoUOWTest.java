@@ -3,9 +3,6 @@ package pp2.app2.helpers;
 import org.junit.Before;
 import org.junit.Test;
 
-import pp2.app2.modelo.DatosTemp;
-import pp2.app2.modelo.Producto;
-
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertTrue;
 

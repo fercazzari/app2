@@ -7,7 +7,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import pp2.app2.helpers.CarritoUOW;
-import pp2.app2.helpers.IdentityField;
+import pp2.app2.helpers.DatosTemp;
 
 import static org.junit.Assert.*;
 
@@ -61,6 +61,33 @@ public class CarritoTest {
         CarritoUOW esperado = new CarritoUOW();
         CarritoUOW actual = this.carrito.getUOW();
         // TODO
+    }
+
+    @Test
+    public void hayQueSincronizar () {
+        boolean esperado = false;
+        boolean actual = this.carrito.getUOW().isEmpty();
+        assertEquals(esperado, actual);
+    }
+
+    @Test
+    public void sincronizado () {
+
+    }
+
+    @Test
+    public void vaciar () {
+        this.carrito.vaciar();
+        assertTrue(this.carrito.getItems().isEmpty());
+    }
+
+    @Test
+    public void getTotal () {
+        this.carrito.agregarItem(datosTemp.obtenerProducto(100));
+        this.carrito.agregarItem(datosTemp.obtenerProducto(101));
+        double esperado = 30;
+        double actual = this.carrito.getTotal();
+        // TODO assertEquals()
     }
 
 }

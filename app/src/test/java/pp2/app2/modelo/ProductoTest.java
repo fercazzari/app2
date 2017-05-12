@@ -1,10 +1,9 @@
 package pp2.app2.modelo;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import pp2.app2.helpers.IdentityField;
+import pp2.app2.helpers.DatosTemp;
 
 import static org.junit.Assert.*;
 
