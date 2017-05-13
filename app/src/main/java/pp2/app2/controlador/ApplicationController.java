@@ -7,9 +7,10 @@ import pp2.app2.activities.CompraActivity;
 import pp2.app2.activities.CompraFinalizadaActivity;
 import pp2.app2.activities.ProductoActivity;
 import pp2.app2.activities.SugerenciaActivity;
-import pp2.app2.controlador.Comandos.ComandoPedido;
 import pp2.app2.controlador.Comandos.ComandoMostrarProducto;
+import pp2.app2.controlador.Comandos.ComandoPedido;
 import pp2.app2.controlador.Comandos.ComandoProcesarSolicitud;
+import pp2.app2.controlador.Targets.AdministradorCarritoSolicitud;
 import pp2.app2.modelo.Carrito;
 import pp2.app2.modelo.Domicilio;
 import pp2.app2.modelo.Producto;
@@ -24,6 +25,24 @@ public class ApplicationController {
     private static ComandoPedido pedido;
     private static ComandoMostrarProducto mostrarProducto;
     private static ComandoProcesarSolicitud procesarSolicitud;
+    private static AdministradorCarritoSolicitud carritoAdmin;
+    private static MapProximaPantalla map = new MapProximaPantalla();
+    private static SolicitudDeCompra solicitud;
+
+    public static void agregarProducto (Context contexto, Producto producto)
+    {
+        solicitud = new AdministradorCarritoSolicitud().administrar(producto);
+        mostrarProximaVista(contexto, map.obtenerProximaPantalla(solicitud));
+    }
+
+    private static void mostrarProximaVista(Context contexto, String proximaVista)
+    {
+        switch(proximaVista) {
+            //Listar las vistas
+            default:
+                break;
+        }
+    }
 
     public static void recibirCommand (String command, Context contexto, Producto producto) {
 

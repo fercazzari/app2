@@ -36,4 +36,9 @@ public class SolicitudDeCompra
     public List<Item> getItems () {
         return this.items;
     }
+
+    public Domicilio getDomicilioEntrega ()
+    {
+        return this.domicilioEntrega;
+    }
 }
