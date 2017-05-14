@@ -1,4 +1,4 @@
-package pp2.app2.controlador.Targets;
+package pp2.app2.controlador.targets;
 
 /**
  * Created by Jony on 13/05/2017.

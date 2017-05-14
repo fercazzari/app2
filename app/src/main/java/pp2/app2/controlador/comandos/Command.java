@@ -1,4 +1,4 @@
-package pp2.app2.controlador.Comandos;
+package pp2.app2.controlador.comandos;
 
 /**
  * Created by jalvarez on 10/05/2017.

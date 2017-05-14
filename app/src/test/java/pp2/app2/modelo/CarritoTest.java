@@ -6,8 +6,10 @@ import org.junit.Test;
 import java.util.LinkedList;
 import java.util.List;
 
-import pp2.app2.helpers.CarritoUOW;
-import pp2.app2.helpers.DatosTemp;
+import pp2.app2.modelo.domain.Carrito;
+import pp2.app2.modelo.domain.CarritoUOW;
+import pp2.app2.modelo.app.DatosTemp;
+import pp2.app2.modelo.domain.Producto;
 
 import static org.junit.Assert.*;
 

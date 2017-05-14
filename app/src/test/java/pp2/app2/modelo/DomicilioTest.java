@@ -3,7 +3,7 @@ package pp2.app2.modelo;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import pp2.app2.modelo.domain.Domicilio;
 
 /**
  * Created by fcazzari on 11/05/2017.

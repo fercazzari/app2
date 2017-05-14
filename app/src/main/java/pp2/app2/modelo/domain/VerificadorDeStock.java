@@ -1,4 +1,4 @@
-package pp2.app2.modelo;
+package pp2.app2.modelo.domain;
 
 /**
  * Created by Jony on 14/05/2017.

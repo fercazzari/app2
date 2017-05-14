@@ -1,6 +1,4 @@
-package pp2.app2.modelo;
-
-import pp2.app2.helpers.IdentityField;
+package pp2.app2.modelo.domain;
 
 public class Producto {
 

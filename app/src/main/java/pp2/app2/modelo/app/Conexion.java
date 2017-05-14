@@ -1,7 +1,9 @@
-package pp2.app2.helpers;
+package pp2.app2.modelo.app;
 
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+
+import pp2.app2.modelo.domain.CarritoUOW;
 
 /**
  * Created by Jony on 23/04/2017.

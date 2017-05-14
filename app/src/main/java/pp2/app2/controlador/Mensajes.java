@@ -3,7 +3,7 @@ package pp2.app2.controlador;
 import android.content.Context;
 import android.widget.Toast;
 
-import pp2.app2.helpers.Constantes;
+import pp2.app2.modelo.app.Constantes;
 
 /**
  * Created by jalvarez on 10/05/2017.

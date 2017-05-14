@@ -1,6 +1,8 @@
-package pp2.app2.helpers;
+package pp2.app2.modelo.app;
 
 import java.util.Random;
+
+import pp2.app2.modelo.app.DatosTemp;
 
 /**
  * Created by Jony on 25/03/2017.

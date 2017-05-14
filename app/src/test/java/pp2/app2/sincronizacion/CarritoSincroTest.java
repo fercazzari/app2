@@ -2,11 +2,11 @@ package pp2.app2.sincronizacion;
 
 import org.junit.Test;
 
-import pp2.app2.helpers.Conexion;
-import pp2.app2.helpers.Constantes;
-import pp2.app2.modelo.Carrito;
-import pp2.app2.helpers.DatosTemp;
-import pp2.app2.modelo.Producto;
+import pp2.app2.modelo.app.Conexion;
+import pp2.app2.modelo.app.Constantes;
+import pp2.app2.modelo.domain.Carrito;
+import pp2.app2.modelo.app.DatosTemp;
+import pp2.app2.modelo.domain.Producto;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;

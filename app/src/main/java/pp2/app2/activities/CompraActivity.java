@@ -11,11 +11,11 @@ import android.widget.Toast;
 
 import pp2.app2.R;
 import pp2.app2.controlador.ApplicationController;
-import pp2.app2.helpers.Conexion;
-import pp2.app2.helpers.Constantes;
-import pp2.app2.helpers.IdentityField;
-import pp2.app2.modelo.Carrito;
-import pp2.app2.modelo.Producto;
+import pp2.app2.modelo.app.Conexion;
+import pp2.app2.modelo.app.Constantes;
+import pp2.app2.modelo.domain.IdentityField;
+import pp2.app2.modelo.domain.Carrito;
+import pp2.app2.modelo.domain.Producto;
 
 public class CompraActivity extends AppCompatActivity {
 

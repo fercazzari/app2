@@ -1,7 +1,7 @@
-package pp2.app2.controlador.Targets;
+package pp2.app2.controlador.targets;
 
-import pp2.app2.modelo.Producto;
-import pp2.app2.modelo.SolicitudDeCompra;
+import pp2.app2.modelo.domain.Producto;
+import pp2.app2.modelo.domain.SolicitudDeCompra;
 
 /**
  * Created by Jony on 13/05/2017.

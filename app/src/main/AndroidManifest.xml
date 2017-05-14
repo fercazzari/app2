@@ -32,7 +32,12 @@
         <activity
             android:name=".activities.SugerenciaActivity"
             android:label="Sugerencia" />
-        <activity android:name=".activities.CompraFinalizadaActivity"></activity>
+        <activity android:name=".activities.CompraFinalizadaActivity"
+            android:label="Compra Finalizada" ></activity>
+        <activity android:name=".activities.DomicilioActivity"
+            android:label="Domicilio" ></activity>
+        <activity android:name=".activities.PagoActivity"
+            android:label="Medio de Pago" ></activity>
     </application>
 
 </manifest>

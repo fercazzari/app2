@@ -8,9 +8,9 @@ import android.widget.TextView;
 
 import pp2.app2.R;
 import pp2.app2.controlador.ApplicationController;
-import pp2.app2.helpers.IdentityField;
-import pp2.app2.helpers.DatosTemp;
-import pp2.app2.modelo.Producto;
+import pp2.app2.modelo.domain.IdentityField;
+import pp2.app2.modelo.app.DatosTemp;
+import pp2.app2.modelo.domain.Producto;
 
 public class SugerenciaActivity extends AppCompatActivity {
 

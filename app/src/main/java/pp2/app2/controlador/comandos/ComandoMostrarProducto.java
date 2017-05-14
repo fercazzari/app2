@@ -1,6 +1,6 @@
-package pp2.app2.controlador.Comandos;
+package pp2.app2.controlador.comandos;
 
-import pp2.app2.modelo.Producto;
+import pp2.app2.modelo.domain.Producto;
 
 /**
  * Created by jalvarez on 10/05/2017.

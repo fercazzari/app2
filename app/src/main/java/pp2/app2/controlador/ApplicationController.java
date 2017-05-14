@@ -7,14 +7,14 @@ import pp2.app2.activities.CompraActivity;
 import pp2.app2.activities.CompraFinalizadaActivity;
 import pp2.app2.activities.ProductoActivity;
 import pp2.app2.activities.SugerenciaActivity;
-import pp2.app2.controlador.Comandos.ComandoMostrarProducto;
-import pp2.app2.controlador.Comandos.ComandoPedido;
-import pp2.app2.controlador.Comandos.ComandoProcesarSolicitud;
-import pp2.app2.controlador.Targets.AdministradorCarritoSolicitud;
-import pp2.app2.modelo.Carrito;
-import pp2.app2.modelo.Domicilio;
-import pp2.app2.modelo.Producto;
-import pp2.app2.modelo.SolicitudDeCompra;
+import pp2.app2.controlador.comandos.ComandoMostrarProducto;
+import pp2.app2.controlador.comandos.ComandoPedido;
+import pp2.app2.controlador.comandos.ComandoProcesarSolicitud;
+import pp2.app2.controlador.targets.AdministradorCarritoSolicitud;
+import pp2.app2.modelo.domain.Carrito;
+import pp2.app2.modelo.domain.Domicilio;
+import pp2.app2.modelo.domain.Producto;
+import pp2.app2.modelo.domain.SolicitudDeCompra;
 import pp2.app2.presenter.DomicilioPresenter;
 
 /**

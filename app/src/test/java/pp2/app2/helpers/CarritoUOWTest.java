@@ -3,6 +3,9 @@ package pp2.app2.helpers;
 import org.junit.Before;
 import org.junit.Test;
 
+import pp2.app2.modelo.app.DatosTemp;
+import pp2.app2.modelo.domain.CarritoUOW;
+
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertTrue;
 

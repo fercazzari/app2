@@ -1,6 +1,6 @@
-package pp2.app2.controlador.Comandos;
+package pp2.app2.controlador.comandos;
 
-import pp2.app2.modelo.SolicitudDeCompra;
+import pp2.app2.modelo.domain.SolicitudDeCompra;
 
 /**
  * Created by jalvarez on 10/05/2017.

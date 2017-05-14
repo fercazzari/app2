@@ -3,7 +3,8 @@ package pp2.app2.modelo;
 import org.junit.Before;
 import org.junit.Test;
 
-import pp2.app2.helpers.DatosTemp;
+import pp2.app2.modelo.app.DatosTemp;
+import pp2.app2.modelo.domain.Item;
 
 import static org.junit.Assert.*;
 

@@ -1,9 +1,7 @@
-package pp2.app2.helpers;
+package pp2.app2.modelo.domain;
 
 import java.util.LinkedList;
 import java.util.List;
-
-import pp2.app2.modelo.Producto;
 
 /**
  * Created by fcazzari on 19/04/2017.
