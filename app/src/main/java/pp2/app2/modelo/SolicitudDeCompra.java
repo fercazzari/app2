@@ -18,20 +18,27 @@ public class SolicitudDeCompra
         this.items = new ArrayList<>();
     }
 
-    public void agregarProducto(Producto p)
+    public boolean agregarProducto(Producto p)
     {
-        int indice = -1;
-        for (Item i : items)
+        if(VerificadorDeStock.hayStock(p))
         {
-            if (i.esProducto(p))
+            int indice = -1;
+            for (Item i : items)
             {
-                indice = items.indexOf(i);
-                // i.agregarUnidad();
-                return;
+                if (i.esProducto(p))
+                {
+                    indice = items.indexOf(i);
+                    // i.agregarUnidad();
+                    return true;
+                }
             }
+            items.add(new Item(p, 1));
+            return true;
         }
-        items.add(new Item(p, 1));
+        return false;
     }
+
+    //Revisar de quien es la responsabilidad.
 
     public List<Item> getItems () {
         return this.items;

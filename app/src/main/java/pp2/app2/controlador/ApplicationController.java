@@ -15,6 +15,7 @@ import pp2.app2.modelo.Carrito;
 import pp2.app2.modelo.Domicilio;
 import pp2.app2.modelo.Producto;
 import pp2.app2.modelo.SolicitudDeCompra;
+import pp2.app2.presenter.DomicilioPresenter;
 
 /**
  * Created by fcazzari on 05/05/2017.
@@ -29,6 +30,8 @@ public class ApplicationController {
     private static MapProximaPantalla map = new MapProximaPantalla();
     private static SolicitudDeCompra solicitud;
 
+    private static DomicilioPresenter presentadorDeDomicilio = new DomicilioPresenter();
+
     public static void agregarProducto (Context contexto, Producto producto)
     {
         solicitud = new AdministradorCarritoSolicitud().administrar(producto);
@@ -39,6 +42,11 @@ public class ApplicationController {
     {
         switch(proximaVista) {
             //Listar las vistas
+            case("sinProductos"):
+                break;
+            case("agregarDomicilio"):
+                presentadorDeDomicilio.armarVista(contexto, solicitud);
+                break;
             default:
                 break;
         }

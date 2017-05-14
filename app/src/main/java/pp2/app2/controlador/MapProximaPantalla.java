@@ -11,14 +11,16 @@ public class MapProximaPantalla
 
     public String obtenerProximaPantalla(SolicitudDeCompra solicitud)
     {
+        //Una solicitud debe tener productos antes de pasar al paso del domicilio
         if(solicitud.getItems().isEmpty())
         {
             return "sinProductos";
         }
+        //Una solicitud debe tener productos y domicilio antes de pasar al paso del medio de pago
         if(solicitud.getDomicilioEntrega() == null)
         {
             return "agregarDomicilio";
         }
-        return "";
+        return "errorGeneral";
     }
 }
