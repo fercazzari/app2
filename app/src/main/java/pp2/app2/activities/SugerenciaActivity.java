@@ -47,7 +47,8 @@ public class SugerenciaActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                ApplicationController.recibirCommand("omitirSugerencia", getApplicationContext(), producto);
+                // ApplicationController.recibirCommand("omitirSugerencia", getApplicationContext(), producto);
+
             }
         });
 
@@ -57,7 +58,7 @@ public class SugerenciaActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                ApplicationController.recibirCommand("aceptarSugerencia", getApplicationContext(), producto);
+                // ApplicationController.recibirCommand("aceptarSugerencia", getApplicationContext(), producto);
             }
         });
     }

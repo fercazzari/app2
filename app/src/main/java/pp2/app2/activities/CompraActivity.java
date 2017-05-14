@@ -47,7 +47,7 @@ public class CompraActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                ApplicationController.recibirCommand("verCompraFinalizada", getApplicationContext(), producto);
+                // ApplicationController.recibirCommand("verCompraFinalizada", getApplicationContext(), producto);
             }
         });
 

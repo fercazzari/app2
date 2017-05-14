@@ -6,4 +6,36 @@
     android:layout_height="match_parent"
     tools:context="pp2.app2.activities.PagoActivity">
 
+    <RelativeLayout
+        android:layout_width="368dp"
+        android:layout_height="495dp"
+        tools:layout_editor_absoluteY="8dp"
+        tools:layout_editor_absoluteX="8dp">
+
+        <RadioGroup
+            android:id="@+id/radioPago"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="60dp">
+
+            <RadioButton
+                android:id="@+id/rb_tarjeta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tarjeta"
+                android:checked="true" />
+
+            <RadioButton
+                android:id="@+id/rb_mercadoPago"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="MercadoPago" />
+
+        </RadioGroup>
+
+    </RelativeLayout>
+
 </android.support.constraint.ConstraintLayout>

@@ -10,12 +10,15 @@ import pp2.app2.activities.SugerenciaActivity;
 import pp2.app2.controlador.comandos.ComandoMostrarProducto;
 import pp2.app2.controlador.comandos.ComandoPedido;
 import pp2.app2.controlador.comandos.ComandoProcesarSolicitud;
-import pp2.app2.controlador.targets.AdministradorCarritoSolicitud;
+import pp2.app2.controlador.targets.TargetAgregarProducto;
+import pp2.app2.controlador.targets.TargetDomiciliar;
 import pp2.app2.modelo.domain.Carrito;
 import pp2.app2.modelo.domain.Domicilio;
 import pp2.app2.modelo.domain.Producto;
 import pp2.app2.modelo.domain.SolicitudDeCompra;
 import pp2.app2.presenter.DomicilioPresenter;
+import pp2.app2.presenter.MainPresenter;
+import pp2.app2.presenter.PagoPresenter;
 
 /**
  * Created by fcazzari on 05/05/2017.
@@ -26,33 +29,44 @@ public class ApplicationController {
     private static ComandoPedido pedido;
     private static ComandoMostrarProducto mostrarProducto;
     private static ComandoProcesarSolicitud procesarSolicitud;
-    private static AdministradorCarritoSolicitud carritoAdmin;
+
     private static MapProximaPantalla map = new MapProximaPantalla();
     private static SolicitudDeCompra solicitud;
 
-    private static DomicilioPresenter presentadorDeDomicilio = new DomicilioPresenter();
+    private static DomicilioPresenter domicilioPresenter = new DomicilioPresenter();
+    private static PagoPresenter pagoPresenter = new PagoPresenter();
+    private static MainPresenter mainPresenter = new MainPresenter();
 
     public static void agregarProducto (Context contexto, Producto producto)
     {
-        solicitud = new AdministradorCarritoSolicitud().administrar(producto);
+        solicitud = new TargetAgregarProducto().administrar(producto);
         mostrarProximaVista(contexto, map.obtenerProximaPantalla(solicitud));
+    }
+
+    public static void confirmarDomicilio (Context context, Domicilio domicilio) {
+        solicitud = new TargetDomiciliar().administrar(domicilio);
+        mostrarProximaVista(context, map.obtenerProximaPantalla(solicitud));
     }
 
     private static void mostrarProximaVista(Context contexto, String proximaVista)
     {
         switch(proximaVista) {
             //Listar las vistas
-            case("sinProductos"):
+            case "sinProductos":
+                mainPresenter.armarVista(contexto);
                 break;
-            case("agregarDomicilio"):
-                presentadorDeDomicilio.armarVista(contexto, solicitud);
+            case "elegirDomicilio":
+                domicilioPresenter.armarVista(contexto, solicitud);
+                break;
+            case "medioDePago":
+                pagoPresenter.armarVista(contexto, solicitud);
                 break;
             default:
                 break;
         }
     }
 
-    public static void recibirCommand (String command, Context contexto, Producto producto) {
+    /* public static void recibirCommand (String command, Context contexto, Producto producto) {
 
         switch (command) {
             case "menuComprar":
@@ -70,9 +84,9 @@ public class ApplicationController {
                 mostrarCompraFinalizada(contexto, producto);
                 break;
         }
-    }
+    } */
 
-    public static void mostrarVistaCompra (Context context, Producto producto) {
+    /* public static void mostrarVistaCompra (Context context, Producto producto) {
 
         // kill toda la vista anterior
         // kill solicitud de compra. o clear bc va a ser singleton
@@ -85,8 +99,21 @@ public class ApplicationController {
         i.putExtra("precio_producto", String.valueOf(producto.getPrecio()));
 
         context.startActivity( i );
-    }
+    } */
 
+    public static void mostrarVistaCompra (Context context, Producto producto) {
+
+//        Producto producto = solicitud.getItems().get(0).getProducto();
+
+        Intent i = new Intent(context, CompraActivity.class);
+        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+        i.putExtra("id_producto", String.valueOf(producto.getId().getField()));
+        i.putExtra("nombre_producto", producto.getNombre());
+        i.putExtra("precio_producto", String.valueOf(producto.getPrecio()));
+
+        context.startActivity( i );
+    }
     public static void mostrarVistaSugerencias(Context context, Producto producto) {
 
         Intent i = new Intent(context, SugerenciaActivity.class);
@@ -246,7 +273,7 @@ public class ApplicationController {
         switch (procesarSolicitud.execute()) // si hay stock
         {
             case 0:
-                mostrarVistaCompra(context, producto);
+                // mostrarVistaCompra(context, producto);
             default:
                 break;
         }

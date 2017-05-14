@@ -7,12 +7,11 @@ import pp2.app2.modelo.domain.SolicitudDeCompra;
  * Created by Jony on 13/05/2017.
  */
 
-public class AdministradorCarritoSolicitud {
+public class TargetAgregarProducto {
 
     SolicitudDeCompra solicitud;
 
-    public AdministradorCarritoSolicitud()
-    {
+    public TargetAgregarProducto() {
         this.solicitud = new SolicitudDeCompra();
     }
 

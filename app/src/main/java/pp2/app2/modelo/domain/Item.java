@@ -15,6 +15,14 @@ public class Item
         this.cantidad = cantidad;
     }
 
+    public Producto getProducto () {
+        return this.producto;
+    }
+
+    public int getCantidad () {
+        return this.cantidad;
+    }
+
     public boolean esProducto(Producto p) {
         return false;
     }

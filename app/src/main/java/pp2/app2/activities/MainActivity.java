@@ -81,7 +81,8 @@ public class MainActivity extends AppCompatActivity
                 DatosTemp datosTemp = new DatosTemp();
                 Producto producto = datosTemp.obtenerProducto(100);
 
-                ApplicationController.recibirCommand("menuComprar", getApplicationContext(), producto);
+                ApplicationController.mostrarVistaVerProducto(getApplicationContext(), producto);
+
                 break;
         }
 

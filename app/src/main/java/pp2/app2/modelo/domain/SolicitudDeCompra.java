@@ -16,6 +16,7 @@ public class SolicitudDeCompra
     public SolicitudDeCompra()
     {
         this.items = new ArrayList<>();
+        this.domicilioEntrega = null;
     }
 
     public boolean agregarProducto(Producto p)
@@ -48,4 +49,24 @@ public class SolicitudDeCompra
     {
         return this.domicilioEntrega;
     }
+
+    public void setDomicilioEntrega (Domicilio domicilioEntrega) {
+        this.domicilioEntrega = new Domicilio();
+        this.domicilioEntrega = domicilioEntrega;
+    }
+
+    public int calcularTotal () {
+
+        int resultado = 0;
+        for (Item i : this.items) {
+            resultado += i.getProducto().getPrecio() * i.getCantidad();
+        }
+        return  resultado;
+
+    }
+
+    public void pagar (MedioDePago medioDePago) {
+        medioDePago.pagar(this.calcularTotal());
+    }
+
 }

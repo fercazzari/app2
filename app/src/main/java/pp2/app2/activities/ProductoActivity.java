@@ -1,5 +1,6 @@
 package pp2.app2.activities;
 
+import android.app.Application;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -30,12 +31,12 @@ public class ProductoActivity extends AppCompatActivity {
         final TextView producto_nombre = (TextView)findViewById(R.id.producto_nombre);
         producto_nombre.setText(producto.getNombre());
 
-        Button btn_preparar_pedido = (Button) findViewById(R.id.button_comprar);
-        btn_preparar_pedido.setOnClickListener( new View.OnClickListener() {
+        Button btn_agregar = (Button) findViewById(R.id.button_agregar);
+        btn_agregar.setOnClickListener( new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                ApplicationController.recibirCommand("verSugerencias", getApplicationContext(), producto);
+                ApplicationController.agregarProducto(getApplicationContext(), producto);
             }
         });
 

@@ -6,7 +6,17 @@ package pp2.app2.modelo.domain;
 
 public class Domicilio {
 
-    public Domicilio() {
+    private String datos;
 
+    Domicilio () {
+        this.datos = "";
+    }
+
+    public Domicilio(String datos) {
+        this.datos = datos;
+    }
+
+    public String getDatos () {
+        return this.datos;
     }
 }
