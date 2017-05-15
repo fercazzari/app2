@@ -11,9 +11,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import pp2.app2.R;
-import pp2.app2.controlador.ApplicationController;
 import pp2.app2.modelo.app.DatosTemp;
 import pp2.app2.modelo.domain.Producto;
+import pp2.app2.presenter.ProductoPresenter;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -81,8 +81,7 @@ public class MainActivity extends AppCompatActivity
                 DatosTemp datosTemp = new DatosTemp();
                 Producto producto = datosTemp.obtenerProducto(100);
 
-                ApplicationController.mostrarVistaVerProducto(getApplicationContext(), producto);
-
+                ProductoPresenter.armarVista(getApplicationContext(), producto);
                 break;
         }
 

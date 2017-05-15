@@ -12,11 +12,6 @@ public class DomicilioTest {
 
     Domicilio domicilio;
 
-    @Before
-    public void setUp() throws Exception {
-        this.domicilio = new Domicilio();
-    }
-
     @Test
     public void Domicilio () {
         this.domicilio = new Domicilio();

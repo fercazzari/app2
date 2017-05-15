@@ -8,7 +8,7 @@ public class Domicilio {
 
     private String datos;
 
-    Domicilio () {
+    public Domicilio () {
         this.datos = "";
     }
 
