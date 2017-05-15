@@ -13,12 +13,17 @@ import pp2.app2.R;
 import pp2.app2.controlador.ApplicationController;
 import pp2.app2.modelo.app.Conexion;
 import pp2.app2.modelo.app.Constantes;
+import pp2.app2.modelo.domain.Domicilio;
 import pp2.app2.modelo.domain.IdentityField;
 import pp2.app2.modelo.domain.Carrito;
+import pp2.app2.modelo.domain.Item;
+import pp2.app2.modelo.domain.MedioDePago;
 import pp2.app2.modelo.domain.Producto;
+import pp2.app2.modelo.domain.SolicitudDeCompra;
 
 public class CompraActivity extends AppCompatActivity {
 
+    private SolicitudDeCompra solicitud;
     private Carrito carrito;
 
     @Override
@@ -31,10 +36,29 @@ public class CompraActivity extends AppCompatActivity {
         String nombre_producto = getIntent().getStringExtra("nombre_producto");
         String precio_producto = getIntent().getStringExtra("precio_producto");
 
+        String sc_domicilio = getIntent().getStringExtra("sc_domicilio");
+
+        String sc_pago = getIntent().getStringExtra("sc_pago");
+
         final Producto producto = new Producto(new IdentityField(Integer.valueOf(id_producto)), nombre_producto, Double.valueOf(precio_producto));
 
+        this.solicitud = new SolicitudDeCompra();
+        this.solicitud.agregarProducto(producto);
+        this.solicitud.setDomicilioEntrega(new Domicilio(sc_domicilio));
+
+        switch (sc_pago) {
+            case "Tarjeta":
+                this.solicitud.setMedioDePago(MedioDePago.TARJETA);
+                break;
+            case "MercadoPago":
+                this.solicitud.setMedioDePago(MedioDePago.MERCADO_PAGO);
+                break;
+        }
+
         this.carrito = new Carrito();
-        this.carrito.agregarItem(producto);
+        for (Item item : this.solicitud.getItems()) {
+            this.carrito.agregarItem(item.getProducto());
+        }
 
         TextView tv_cantidad = (TextView)findViewById(R.id.txt_cantidad);
         tv_cantidad.setText(String.valueOf(this.carrito.getCantidad()));
@@ -47,7 +71,7 @@ public class CompraActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                // ApplicationController.recibirCommand("verCompraFinalizada", getApplicationContext(), producto);
+                ApplicationController.confirmarCompra(getApplicationContext(), solicitud);
             }
         });
 

@@ -25,6 +25,14 @@ public class MapProximaPantalla {
             return "medioDePago";
         }
 
+        if (solicitud.getMedioDePago() == null) {
+            return "medioDePago";
+        }
+
+        if (solicitud.getMedioDePago() != null) {
+            return "finalizarCompra";
+        }
+
         return "errorGeneral";
     }
 }

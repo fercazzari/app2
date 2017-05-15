@@ -6,11 +6,15 @@ import pp2.app2.controlador.comandos.ComandoMostrarProducto;
 import pp2.app2.controlador.comandos.ComandoPedido;
 import pp2.app2.controlador.comandos.ComandoProcesarSolicitud;
 import pp2.app2.controlador.targets.TargetAgregarProducto;
+import pp2.app2.controlador.targets.TargetComprar;
 import pp2.app2.controlador.targets.TargetDomiciliar;
+import pp2.app2.controlador.targets.TargetPagar;
 import pp2.app2.modelo.domain.Carrito;
 import pp2.app2.modelo.domain.Domicilio;
+import pp2.app2.modelo.domain.MedioDePago;
 import pp2.app2.modelo.domain.Producto;
 import pp2.app2.modelo.domain.SolicitudDeCompra;
+import pp2.app2.presenter.CompraPresenter;
 import pp2.app2.presenter.DomicilioPresenter;
 import pp2.app2.presenter.PagoPresenter;
 
@@ -29,6 +33,7 @@ public class ApplicationController {
 
     private static DomicilioPresenter domicilioPresenter = new DomicilioPresenter();
     private static PagoPresenter pagoPresenter = new PagoPresenter();
+    private static CompraPresenter compraPresenter = new CompraPresenter();
 
     public static void agregarProducto (Context contexto, Producto producto)
     {
@@ -40,6 +45,17 @@ public class ApplicationController {
         solicitud = new TargetDomiciliar().administrar(solicitudDeCompra, domicilio);
         mostrarProximaVista(context, map.obtenerProximaPantalla(solicitud));
     }
+
+    public static void confirmarMedioDePago (Context context, SolicitudDeCompra solicitud, MedioDePago medioDePago) {
+        solicitud = new TargetPagar().administrar(solicitud, medioDePago);
+        mostrarProximaVista(context, map.obtenerProximaPantalla(solicitud));
+    }
+
+    public static void confirmarCompra (Context context, SolicitudDeCompra solicitud) {
+        solicitud = new TargetComprar().administrar(solicitud);
+        mostrarProximaVista(context, map.obtenerProximaPantalla(solicitud));
+    }
+
 
     private static void mostrarProximaVista(Context contexto, String proximaVista)
     {
@@ -54,6 +70,9 @@ public class ApplicationController {
             case "medioDePago":
                 pagoPresenter.armarVista(contexto, solicitud);
                 break;
+            case "finalizarCompra":
+                compraPresenter.armarVista(contexto, solicitud);
+
             default:
                 break;
         }

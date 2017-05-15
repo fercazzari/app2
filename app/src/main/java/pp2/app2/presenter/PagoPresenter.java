@@ -17,6 +17,13 @@ public class PagoPresenter {
 
         Intent i = new Intent(contexto, PagoActivity.class);
         i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+        i.putExtra("sc_producto_id", String.valueOf(solicitud.getItems().get(0).getProducto().getId().getField()));
+        i.putExtra("sc_producto_nombre", solicitud.getItems().get(0).getProducto().getNombre());
+        i.putExtra("sc_producto_precio", String.valueOf(solicitud.getItems().get(0).getProducto().getPrecio()));
+
+        i.putExtra("sc_domicilio", solicitud.getDomicilioEntrega().getDatos());
+
         contexto.startActivity( i );
 
     }

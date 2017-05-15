@@ -18,7 +18,6 @@ import pp2.app2.modelo.domain.SolicitudDeCompra;
 public class DomicilioPresenter {
 
     public void armarVista(Context contexto, SolicitudDeCompra solicitud) {
-        //Aca tenes que mostrar la vista
 
         Intent i = new Intent(contexto, DomicilioActivity.class);
         i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

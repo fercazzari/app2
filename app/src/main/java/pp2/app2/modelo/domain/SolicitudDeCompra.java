@@ -11,12 +11,13 @@ public class SolicitudDeCompra
 {
     private List<Item> items;
     private Domicilio domicilioEntrega;
-    // private MedioDePago medioDePago;
+    private MedioDePago medioDePago;
 
     public SolicitudDeCompra()
     {
         this.items = new ArrayList<>();
         this.domicilioEntrega = null;
+        this.medioDePago = null;
     }
 
     public boolean agregarProducto(Producto p)
@@ -65,8 +66,16 @@ public class SolicitudDeCompra
 
     }
 
-    public void pagar (MedioDePago medioDePago) {
+    /* public void pagar (MedioDePago medioDePago) {
         medioDePago.pagar(this.calcularTotal());
+    } */
+
+    public void setMedioDePago (MedioDePago medioDePago) {
+        this.medioDePago = medioDePago;
+    }
+
+    public MedioDePago getMedioDePago () {
+        return this.medioDePago;
     }
 
 }
