@@ -21,9 +21,9 @@ public class MapProximaPantalla {
         }
 
         // Idem
-        if (solicitud.getDomicilioEntrega() != null) {
-            return "medioDePago";
-        }
+        //if (solicitud.getDomicilioEntrega() != null) {
+            //return "medioDePago";
+        //}
 
         if (solicitud.getMedioDePago() == null) {
             return "medioDePago";
