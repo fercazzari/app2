@@ -17,7 +17,8 @@ public class TargetPagar {
 
     public SolicitudDeCompra administrar (SolicitudDeCompra solicitudDeCompra, MedioDePago medioDePago)  {
         this.solicitudDeCompra = solicitudDeCompra;
-        this.solicitudDeCompra.setMedioDePago(medioDePago);
+        // this.solicitudDeCompra.setMedioDePago(medioDePago);
+        this.solicitudDeCompra.pagar(medioDePago);
         return solicitudDeCompra;
     }
 

@@ -48,10 +48,10 @@ public class CompraActivity extends AppCompatActivity {
 
         switch (sc_pago) {
             case "Tarjeta":
-                this.solicitud.setMedioDePago(MedioDePago.TARJETA);
+                // this.solicitud.setMedioDePago(MedioDePago.TARJETA);
                 break;
             case "MercadoPago":
-                this.solicitud.setMedioDePago(MedioDePago.MERCADO_PAGO);
+                // this.solicitud.setMedioDePago(MedioDePago.MERCADO_PAGO);
                 break;
         }
 

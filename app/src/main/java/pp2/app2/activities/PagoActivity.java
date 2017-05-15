@@ -6,15 +6,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Toast;
 
 import pp2.app2.R;
 import pp2.app2.controlador.ApplicationController;
 import pp2.app2.modelo.domain.Domicilio;
 import pp2.app2.modelo.domain.IdentityField;
 import pp2.app2.modelo.domain.MedioDePago;
+import pp2.app2.modelo.domain.MercadoPago;
 import pp2.app2.modelo.domain.Producto;
 import pp2.app2.modelo.domain.SolicitudDeCompra;
+import pp2.app2.modelo.domain.Tarjeta;
 
 public class PagoActivity extends AppCompatActivity {
 
@@ -23,7 +24,6 @@ public class PagoActivity extends AppCompatActivity {
     private Domicilio domicilio;
     private MedioDePago medioDePago;
     private RadioGroup radioPago;
-    private RadioButton radioElegido;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,10 +49,13 @@ public class PagoActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
 
+                medioDePago = new Tarjeta();
                 if (checkedId == R.id.rb_tarjeta){
-                    medioDePago = MedioDePago.TARJETA;
+                    medioDePago = new Tarjeta();
+                    // Toast.makeText(PagoActivity.this, medioDePago.toString(), Toast.LENGTH_SHORT).show();
                 }else if (checkedId == R.id.rb_mercadoPago) {
-                    medioDePago = MedioDePago.MERCADO_PAGO;
+                    medioDePago = new MercadoPago();
+                    // Toast.makeText(PagoActivity.this, medioDePago.toString(), Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -65,16 +68,8 @@ public class PagoActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                int selectedId = radioPago.getCheckedRadioButtonId();
-                radioElegido = (RadioButton)findViewById(selectedId);
-
-                if (radioElegido.getText().toString().equals("Tarjeta")) {
-                    medioDePago = MedioDePago.TARJETA;
-
-                } else if (radioElegido.getText().toString().equals("MercadoPago")) {
-                    medioDePago = MedioDePago.MERCADO_PAGO;
-                }
-
+                // Toast.makeText(PagoActivity.this, solicitud.getDomicilioEntrega().getDatos(), Toast.LENGTH_SHORT).show();
+                // Toast.makeText(PagoActivity.this, solicitud.getMedioDePago().toString(), Toast.LENGTH_SHORT).show();
                 ApplicationController.confirmarMedioDePago(getApplicationContext(), solicitud, medioDePago);
             }
 
