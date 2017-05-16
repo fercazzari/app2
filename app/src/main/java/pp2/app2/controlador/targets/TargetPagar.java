@@ -19,7 +19,7 @@ public class TargetPagar {
         this.solicitudDeCompra = solicitudDeCompra;
         // this.solicitudDeCompra.setMedioDePago(medioDePago);
         this.solicitudDeCompra.pagar(medioDePago);
-        return solicitudDeCompra;
+        return this.solicitudDeCompra;
     }
 
 }

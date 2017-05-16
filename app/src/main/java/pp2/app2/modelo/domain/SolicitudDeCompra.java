@@ -65,7 +65,9 @@ public class SolicitudDeCompra
 
     }
 
-    public void pagar (MedioDePago medioDePago) {
+    public void pagar (MedioDePago medioDePago)
+    {
+        this.medioDePago = medioDePago;
         medioDePago.pagar(this.calcularTotal());
     }
 
