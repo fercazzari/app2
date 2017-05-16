@@ -59,23 +59,27 @@ public class ApplicationController {
 
     private static void mostrarProximaVista(Context contexto, String proximaVista)
     {
-        switch(proximaVista) {
-            //Listar las vistas
-            case "sinProductos":
-                // mainPresenter.armarVista(contexto);
-                break;
-            case "elegirDomicilio":
-                domicilioPresenter.armarVista(contexto, solicitud);
-                break;
-            case "medioDePago":
-                pagoPresenter.armarVista(contexto, solicitud);
-                break;
-            case "finalizarCompra":
-                compraPresenter.armarVista(contexto, solicitud);
+        if(contexto != null)    //Para los test.
+        {
+            switch(proximaVista) {
+                //Listar las vistas
+                case "sinProductos":
+                    // mainPresenter.armarVista(contexto);
+                    break;
+                case "elegirDomicilio":
+                    domicilioPresenter.armarVista(contexto, solicitud);
+                    break;
+                case "medioDePago":
+                    pagoPresenter.armarVista(contexto, solicitud);
+                    break;
+                case "finalizarCompra":
+                    compraPresenter.armarVista(contexto, solicitud);
 
-            default:
-                break;
+                default:
+                    break;
+            }
         }
+
     }
 
     public static void prepararPedido (Context contexto, Producto producto) {
