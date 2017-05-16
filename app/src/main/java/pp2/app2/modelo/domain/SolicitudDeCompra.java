@@ -12,12 +12,14 @@ public class SolicitudDeCompra
     private List<Item> items;
     private Domicilio domicilioEntrega;
     private MedioDePago medioDePago;
+    private Estado estado;
 
     public SolicitudDeCompra()
     {
         this.items = new ArrayList<>();
         this.domicilioEntrega = null;
         this.medioDePago= null;
+        this.estado = null;
     }
 
     public boolean agregarProducto(Producto p)
@@ -72,6 +74,14 @@ public class SolicitudDeCompra
 
     public void setMedioDePago (MedioDePago medioDePago) {
         this.medioDePago = medioDePago;
+    }
+
+    public Estado getEstado () {
+        return this.estado;
+    }
+
+    public void setEstado (Estado estado) {
+        this.estado = estado;
     }
 
 }

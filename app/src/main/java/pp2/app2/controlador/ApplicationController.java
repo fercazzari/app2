@@ -65,20 +65,20 @@ public class ApplicationController {
         {
             switch(proximaVista) {
                 //Listar las vistas
-                case "sinProductos":
+                case "vistaProducto":
                     // productoPresenter.armarVista(contexto);
                     break;
-                case "elegirDomicilio":
+                case "vistaDomicilio":
                     domicilioPresenter.armarVista(contexto, solicitud);
                     break;
-                case "medioDePago":
+                case "vistaPago":
                     pagoPresenter.armarVista(contexto, solicitud);
                     break;
-                case "finalizarCompra":
+                case "vistaCompra":
                     compraPresenter.armarVista(contexto, solicitud);
-                case "verCompraFinalizada":
+                /* case "verCompraFinalizada":
                     compraFinalizadaPresenter.armarVista(contexto, solicitud);
-                    break;
+                    break; */
                 default:
                     break;
             }

@@ -1,6 +1,7 @@
 package pp2.app2.controlador.targets;
 
 import pp2.app2.modelo.domain.Domicilio;
+import pp2.app2.modelo.domain.Estado;
 import pp2.app2.modelo.domain.SolicitudDeCompra;
 
 /**
@@ -18,6 +19,7 @@ public class TargetDomiciliar {
     public SolicitudDeCompra administrar (SolicitudDeCompra solicitudDeCompra, Domicilio domicilio)  {
         this.solicitudDeCompra = solicitudDeCompra;
         this.solicitudDeCompra.setDomicilioEntrega(domicilio);
+        this.solicitudDeCompra.setEstado(Estado.DOMICILIADA);
         return this.solicitudDeCompra;
     }
 

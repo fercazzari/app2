@@ -39,7 +39,6 @@ public class CompraActivity extends AppCompatActivity {
         String precio_producto = getIntent().getStringExtra("precio_producto");
 
         String sc_domicilio = getIntent().getStringExtra("sc_domicilio");
-
         String sc_pago = getIntent().getStringExtra("sc_pago");
 
         producto = new Producto

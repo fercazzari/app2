@@ -1,5 +1,6 @@
 package pp2.app2.controlador.targets;
 
+import pp2.app2.modelo.domain.Estado;
 import pp2.app2.modelo.domain.Producto;
 import pp2.app2.modelo.domain.SolicitudDeCompra;
 
@@ -17,8 +18,9 @@ public class TargetAgregarProducto {
 
     public SolicitudDeCompra administrar(Producto producto)
     {
-        //Si hay stock agregar el producto, si no devolver la solicitud son productos.
+        //Si hay stock agregar el producto, si no devolver la solicitud sin productos.
         solicitud.agregarProducto(producto);
+        this.solicitud.setEstado(Estado.LLENA);
         return solicitud;
     }
 }

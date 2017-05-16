@@ -11,7 +11,7 @@ public class MapProximaPantalla {
     public String obtenerProximaPantalla(SolicitudDeCompra solicitud)
     {
         //Una solicitud debe tener productos antes de pasar al paso del domicilio
-        if(solicitud.getItems().isEmpty()) {
+        /* if(solicitud.getItems().isEmpty()) {
             return "sinProductos";
         }
 
@@ -19,19 +19,29 @@ public class MapProximaPantalla {
         if(solicitud.getDomicilioEntrega() == null) {
             return "elegirDomicilio";
         }
-
         if (solicitud.getMedioDePago() == null) {
             return "medioDePago";
         }
-
         if (solicitud.getMedioDePago() != null) {
             return "finalizarCompra";
         }
-
         if (solicitud.getItems() != null && solicitud.getMedioDePago() != null && solicitud.getDomicilioEntrega() != null) {
             return "verCompraFinalizada";
         }
+        return "errorGeneral"; */
 
+        switch (solicitud.getEstado()) {
+            case VACIA:
+                return "vistaProducto";
+            case LLENA:
+                return "vistaDomicilio";
+            case DOMICILIADA:
+                return "vistaPago";
+            case PAGADA:
+                return "vistaCompra";
+            // case COMPRADA:
+                // return "verCompraFinalizada";
+        }
         return "errorGeneral";
     }
 }

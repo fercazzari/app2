@@ -1,5 +1,6 @@
 package pp2.app2.controlador.targets;
 
+import pp2.app2.modelo.domain.Estado;
 import pp2.app2.modelo.domain.MedioDePago;
 import pp2.app2.modelo.domain.SolicitudDeCompra;
 
@@ -18,6 +19,7 @@ public class TargetComprar {
     public SolicitudDeCompra administrar (SolicitudDeCompra solicitudDeCompra)  {
 
         this.solicitudDeCompra = solicitudDeCompra;
+        this.solicitudDeCompra.setEstado(Estado.COMPRADA);
         return this.solicitudDeCompra;
 
     }
