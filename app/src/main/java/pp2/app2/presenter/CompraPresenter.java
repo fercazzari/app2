@@ -4,8 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 
 import pp2.app2.activities.CompraActivity;
-import pp2.app2.activities.SugerenciaActivity;
-import pp2.app2.activities.TestActivity;
 import pp2.app2.modelo.domain.Producto;
 import pp2.app2.modelo.domain.SolicitudDeCompra;
 

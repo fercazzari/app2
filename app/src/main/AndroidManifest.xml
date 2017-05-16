@@ -41,7 +41,6 @@
         <activity
             android:name=".activities.PagoActivity"
             android:label="Medio de Pago" />
-        <activity android:name=".activities.TestActivity"></activity>
     </application>
 
 </manifest>
