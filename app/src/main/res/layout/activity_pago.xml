@@ -48,26 +48,6 @@
             android:layout_marginRight="33dp"
             android:text="Siguiente" />
 
-        <Button
-            android:id="@+id/btn_p1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/radioPago"
-            android:layout_marginTop="57dp"
-            android:text="Tarjeta" />
-
-        <Button
-            android:id="@+id/btn_p2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/btn_p1"
-            android:layout_marginTop="63dp"
-            android:text="MercadoPago" />
-
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>

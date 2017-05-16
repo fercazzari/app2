@@ -28,6 +28,10 @@ public class MapProximaPantalla {
             return "finalizarCompra";
         }
 
+        if (solicitud.getItems() != null && solicitud.getMedioDePago() != null && solicitud.getDomicilioEntrega() != null) {
+            return "verCompraFinalizada";
+        }
+
         return "errorGeneral";
     }
 }

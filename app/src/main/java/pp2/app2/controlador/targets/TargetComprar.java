@@ -18,7 +18,7 @@ public class TargetComprar {
     public SolicitudDeCompra administrar (SolicitudDeCompra solicitudDeCompra)  {
 
         this.solicitudDeCompra = solicitudDeCompra;
-        return solicitudDeCompra;
+        return this.solicitudDeCompra;
 
     }
 

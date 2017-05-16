@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioGroup;
-import android.widget.Toast;
 
 import pp2.app2.R;
 import pp2.app2.controlador.ApplicationController;
@@ -42,42 +41,22 @@ public class PagoActivity extends AppCompatActivity {
         this.domicilio = new Domicilio(sc_domicilio);
         this.solicitud.setDomicilioEntrega(domicilio);
 
-        /* radioPago = (RadioGroup)findViewById(R.id.radioPago);
+        // por si no marca ningún rb y pone siguiente
+        medioDePago = new MedioDePago("Tarjeta");
+
+        radioPago = (RadioGroup)findViewById(R.id.radioPago);
         radioPago.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener(){
 
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
 
-                medioDePago = new MedioDePago("Tarjeta");
                 if (checkedId == R.id.rb_tarjeta){
                     medioDePago = new MedioDePago("Tarjeta");
-                    // Toast.makeText(PagoActivity.this, medioDePago.toString(), Toast.LENGTH_SHORT).show();
+
                 }else if (checkedId == R.id.rb_mercadoPago) {
                     medioDePago = new MedioDePago("MercadoPago");
-                    // Toast.makeText(PagoActivity.this, medioDePago.toString(), Toast.LENGTH_SHORT).show();
+
                 }
-
-
-            }
-
-        }); */
-
-        Button btn_p1 = (Button)findViewById(R.id.btn_p1);
-        btn_p1.setOnClickListener( new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                medioDePago = new MedioDePago("Tarjeta");
-                // Toast.makeText(PagoActivity.this, solicitud.getMedioDePago().getTipo(), Toast.LENGTH_SHORT).show();
-            }
-
-        });
-
-        Button btn_p2 = (Button)findViewById(R.id.btn_p2);
-        btn_p2.setOnClickListener( new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
 
             }
 

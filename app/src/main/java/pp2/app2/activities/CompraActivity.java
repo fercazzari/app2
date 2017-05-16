@@ -25,6 +25,8 @@ public class CompraActivity extends AppCompatActivity {
 
     private SolicitudDeCompra solicitud;
     private Carrito carrito;
+    private Producto producto;
+    private MedioDePago medioDePago;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,14 +42,16 @@ public class CompraActivity extends AppCompatActivity {
 
         String sc_pago = getIntent().getStringExtra("sc_pago");
 
-        final Producto producto = new Producto
+        producto = new Producto
                 (new IdentityField(Integer.valueOf(id_producto)), nombre_producto, Double.valueOf(precio_producto));
 
+        // rearmo la solicitud que vino
         this.solicitud = new SolicitudDeCompra();
+
         this.solicitud.agregarProducto(producto);
         this.solicitud.setDomicilioEntrega(new Domicilio(sc_domicilio));
 
-        MedioDePago medioDePago = new MedioDePago(sc_pago);
+        medioDePago = new MedioDePago(sc_pago);
         this.solicitud.setMedioDePago(medioDePago);
 
         this.carrito = new Carrito();
@@ -56,10 +60,10 @@ public class CompraActivity extends AppCompatActivity {
         }
 
         TextView tv_cantidad = (TextView)findViewById(R.id.txt_cantidad);
-        // tv_cantidad.setText(String.valueOf(this.carrito.getCantidad()));
+        tv_cantidad.setText(String.valueOf(this.carrito.getCantidad()));
 
         TextView tv_total = (TextView)findViewById(R.id.txt_total);
-        // tv_total.setText(String.valueOf(this.carrito.getTotal()));
+        tv_total.setText(String.valueOf(this.carrito.getTotal()));
 
         Button button_finalizar = (Button)findViewById(R.id.button_finalizar);
         button_finalizar.setOnClickListener( new View.OnClickListener() {
