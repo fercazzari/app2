@@ -46,8 +46,8 @@ public class ApplicationController {
         mostrarProximaVista(context, map.obtenerProximaPantalla(solicitud));
     }
 
-    public static void confirmarMedioDePago (Context context, SolicitudDeCompra solicitud, MedioDePago medioDePago) {
-        solicitud = new TargetPagar().administrar(solicitud, medioDePago);
+    public static void confirmarMedioDePago (Context context, SolicitudDeCompra solicitudp, MedioDePago medioDePago) {
+        solicitud = new TargetPagar().administrar(solicitudp, medioDePago);
         mostrarProximaVista(context, map.obtenerProximaPantalla(solicitud));
     }
 

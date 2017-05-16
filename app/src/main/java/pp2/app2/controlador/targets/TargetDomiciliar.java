@@ -18,6 +18,7 @@ public class TargetDomiciliar {
     public SolicitudDeCompra administrar (SolicitudDeCompra solicitudDeCompra, Domicilio domicilio)  {
         this.solicitudDeCompra = solicitudDeCompra;
         this.solicitudDeCompra.setDomicilioEntrega(domicilio);
-        return solicitudDeCompra;
+        return this.solicitudDeCompra;
     }
+
 }

@@ -20,11 +20,6 @@ public class MapProximaPantalla {
             return "elegirDomicilio";
         }
 
-        // Idem
-        //if (solicitud.getDomicilioEntrega() != null) {
-            //return "medioDePago";
-        //}
-
         if (solicitud.getMedioDePago() == null) {
             return "medioDePago";
         }

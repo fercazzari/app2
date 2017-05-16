@@ -5,6 +5,7 @@ import android.content.Intent;
 
 import pp2.app2.activities.CompraActivity;
 import pp2.app2.activities.SugerenciaActivity;
+import pp2.app2.activities.TestActivity;
 import pp2.app2.modelo.domain.Producto;
 import pp2.app2.modelo.domain.SolicitudDeCompra;
 
@@ -27,7 +28,7 @@ public class CompraPresenter {
 
         i.putExtra("sc_domicilio", solicitud.getDomicilioEntrega().getDatos());
 
-        i.putExtra("sc_pago", solicitud.getMedioDePago().toString());
+        i.putExtra("sc_pago", solicitud.getMedioDePago().getTipo());
 
         context.startActivity( i );
     }

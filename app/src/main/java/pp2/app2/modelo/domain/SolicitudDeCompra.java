@@ -17,6 +17,7 @@ public class SolicitudDeCompra
     {
         this.items = new ArrayList<>();
         this.domicilioEntrega = null;
+        this.medioDePago= null;
     }
 
     public boolean agregarProducto(Producto p)
@@ -65,18 +66,12 @@ public class SolicitudDeCompra
 
     }
 
-    public void pagar (MedioDePago medioDePago)
-    {
-        this.medioDePago = medioDePago;
-        medioDePago.pagar(this.calcularTotal());
-    }
-
-    /* Npublic void setMedioDePago (MedioDePago medioDePago) {
-        this.medioDePago = medioDePago;
-    } */
-
     public MedioDePago getMedioDePago () {
         return this.medioDePago;
+    }
+
+    public void setMedioDePago (MedioDePago medioDePago) {
+        this.medioDePago = medioDePago;
     }
 
 }

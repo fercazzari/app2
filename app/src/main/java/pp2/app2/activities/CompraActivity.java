@@ -40,20 +40,15 @@ public class CompraActivity extends AppCompatActivity {
 
         String sc_pago = getIntent().getStringExtra("sc_pago");
 
-        final Producto producto = new Producto(new IdentityField(Integer.valueOf(id_producto)), nombre_producto, Double.valueOf(precio_producto));
+        final Producto producto = new Producto
+                (new IdentityField(Integer.valueOf(id_producto)), nombre_producto, Double.valueOf(precio_producto));
 
         this.solicitud = new SolicitudDeCompra();
         this.solicitud.agregarProducto(producto);
         this.solicitud.setDomicilioEntrega(new Domicilio(sc_domicilio));
 
-        switch (sc_pago) {
-            case "Tarjeta":
-                // this.solicitud.setMedioDePago(MedioDePago.TARJETA);
-                break;
-            case "MercadoPago":
-                // this.solicitud.setMedioDePago(MedioDePago.MERCADO_PAGO);
-                break;
-        }
+        MedioDePago medioDePago = new MedioDePago(sc_pago);
+        this.solicitud.setMedioDePago(medioDePago);
 
         this.carrito = new Carrito();
         for (Item item : this.solicitud.getItems()) {
@@ -61,10 +56,10 @@ public class CompraActivity extends AppCompatActivity {
         }
 
         TextView tv_cantidad = (TextView)findViewById(R.id.txt_cantidad);
-        tv_cantidad.setText(String.valueOf(this.carrito.getCantidad()));
+        // tv_cantidad.setText(String.valueOf(this.carrito.getCantidad()));
 
         TextView tv_total = (TextView)findViewById(R.id.txt_total);
-        tv_total.setText(String.valueOf(this.carrito.getTotal()));
+        // tv_total.setText(String.valueOf(this.carrito.getTotal()));
 
         Button button_finalizar = (Button)findViewById(R.id.button_finalizar);
         button_finalizar.setOnClickListener( new View.OnClickListener() {
