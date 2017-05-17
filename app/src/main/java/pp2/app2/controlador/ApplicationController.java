@@ -2,9 +2,7 @@ package pp2.app2.controlador;
 
 import android.content.Context;
 
-import pp2.app2.controlador.comandos.ComandoMostrarProducto;
 import pp2.app2.controlador.comandos.ComandoPedido;
-import pp2.app2.controlador.comandos.ComandoProcesarSolicitud;
 import pp2.app2.controlador.targets.TargetAgregarProducto;
 import pp2.app2.controlador.targets.TargetComprar;
 import pp2.app2.controlador.targets.TargetDomiciliar;
@@ -29,7 +27,6 @@ public class ApplicationController {
     private static ComandoPedido pedido;
 
     private static MapProximaPantalla map = new MapProximaPantalla();
-    private static SolicitudDeCompra solicitud;
 
     private static ProductoPresenter productoPresenter = new ProductoPresenter();
     private static DomicilioPresenter domicilioPresenter = new DomicilioPresenter();
@@ -37,29 +34,29 @@ public class ApplicationController {
     private static CompraPresenter compraPresenter = new CompraPresenter();
     private static CompraFinalizadaPresenter compraFinalizadaPresenter = new CompraFinalizadaPresenter();
 
-    public static void agregarProducto (Context contexto, Producto producto)
+    public static void agregarProducto (Context contexto, SolicitudDeCompra solicitud, Producto producto)
     {
         solicitud = new TargetAgregarProducto().administrar(producto);
-        mostrarProximaVista(contexto, map.obtenerProximaPantalla(solicitud));
+        mostrarProximaVista(contexto, solicitud, map.obtenerProximaPantalla(solicitud));
     }
 
-    public static void confirmarDomicilio (Context context, SolicitudDeCompra solicitudDeCompra, Domicilio domicilio) {
-        solicitud = new TargetDomiciliar().administrar(solicitudDeCompra, domicilio);
-        mostrarProximaVista(context, map.obtenerProximaPantalla(solicitud));
+    public static void confirmarDomicilio (Context context, SolicitudDeCompra solicitud, Domicilio domicilio) {
+        solicitud = new TargetDomiciliar().administrar(solicitud, domicilio);
+        mostrarProximaVista(context, solicitud, map.obtenerProximaPantalla(solicitud));
     }
 
-    public static void confirmarMedioDePago (Context context, SolicitudDeCompra solicitudp, MedioDePago medioDePago) {
-        solicitud = new TargetPagar().administrar(solicitudp, medioDePago);
-        mostrarProximaVista(context, map.obtenerProximaPantalla(solicitud));
+    public static void confirmarMedioDePago (Context context, SolicitudDeCompra solicitud, MedioDePago medioDePago) {
+        solicitud = new TargetPagar().administrar(solicitud, medioDePago);
+        mostrarProximaVista(context, solicitud, map.obtenerProximaPantalla(solicitud));
     }
 
-    public static void confirmarCompra (Context context, SolicitudDeCompra sc) {
-        solicitud = new TargetComprar().administrar(sc);
-        mostrarProximaVista(context, map.obtenerProximaPantalla(solicitud));
+    public static void confirmarCompra (Context context, SolicitudDeCompra solicitud) {
+        solicitud = new TargetComprar().administrar(solicitud);
+        mostrarProximaVista(context, solicitud, map.obtenerProximaPantalla(solicitud));
     }
 
 
-    private static void mostrarProximaVista(Context contexto, String proximaVista)
+    private static void mostrarProximaVista(Context contexto, SolicitudDeCompra solicitud, String proximaVista)
     {
         if(contexto != null)    //Para los test.
         {
