@@ -29,12 +29,15 @@ public class SolicitudDeCompra
             int indice = -1;
             for (Item i : items)
             {
-                if (i.esProducto(p))
+                if (i.getProducto().equals(p))
                 {
                     indice = items.indexOf(i);
-                    // i.agregarUnidad();
-                    return true;
+                    i.agregarUnidad(i);
                 }
+            }
+            if (indice != -1)
+            {
+                return true;
             }
             items.add(new Item(p, 1));
             return true;

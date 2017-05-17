@@ -23,8 +23,8 @@ public class Item
         return this.cantidad;
     }
 
-    public boolean esProducto(Producto p) {
-        return false;
-    }
 
+    public void agregarUnidad(Item i) {
+        i.cantidad++;
+    }
 }

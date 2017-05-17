@@ -8,7 +8,7 @@ public class VerificadorDeStock
 {
     public static boolean hayStock(Producto p)
     {
-        //Conextarse y preguntar si hay stock de tal producto
+        //Conectarse y preguntar si hay stock de tal producto
         return true;
     }
 }
