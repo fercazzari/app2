@@ -1,5 +1,6 @@
 package pp2.app2.controlador;
 
+import pp2.app2.modelo.domain.Estado;
 import pp2.app2.modelo.domain.SolicitudDeCompra;
 
 /**
@@ -10,26 +11,33 @@ public class MapProximaPantalla {
 
     public String obtenerProximaPantalla(SolicitudDeCompra solicitud)
     {
-        //Una solicitud debe tener productos antes de pasar al paso del domicilio
-        /* if(solicitud.getItems().isEmpty()) {
-            return "sinProductos";
+        if (solicitud.getEstado() == Estado.PAGADA)
+        {
+            return "vistaCompra";
         }
+        else
+        {
+            //Una solicitud debe tener productos antes de pasar al paso del domicilio
+             if(solicitud.getItems().isEmpty()) {
+                return "sinProductos";
+            }
 
-        //Una solicitud debe tener productos y domicilio antes de pasar al paso del medio de pago
-        if(solicitud.getDomicilioEntrega() == null) {
-            return "elegirDomicilio";
-        }
-        if (solicitud.getMedioDePago() == null) {
-            return "medioDePago";
-        }
-        if (solicitud.getMedioDePago() != null) {
-            return "finalizarCompra";
-        }
-        if (solicitud.getItems() != null && solicitud.getMedioDePago() != null && solicitud.getDomicilioEntrega() != null) {
-            return "verCompraFinalizada";
-        }
-        return "errorGeneral"; */
+            //Una solicitud debe tener productos y domicilio antes de pasar al paso del medio de pago
+            if(solicitud.getDomicilioEntrega() == null) {
+                return "vistaDomicilio";
+            }
 
+            if (solicitud.getMedioDePago() == null) {
+                return "vistaPago";
+            }
+
+            if (solicitud.getMedioDePago() != null) {
+                return "vistaCompra";
+            }
+        }
+        return "errorGeneral";
+    }
+    /*
         switch (solicitud.getEstado()) {
             case VACIA:
                 return "vistaProducto";
@@ -44,4 +52,5 @@ public class MapProximaPantalla {
         }
         return "errorGeneral";
     }
+    */
 }
