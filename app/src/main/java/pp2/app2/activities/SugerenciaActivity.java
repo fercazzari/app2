@@ -7,7 +7,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import pp2.app2.R;
-import pp2.app2.controlador.ApplicationController;
 import pp2.app2.modelo.domain.IdentityField;
 import pp2.app2.modelo.app.DatosTemp;
 import pp2.app2.modelo.domain.Producto;
@@ -47,7 +46,7 @@ public class SugerenciaActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                // ApplicationController.recibirCommand("omitirSugerencia", getApplicationContext(), producto);
+                // CompraController.recibirCommand("omitirSugerencia", getApplicationContext(), producto);
 
             }
         });
@@ -58,7 +57,7 @@ public class SugerenciaActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                // ApplicationController.recibirCommand("aceptarSugerencia", getApplicationContext(), producto);
+                // CompraController.recibirCommand("aceptarSugerencia", getApplicationContext(), producto);
             }
         });
     }

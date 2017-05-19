@@ -20,7 +20,7 @@ import pp2.app2.presenter.ProductoPresenter;
  * Created by fcazzari on 05/05/2017.
  */
 
-public class ApplicationController {
+public class CompraController {
 
 
     private static MapProximaPantalla map = new MapProximaPantalla();

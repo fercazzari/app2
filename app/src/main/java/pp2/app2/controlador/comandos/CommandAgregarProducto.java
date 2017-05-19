@@ -20,7 +20,6 @@ public class CommandAgregarProducto {
     {
         //Si hay stock agregar el producto, si no devolver la solicitud sin productos.
         solicitud.agregarProducto(producto);
-        this.solicitud.setEstado(Estado.LLENA);
         return solicitud;
     }
 }

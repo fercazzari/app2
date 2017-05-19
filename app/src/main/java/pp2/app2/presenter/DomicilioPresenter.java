@@ -3,12 +3,8 @@ package pp2.app2.presenter;
 import android.content.Context;
 import android.content.Intent;
 
-import pp2.app2.activities.CompraActivity;
 import pp2.app2.activities.DomicilioActivity;
-import pp2.app2.controlador.ApplicationController;
-import pp2.app2.modelo.domain.Domicilio;
 import pp2.app2.modelo.domain.Item;
-import pp2.app2.modelo.domain.Producto;
 import pp2.app2.modelo.domain.SolicitudDeCompra;
 
 /**

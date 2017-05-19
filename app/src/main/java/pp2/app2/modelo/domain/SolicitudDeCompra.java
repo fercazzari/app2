@@ -56,9 +56,11 @@ public class SolicitudDeCompra
         return this.domicilioEntrega;
     }
 
-    public void setDomicilioEntrega (Domicilio domicilioEntrega) {
-        this.domicilioEntrega = new Domicilio();
-        this.domicilioEntrega = domicilioEntrega;
+    public void agregarDomicilio (Domicilio domicilioEntrega) {
+       if (VerificadorDomicilio.existeDomicilio(domicilioEntrega)){
+           this.domicilioEntrega = new Domicilio();
+           this.domicilioEntrega = domicilioEntrega;
+       }
     }
 
     public int calcularTotal () {
@@ -75,8 +77,10 @@ public class SolicitudDeCompra
         return this.medioDePago;
     }
 
-    public void setMedioDePago (MedioDePago medioDePago) {
-        this.medioDePago = medioDePago;
+    public void agregarMedioDePago (MedioDePago medioDePago) {
+        if (APIPago.esValido(medioDePago)) {
+            this.medioDePago = medioDePago;
+        }
     }
 
     public Estado getEstado () {
@@ -87,4 +91,11 @@ public class SolicitudDeCompra
         this.estado = estado;
     }
 
+    public void setDomicilioEntrega (Domicilio domicilio) {
+        this.domicilioEntrega = domicilio;
+    }
+
+    public void setMedioDePago (MedioDePago medioDePago) {
+        this.medioDePago = medioDePago;
+    }
 }

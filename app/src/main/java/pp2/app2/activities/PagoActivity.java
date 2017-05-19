@@ -7,7 +7,7 @@ import android.widget.Button;
 import android.widget.RadioGroup;
 
 import pp2.app2.R;
-import pp2.app2.controlador.ApplicationController;
+import pp2.app2.controlador.CompraController;
 import pp2.app2.modelo.domain.Domicilio;
 import pp2.app2.modelo.domain.IdentityField;
 import pp2.app2.modelo.domain.MedioDePago;
@@ -67,7 +67,7 @@ public class PagoActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                ApplicationController.confirmarMedioDePago(getApplicationContext(), solicitud, medioDePago);
+                CompraController.confirmarMedioDePago(getApplicationContext(), solicitud, medioDePago);
             }
 
         });

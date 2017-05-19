@@ -18,8 +18,8 @@ public class CommandDomiciliar {
 
     public SolicitudDeCompra administrar (SolicitudDeCompra solicitudDeCompra, Domicilio domicilio)  {
         this.solicitudDeCompra = solicitudDeCompra;
-        this.solicitudDeCompra.setDomicilioEntrega(domicilio);
-        this.solicitudDeCompra.setEstado(Estado.DOMICILIADA);
+        // this.solicitudDeCompra.setDomicilioEntrega(domicilio);
+        this.solicitudDeCompra.agregarDomicilio(domicilio);
         return this.solicitudDeCompra;
     }
 

@@ -19,7 +19,6 @@ public class CommandComprar {
     public SolicitudDeCompra administrar (SolicitudDeCompra solicitudDeCompra)  {
 
         this.solicitudDeCompra = solicitudDeCompra;
-        this.solicitudDeCompra.setEstado(Estado.COMPRADA);
         return this.solicitudDeCompra;
 
     }

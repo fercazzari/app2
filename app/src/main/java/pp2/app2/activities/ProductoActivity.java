@@ -8,7 +8,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import pp2.app2.R;
-import pp2.app2.controlador.ApplicationController;
+import pp2.app2.controlador.CompraController;
 import pp2.app2.modelo.app.DatosTemp;
 import pp2.app2.modelo.domain.Producto;
 import pp2.app2.modelo.domain.SolicitudDeCompra;
@@ -45,7 +45,7 @@ public class ProductoActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                ApplicationController.agregarProducto(getApplicationContext(), solicitud, producto);
+                CompraController.agregarProducto(getApplicationContext(), solicitud, producto);
             }
         });
 

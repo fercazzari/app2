@@ -10,7 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import pp2.app2.R;
-import pp2.app2.controlador.ApplicationController;
+import pp2.app2.controlador.CompraController;
 import pp2.app2.modelo.app.Conexion;
 import pp2.app2.modelo.app.Constantes;
 import pp2.app2.modelo.domain.Domicilio;
@@ -69,7 +69,7 @@ public class CompraActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                ApplicationController.confirmarCompra(getApplicationContext(), solicitud);
+                CompraController.confirmarCompra(getApplicationContext(), solicitud);
             }
         });
 

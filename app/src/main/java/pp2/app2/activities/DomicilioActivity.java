@@ -7,7 +7,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import pp2.app2.R;
-import pp2.app2.controlador.ApplicationController;
+import pp2.app2.controlador.CompraController;
 import pp2.app2.modelo.domain.Domicilio;
 import pp2.app2.modelo.domain.IdentityField;
 import pp2.app2.modelo.domain.Producto;
@@ -56,7 +56,7 @@ public class DomicilioActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                ApplicationController.confirmarDomicilio(getApplicationContext(), solicitudDeCompra, domicilio);
+                CompraController.confirmarDomicilio(getApplicationContext(), solicitudDeCompra, domicilio);
             }
 
         });
