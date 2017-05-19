@@ -28,7 +28,7 @@ public class CompraTest
     {
         SolicitudDeCompra solicitudVacia = new SolicitudDeCompra();
         CompraController.agregarProducto(null, solicitudVacia, producto);
-        assertFalse(solicitudVacia.getItems().isEmpty());
+        assertTrue(solicitudVacia.getItems().isEmpty());
         System.out.println(solicitudVacia.getItems().get(0));
     }
 

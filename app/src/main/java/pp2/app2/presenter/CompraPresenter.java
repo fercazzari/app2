@@ -26,7 +26,7 @@ public class CompraPresenter {
 
         i.putExtra("sc_domicilio", solicitud.getDomicilioEntrega().getDatos());
 
-        i.putExtra("sc_pago", solicitud.getMedioDePago().getTipo());
+        i.putExtra("sc_pago", solicitud.getMedioDePago().toString());
 
         context.startActivity( i );
     }

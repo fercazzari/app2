@@ -11,7 +11,7 @@ public class MapProximaPantalla {
 
     public String obtenerProximaPantalla(SolicitudDeCompra solicitud)
     {
-        if (solicitud.getEstado() == Estado.PAGADA)
+        if (solicitud.getEstado() == Estado.PAGO_ELEGIDO)
         {
             return "vistaCompra";
         }

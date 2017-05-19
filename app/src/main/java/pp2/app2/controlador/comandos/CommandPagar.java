@@ -13,7 +13,7 @@ public class CommandPagar {
     public SolicitudDeCompra administrar (SolicitudDeCompra solicitudDeCompra, MedioDePago medioDePago)  {
         // this.solicitudDeCompra.pagar(medioDePago);
         solicitudDeCompra.agregarMedioDePago(medioDePago);
-        solicitudDeCompra.setEstado(Estado.PAGADA);
+        solicitudDeCompra.setEstado(Estado.PAGO_ELEGIDO);
         return solicitudDeCompra;
     }
 

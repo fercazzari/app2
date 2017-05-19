@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.SwitchCompat;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -18,8 +19,10 @@ import pp2.app2.modelo.domain.IdentityField;
 import pp2.app2.modelo.domain.Carrito;
 import pp2.app2.modelo.domain.Item;
 import pp2.app2.modelo.domain.MedioDePago;
+import pp2.app2.modelo.domain.MercadoPago;
 import pp2.app2.modelo.domain.Producto;
 import pp2.app2.modelo.domain.SolicitudDeCompra;
+import pp2.app2.modelo.domain.Tarjeta;
 
 public class CompraActivity extends AppCompatActivity {
 
@@ -33,7 +36,7 @@ public class CompraActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_compra);
 
-        // todos los details del producto para agregarlo al carrito
+        // todos los details de la solicitud para agregarlo al carrito
         String id_producto = getIntent().getStringExtra("id_producto");
         String nombre_producto = getIntent().getStringExtra("nombre_producto");
         String precio_producto = getIntent().getStringExtra("precio_producto");
@@ -50,13 +53,24 @@ public class CompraActivity extends AppCompatActivity {
         this.solicitud.agregarProducto(producto);
         this.solicitud.setDomicilioEntrega(new Domicilio(sc_domicilio));
 
-        medioDePago = new MedioDePago(sc_pago);
+        switch (sc_pago) {
+            case "Tarjeta":
+                medioDePago = new Tarjeta("XXXX-XXXX-XXXX-XXXX");
+                break;
+            case "MercadoPago":
+                medioDePago = new MercadoPago("Visa");
+                break;
+
+        }
+
         this.solicitud.setMedioDePago(medioDePago);
 
         this.carrito = new Carrito();
         for (Item item : this.solicitud.getItems()) {
             this.carrito.agregarItem(item.getProducto());
         }
+
+
 
         TextView tv_cantidad = (TextView)findViewById(R.id.txt_cantidad);
         tv_cantidad.setText(String.valueOf(this.carrito.getCantidad()));

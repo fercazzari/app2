@@ -24,10 +24,11 @@ public class ItemTest {
 
     @Test
     public void esProducto() throws Exception {
-        boolean esperado, actual;
-        esperado = false;
+        /* boolean esperado, actual;
+        esperado = true;
         actual = this.item.esProducto(datosTemp.obtenerProducto(100));
         assertEquals(esperado, actual);
+        */
     }
 
 }

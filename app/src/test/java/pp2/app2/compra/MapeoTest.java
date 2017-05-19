@@ -8,6 +8,7 @@ import pp2.app2.modelo.domain.Estado;
 import pp2.app2.modelo.domain.MedioDePago;
 import pp2.app2.modelo.domain.Producto;
 import pp2.app2.modelo.domain.SolicitudDeCompra;
+import pp2.app2.modelo.domain.Tarjeta;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
@@ -50,7 +51,7 @@ public class MapeoTest
         assertNotEquals(map.obtenerProximaPantalla(solicitud), "vistaCompra");
         solicitud.agregarDomicilio(new Domicilio("Calle falsa 123"));
         assertNotEquals(map.obtenerProximaPantalla(solicitud), "vistaCompra");
-        solicitud.agregarMedioDePago(new MedioDePago("Tarjeta"));
+        solicitud.agregarMedioDePago(new Tarjeta("XXXX-XXXX-XXXX-XXXX"));
         assertEquals(map.obtenerProximaPantalla(solicitud), "vistaCompra");
     }
 
@@ -63,9 +64,13 @@ public class MapeoTest
         assertNotEquals(map.obtenerProximaPantalla(solicitud), "verCompraFinalizada");
         solicitud.agregarDomicilio(new Domicilio("Calle falsa 123"));
         assertNotEquals(map.obtenerProximaPantalla(solicitud), "verCompraFinalizada");
-        solicitud.agregarMedioDePago(new MedioDePago("Tarjeta"));
+        solicitud.agregarMedioDePago(new Tarjeta("XXXX-XXXX-XXXX-XXXX"));
         assertNotEquals(map.obtenerProximaPantalla(solicitud), "verCompraFinalizada");
-        solicitud.setEstado(Estado.PAGADA);
+        solicitud.setEstado(Estado.PAGO_ELEGIDO);
+        assertNotEquals(map.obtenerProximaPantalla(solicitud), "verCompraFinalizada");
+        solicitud.setEstado(Estado.LISTA);
+        assertNotEquals(map.obtenerProximaPantalla(solicitud), "verCompraFinalizada");
+        solicitud.setEstado(Estado.FINALIZADA);
         assertEquals(map.obtenerProximaPantalla(solicitud), "verCompraFinalizada");
     }
 }

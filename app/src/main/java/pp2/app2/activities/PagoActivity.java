@@ -11,8 +11,10 @@ import pp2.app2.controlador.CompraController;
 import pp2.app2.modelo.domain.Domicilio;
 import pp2.app2.modelo.domain.IdentityField;
 import pp2.app2.modelo.domain.MedioDePago;
+import pp2.app2.modelo.domain.MercadoPago;
 import pp2.app2.modelo.domain.Producto;
 import pp2.app2.modelo.domain.SolicitudDeCompra;
+import pp2.app2.modelo.domain.Tarjeta;
 
 public class PagoActivity extends AppCompatActivity {
 
@@ -42,7 +44,7 @@ public class PagoActivity extends AppCompatActivity {
         this.solicitud.setDomicilioEntrega(domicilio);
 
         // por si no marca ningún rb y pone siguiente
-        medioDePago = new MedioDePago("Tarjeta");
+        medioDePago = new Tarjeta("XXXX-XXXX-XXXX-XXXX");
 
         radioPago = (RadioGroup)findViewById(R.id.radioPago);
         radioPago.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener(){
@@ -51,11 +53,9 @@ public class PagoActivity extends AppCompatActivity {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
 
                 if (checkedId == R.id.rb_tarjeta){
-                    medioDePago = new MedioDePago("Tarjeta");
-
+                    medioDePago = new Tarjeta("XXXX-XXXX-XXXX-XXXX");
                 }else if (checkedId == R.id.rb_mercadoPago) {
-                    medioDePago = new MedioDePago("MercadoPago");
-
+                    medioDePago = new MercadoPago("Visa");
                 }
 
             }

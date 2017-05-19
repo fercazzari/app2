@@ -62,10 +62,6 @@ public class CompraController {
         mostrarProximaVista(context, solicitud, map.obtenerProximaPantalla(solicitud));
     }
 
-    public static void gestionarSugerencia (Context context, SolicitudDeCompra solicitudDeCompra, boolean agrega) {
-        solicitudDeCompra = new CommandSugerir().administrar(solicitudDeCompra);
-    }
-
     private static void mostrarProximaVista(Context contexto, SolicitudDeCompra solicitud, String proximaVista)
     {
         if(contexto != null)    //Para los test.
