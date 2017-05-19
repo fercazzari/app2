@@ -15,6 +15,11 @@ public class MapProximaPantalla {
         {
             return "vistaCompra";
         }
+
+        if (solicitud.getEstado() == Estado.FINALIZADA) {
+            return "vistaCompraFinalizada";
+        }
+
         else
         {
             //Una solicitud debe tener productos antes de pasar al paso del domicilio
@@ -34,6 +39,7 @@ public class MapProximaPantalla {
             if (solicitud.getMedioDePago() != null) {
                 return "vistaCompra";
             }
+
         }
         return "errorGeneral";
     }

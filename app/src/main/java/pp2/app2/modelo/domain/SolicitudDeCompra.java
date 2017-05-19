@@ -98,4 +98,9 @@ public class SolicitudDeCompra
     public void setMedioDePago (MedioDePago medioDePago) {
         this.medioDePago = medioDePago;
     }
+
+    public void confirmar() {
+        this.estado = Estado.FINALIZADA;
+    }
+
 }

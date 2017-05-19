@@ -11,6 +11,7 @@ public class VerificadorDeStock
     public static boolean hayStock(Producto p)
     {
         //Conectarse y preguntar si hay stock de tal producto
-        return new Random().nextBoolean();
+        return true;
+        // return new Random().nextBoolean();
     }
 }
