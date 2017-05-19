@@ -72,16 +72,6 @@ public class SolicitudDeCompra
 
     }
 
-    public MedioDePago getMedioDePago () {
-        return this.medioDePago;
-    }
-
-    public void agregarMedioDePago (MedioDePago medioDePago) {
-        if (APIPago.esValido(medioDePago)) {
-            this.medioDePago = medioDePago;
-        }
-    }
-
     public Estado getEstado () {
         return this.estado;
     }
@@ -98,8 +88,14 @@ public class SolicitudDeCompra
         this.medioDePago = medioDePago;
     }
 
-    public void confirmar() {
-        this.estado = Estado.LISTA;
+    public MedioDePago getMedioDePago () {
+        return this.medioDePago;
+    }
+
+    public void agregarMedioDePago (MedioDePago medioDePago) {
+        if (APIPago.esValido(medioDePago)) {
+            this.medioDePago = medioDePago;
+        }
     }
 
     public void finalizar() {

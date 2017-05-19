@@ -5,6 +5,7 @@ import org.junit.Test;
 import pp2.app2.controlador.CompraController;
 import pp2.app2.modelo.app.DatosTemp;
 import pp2.app2.modelo.domain.Domicilio;
+import pp2.app2.modelo.domain.Estado;
 import pp2.app2.modelo.domain.MedioDePago;
 import pp2.app2.modelo.domain.Producto;
 import pp2.app2.modelo.domain.SolicitudDeCompra;
@@ -51,5 +52,16 @@ public class CompraTest
         CompraController.confirmarMedioDePago(null, solicitudVacia, new Tarjeta("XXXX-XXXX-XXXX-XXXX"));
         assertTrue(solicitudVacia.getMedioDePago() != null);
         assertEquals(solicitudVacia.getMedioDePago().toString(), "Tarjeta");
+    }
+
+    @Test
+    public void confirmarCompraTest()
+    {
+        Estado esperado, actual;
+        SolicitudDeCompra solicitudVacia = new SolicitudDeCompra();
+        CompraController.confirmarCompra(null, solicitudVacia);
+        esperado = Estado.FINALIZADA;
+        actual = solicitudVacia.getEstado();
+        assertEquals(esperado, actual);
     }
 }

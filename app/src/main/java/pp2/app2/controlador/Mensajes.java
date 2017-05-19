@@ -12,24 +12,28 @@ import pp2.app2.modelo.app.Constantes;
 public class Mensajes
 {
     //Mostrar cartelitos de error
-    protected static void informarErrorDeConexion(Context context)
+    protected static String informarErrorDeConexion(Context context)
     {
-        Toast.makeText(context, Constantes.msg_no_conexion, Toast.LENGTH_SHORT).show();
+        // Toast.makeText(context, Constantes.msg_no_conexion, Toast.LENGTH_SHORT).show();
+        return Constantes.msg_no_conexion;
     }
 
-    protected static void informarErrorGeneral(Context context)
+    protected static String informarErrorGeneral(Context context)
     {
-        Toast.makeText(context, Constantes.msg_error_general, Toast.LENGTH_SHORT).show();
+        // Toast.makeText(context, Constantes.msg_error_general, Toast.LENGTH_SHORT).show();
+        return Constantes.msg_error_general;
     }
 
-    protected static void informarFuncionalidadNoDisponible(Context context)
+    protected static String informarFuncionalidadNoDisponible(Context context)
     {
-        Toast.makeText(context, Constantes.msg_funcionalidad_no_disponible, Toast.LENGTH_SHORT).show();
+        // Toast.makeText(context, Constantes.msg_funcionalidad_no_disponible, Toast.LENGTH_SHORT).show();
+        return Constantes.msg_funcionalidad_no_disponible;
     }
 
-    protected static void informarSinStock(Context context)
+    protected static String informarSinStock(Context context)
     {
-        Toast.makeText(context, Constantes.msg_sin_stock, Toast.LENGTH_SHORT).show();
+        // Toast.makeText(context, Constantes.msg_sin_stock, Toast.LENGTH_SHORT).show();
+        return Constantes.msg_sin_stock;
     }
 
 }

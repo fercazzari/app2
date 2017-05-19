@@ -2,15 +2,11 @@ package pp2.app2.controlador;
 
 import android.content.Context;
 
-import java.util.List;
-
 import pp2.app2.controlador.comandos.CommandAgregarProducto;
 import pp2.app2.controlador.comandos.CommandComprar;
 import pp2.app2.controlador.comandos.CommandDomiciliar;
 import pp2.app2.controlador.comandos.CommandPagar;
-import pp2.app2.controlador.comandos.CommandSugerir;
 import pp2.app2.modelo.domain.Domicilio;
-import pp2.app2.modelo.domain.Item;
 import pp2.app2.modelo.domain.MedioDePago;
 import pp2.app2.modelo.domain.Producto;
 import pp2.app2.modelo.domain.SolicitudDeCompra;
@@ -26,7 +22,6 @@ import pp2.app2.presenter.SugerenciaPresenter;
  */
 
 public class CompraController {
-
 
     private static MapProximaPantalla map = new MapProximaPantalla();
 

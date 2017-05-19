@@ -15,6 +15,10 @@ public class Recomendador {
         this.sugerencias = new HashMap<Producto, Producto>();
     }
 
+    public void agregarSugerencia (Producto producto, Producto recomendado) {
+        this.sugerencias.put(producto, recomendado);
+    }
+
     public Producto recomendar (Producto producto) {
 
         Producto resultado = new Producto();

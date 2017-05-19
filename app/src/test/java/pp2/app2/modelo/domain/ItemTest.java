@@ -1,4 +1,4 @@
-package pp2.app2.modelo;
+package pp2.app2.modelo.domain;
 
 import org.junit.Before;
 import org.junit.Test;
