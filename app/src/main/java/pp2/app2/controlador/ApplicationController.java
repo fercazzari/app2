@@ -62,6 +62,9 @@ public class ApplicationController {
         {
             switch(proximaVista) {
                 //Listar las vistas
+                case "sinProductos":
+                    productoPresenter.armarVista(contexto, null, "Sin Stock");
+                    break;
                 case "vistaProducto":
                     // productoPresenter.armarVista(contexto);
                     break;

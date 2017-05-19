@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import pp2.app2.R;
 import pp2.app2.controlador.ApplicationController;
@@ -33,6 +34,11 @@ public class ProductoActivity extends AppCompatActivity {
         final TextView producto_nombre = (TextView)findViewById(R.id.producto_nombre);
         producto_nombre.setText(producto.getNombre());
 
+        String sc_mensaje_error = getIntent().getStringExtra("sc_mensaje_error");
+        if(sc_mensaje_error != null)
+        {
+            Toast.makeText(this, sc_mensaje_error, Toast.LENGTH_SHORT).show();
+        }
 
         Button btn_agregar = (Button) findViewById(R.id.button_agregar);
         btn_agregar.setOnClickListener( new View.OnClickListener() {
