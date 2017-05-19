@@ -78,6 +78,12 @@ public class CompraActivity extends AppCompatActivity {
         TextView tv_total = (TextView)findViewById(R.id.txt_total);
         tv_total.setText(String.valueOf(this.carrito.getTotal()));
 
+        TextView tv_domicilio = (TextView)findViewById(R.id.txt_domicilio);
+        tv_domicilio.setText(this.solicitud.getDomicilioEntrega().getDatos());
+
+        TextView tv_pago = (TextView)findViewById(R.id.txt_pago);
+        tv_pago.setText(this.solicitud.getMedioDePago().toString());
+
         Button button_finalizar = (Button)findViewById(R.id.button_finalizar);
         button_finalizar.setOnClickListener( new View.OnClickListener() {
 

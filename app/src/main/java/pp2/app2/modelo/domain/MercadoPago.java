@@ -16,4 +16,9 @@ public class MercadoPago implements MedioDePago {
     public void pagar(double total) {
 
     }
+
+    @Override
+    public String toString () {
+        return "MercadoPago";
+    }
 }

@@ -12,8 +12,15 @@ public class Tarjeta implements MedioDePago {
         this.numero = numero;
     }
 
+
     @Override
     public void pagar(double total) {
 
     }
+
+    @Override
+    public String toString () {
+        return "Tarjeta";
+    }
+
 }

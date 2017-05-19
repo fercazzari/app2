@@ -68,6 +68,47 @@
             android:layout_toRightOf="@+id/lbl_total"
             android:layout_toEndOf="@+id/lbl_total" />
 
+        <TextView
+            android:id="@+id/lbl_domicilio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="27dp"
+            android:text="Domicilio de entrega:"
+            android:layout_below="@+id/lbl_total"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:id="@+id/lbl_pago"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/lbl_domicilio"
+            android:layout_marginTop="26dp"
+            android:text="Medio de Pago: " />
+
+        <TextView
+            android:id="@+id/txt_domicilio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/lbl_domicilio"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_toRightOf="@+id/lbl_cantidad"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/txt_pago"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/lbl_pago"
+            android:layout_alignLeft="@+id/button_finalizar"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignStart="@+id/button_finalizar"
+            android:text="TextView" />
+
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>
