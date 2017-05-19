@@ -55,7 +55,7 @@ public class MapeoTest
         assertEquals(map.obtenerProximaPantalla(solicitud), "vistaCompra");
     }
 
-    //Testear que si la solicitud de compra tiene medio de pago, items y domicilio se muestra la pantalla para elegir medio de pago
+    //Testear que si la solicitud de compra tiene medio de pago, items y domicilio se muestra la pantalla para confirmar compra
     @Test
     public void ProximaPantallaCompraFinalizadaTest()
     {
@@ -68,6 +68,7 @@ public class MapeoTest
         assertNotEquals(map.obtenerProximaPantalla(solicitud), "verCompraFinalizada");
         solicitud.setEstado(Estado.PAGO_ELEGIDO);
         assertNotEquals(map.obtenerProximaPantalla(solicitud), "verCompraFinalizada");
+        assertEquals(map.obtenerProximaPantalla(solicitud), "vistaCompra");
 
     }
 }
