@@ -16,6 +16,10 @@ public class MapProximaPantalla {
             return "vistaCompra";
         }
 
+        if (solicitud.getEstado() == Estado.LISTA) {
+            return "vistaSugerencia";
+        }
+
         if (solicitud.getEstado() == Estado.FINALIZADA) {
             return "vistaCompraFinalizada";
         }

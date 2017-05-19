@@ -7,9 +7,11 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import pp2.app2.R;
+import pp2.app2.controlador.CompraController;
 import pp2.app2.modelo.domain.IdentityField;
 import pp2.app2.modelo.app.DatosTemp;
 import pp2.app2.modelo.domain.Producto;
+import pp2.app2.modelo.domain.SolicitudDeCompra;
 
 public class SugerenciaActivity extends AppCompatActivity {
 
@@ -46,7 +48,8 @@ public class SugerenciaActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                // CompraController.recibirCommand("omitirSugerencia", getApplicationContext(), producto);
+
+                CompraController.confirmarCompra(getApplicationContext(), new SolicitudDeCompra());
 
             }
         });
@@ -57,7 +60,7 @@ public class SugerenciaActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                // CompraController.recibirCommand("aceptarSugerencia", getApplicationContext(), producto);
+                // CompraController.hacerAlgo()
             }
         });
     }

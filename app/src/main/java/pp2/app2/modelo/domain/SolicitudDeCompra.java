@@ -99,6 +99,10 @@ public class SolicitudDeCompra
     }
 
     public void confirmar() {
+        this.estado = Estado.LISTA;
+    }
+
+    public void finalizar() {
         this.estado = Estado.FINALIZADA;
     }
 

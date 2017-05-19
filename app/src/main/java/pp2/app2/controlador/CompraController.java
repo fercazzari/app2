@@ -2,11 +2,15 @@ package pp2.app2.controlador;
 
 import android.content.Context;
 
+import java.util.List;
+
 import pp2.app2.controlador.comandos.CommandAgregarProducto;
 import pp2.app2.controlador.comandos.CommandComprar;
 import pp2.app2.controlador.comandos.CommandDomiciliar;
 import pp2.app2.controlador.comandos.CommandPagar;
+import pp2.app2.controlador.comandos.CommandSugerir;
 import pp2.app2.modelo.domain.Domicilio;
+import pp2.app2.modelo.domain.Item;
 import pp2.app2.modelo.domain.MedioDePago;
 import pp2.app2.modelo.domain.Producto;
 import pp2.app2.modelo.domain.SolicitudDeCompra;
@@ -15,6 +19,7 @@ import pp2.app2.presenter.CompraPresenter;
 import pp2.app2.presenter.DomicilioPresenter;
 import pp2.app2.presenter.PagoPresenter;
 import pp2.app2.presenter.ProductoPresenter;
+import pp2.app2.presenter.SugerenciaPresenter;
 
 /**
  * Created by fcazzari on 05/05/2017.
@@ -30,6 +35,7 @@ public class CompraController {
     private static PagoPresenter pagoPresenter = new PagoPresenter();
     private static CompraPresenter compraPresenter = new CompraPresenter();
     private static CompraFinalizadaPresenter compraFinalizadaPresenter = new CompraFinalizadaPresenter();
+    private static SugerenciaPresenter sugerenciaPresenter = new SugerenciaPresenter();
 
     public static void agregarProducto (Context contexto, SolicitudDeCompra solicitud, Producto producto)
     {
@@ -52,6 +58,13 @@ public class CompraController {
         mostrarProximaVista(context, solicitud, map.obtenerProximaPantalla(solicitud));
     }
 
+    public static void mostrarSugerencia (Context context, SolicitudDeCompra solicitud) {
+        mostrarProximaVista(context, solicitud, map.obtenerProximaPantalla(solicitud));
+    }
+
+    public static void gestionarSugerencia (Context context, SolicitudDeCompra solicitudDeCompra, boolean agrega) {
+        solicitudDeCompra = new CommandSugerir().administrar(solicitudDeCompra);
+    }
 
     private static void mostrarProximaVista(Context contexto, SolicitudDeCompra solicitud, String proximaVista)
     {
@@ -76,6 +89,9 @@ public class CompraController {
                     break;
                 case "vistaCompraFinalizada":
                     compraFinalizadaPresenter.armarVista(contexto, solicitud);
+                    break;
+                case "vistaSugerencia":
+                    sugerenciaPresenter.armarVista(contexto, solicitud);
                     break;
                 default:
                     break;
