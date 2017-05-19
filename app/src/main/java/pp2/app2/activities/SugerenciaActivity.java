@@ -49,8 +49,6 @@ public class SugerenciaActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                CompraController.confirmarCompra(getApplicationContext(), new SolicitudDeCompra());
-
             }
         });
 

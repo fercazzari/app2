@@ -19,7 +19,7 @@ public class CommandComprar {
     public SolicitudDeCompra administrar (SolicitudDeCompra solicitudDeCompra)  {
 
         this.solicitudDeCompra = solicitudDeCompra;
-        this.solicitudDeCompra.confirmar();
+        this.solicitudDeCompra.finalizar();
         return this.solicitudDeCompra;
 
     }
