@@ -68,9 +68,6 @@ public class MapeoTest
         assertNotEquals(map.obtenerProximaPantalla(solicitud), "verCompraFinalizada");
         solicitud.setEstado(Estado.PAGO_ELEGIDO);
         assertNotEquals(map.obtenerProximaPantalla(solicitud), "verCompraFinalizada");
-        solicitud.setEstado(Estado.LISTA);
-        assertNotEquals(map.obtenerProximaPantalla(solicitud), "verCompraFinalizada");
-        solicitud.setEstado(Estado.FINALIZADA);
-        assertEquals(map.obtenerProximaPantalla(solicitud), "verCompraFinalizada");
+
     }
 }

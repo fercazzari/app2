@@ -8,6 +8,7 @@ import pp2.app2.modelo.domain.Domicilio;
 import pp2.app2.modelo.domain.MedioDePago;
 import pp2.app2.modelo.domain.Producto;
 import pp2.app2.modelo.domain.SolicitudDeCompra;
+import pp2.app2.modelo.domain.Tarjeta;
 
 import static org.junit.Assert.*;
 
@@ -29,7 +30,7 @@ public class CompraTest
         SolicitudDeCompra solicitudVacia = new SolicitudDeCompra();
         CompraController.agregarProducto(null, solicitudVacia, producto);
         assertTrue(solicitudVacia.getItems().isEmpty());
-        System.out.println(solicitudVacia.getItems().get(0));
+
     }
 
     //Testear que al llamar al método del appController confirmarDomicilio se obtiene una solicitud con el domicilio dado
@@ -47,7 +48,7 @@ public class CompraTest
     public void confirmarMedioDePagoTest()
     {
         SolicitudDeCompra solicitudVacia = new SolicitudDeCompra();
-        CompraController.confirmarMedioDePago(null, solicitudVacia, new MedioDePago("Tarjeta"));
+        CompraController.confirmarMedioDePago(null, solicitudVacia, new Tarjeta("XXXX-XXXX-XXXX-XXXX"));
         assertTrue(solicitudVacia.getMedioDePago() != null);
         assertEquals(solicitudVacia.getMedioDePago().toString(), "Tarjeta");
     }
