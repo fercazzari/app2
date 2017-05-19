@@ -1,4 +1,4 @@
-package pp2.app2.controlador.targets;
+package pp2.app2.controlador.comandos;
 
 import pp2.app2.modelo.domain.Estado;
 import pp2.app2.modelo.domain.MedioDePago;
@@ -8,20 +8,20 @@ import pp2.app2.modelo.domain.SolicitudDeCompra;
  * Created by fcazzari on 15/05/2017.
  */
 
-public class TargetPagar {
+public class CommandComprar {
 
     SolicitudDeCompra solicitudDeCompra;
 
-    public TargetPagar () {
+    public CommandComprar() {
         this.solicitudDeCompra = new SolicitudDeCompra();
     }
 
-    public SolicitudDeCompra administrar (SolicitudDeCompra solicitudDeCompra, MedioDePago medioDePago)  {
+    public SolicitudDeCompra administrar (SolicitudDeCompra solicitudDeCompra)  {
+
         this.solicitudDeCompra = solicitudDeCompra;
-        this.solicitudDeCompra.setMedioDePago(medioDePago);
-        // this.solicitudDeCompra.pagar(medioDePago);
-        this.solicitudDeCompra.setEstado(Estado.PAGADA);
+        this.solicitudDeCompra.setEstado(Estado.COMPRADA);
         return this.solicitudDeCompra;
+
     }
 
 }

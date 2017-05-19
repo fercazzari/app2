@@ -1,4 +1,4 @@
-package pp2.app2.controlador.targets;
+package pp2.app2.controlador.comandos;
 
 import pp2.app2.modelo.domain.Estado;
 import pp2.app2.modelo.domain.Producto;
@@ -8,11 +8,11 @@ import pp2.app2.modelo.domain.SolicitudDeCompra;
  * Created by Jony on 13/05/2017.
  */
 
-public class TargetAgregarProducto {
+public class CommandAgregarProducto {
 
     SolicitudDeCompra solicitud;
 
-    public TargetAgregarProducto() {
+    public CommandAgregarProducto() {
         this.solicitud = new SolicitudDeCompra();
     }
 

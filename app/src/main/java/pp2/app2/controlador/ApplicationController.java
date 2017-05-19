@@ -2,12 +2,10 @@ package pp2.app2.controlador;
 
 import android.content.Context;
 
-import pp2.app2.controlador.comandos.ComandoPedido;
-import pp2.app2.controlador.targets.TargetAgregarProducto;
-import pp2.app2.controlador.targets.TargetComprar;
-import pp2.app2.controlador.targets.TargetDomiciliar;
-import pp2.app2.controlador.targets.TargetPagar;
-import pp2.app2.modelo.domain.Carrito;
+import pp2.app2.controlador.comandos.CommandAgregarProducto;
+import pp2.app2.controlador.comandos.CommandComprar;
+import pp2.app2.controlador.comandos.CommandDomiciliar;
+import pp2.app2.controlador.comandos.CommandPagar;
 import pp2.app2.modelo.domain.Domicilio;
 import pp2.app2.modelo.domain.MedioDePago;
 import pp2.app2.modelo.domain.Producto;
@@ -24,7 +22,6 @@ import pp2.app2.presenter.ProductoPresenter;
 
 public class ApplicationController {
 
-    private static ComandoPedido pedido;
 
     private static MapProximaPantalla map = new MapProximaPantalla();
 
@@ -36,22 +33,22 @@ public class ApplicationController {
 
     public static void agregarProducto (Context contexto, SolicitudDeCompra solicitud, Producto producto)
     {
-        solicitud = new TargetAgregarProducto().administrar(producto);
+        solicitud = new CommandAgregarProducto().administrar(producto);
         mostrarProximaVista(contexto, solicitud, map.obtenerProximaPantalla(solicitud));
     }
 
     public static void confirmarDomicilio (Context context, SolicitudDeCompra solicitud, Domicilio domicilio) {
-        solicitud = new TargetDomiciliar().administrar(solicitud, domicilio);
+        solicitud = new CommandDomiciliar().administrar(solicitud, domicilio);
         mostrarProximaVista(context, solicitud, map.obtenerProximaPantalla(solicitud));
     }
 
     public static void confirmarMedioDePago (Context context, SolicitudDeCompra solicitud, MedioDePago medioDePago) {
-        solicitud = new TargetPagar().administrar(solicitud, medioDePago);
+        solicitud = new CommandPagar().administrar(solicitud, medioDePago);
         mostrarProximaVista(context, solicitud, map.obtenerProximaPantalla(solicitud));
     }
 
     public static void confirmarCompra (Context context, SolicitudDeCompra solicitud) {
-        solicitud = new TargetComprar().administrar(solicitud);
+        solicitud = new CommandComprar().administrar(solicitud);
         mostrarProximaVista(context, solicitud, map.obtenerProximaPantalla(solicitud));
     }
 
@@ -83,47 +80,5 @@ public class ApplicationController {
                     break;
             }
         }
-
     }
-
-    public static void prepararPedido (Context contexto, Producto producto) {
-
-        Carrito carrito = new Carrito();
-        carrito.agregarItem(producto);
-
-        pedido = new ComandoPedido(carrito);
-
-        switch(pedido.execute()) {
-            case 0:
-                /*
-                  Caso básico para comprar. Después:
-                  - agregar un domicilio de entrega
-                  - instanciar la solicitud (siempre va a estar en memoria)
-                  - agregarle el producto
-                  - llamar a la vista correspondiente
-                 */
-                // procesarSolicitud(contexto, producto);
-                /*
-                    //Mostrar vista con domicilio/s Registrados
-                    mostrarVistaDomicilios();
-                }
-                else
-                {
-                    //Mostrar vista para ingresar domicilio
-                    mostrarVistaNuevoDomicilio();
-                }
-                 */
-                break;
-            case 1:
-                Mensajes.informarSinStock(contexto);
-                break;
-            case 2:
-                Mensajes.informarErrorDeConexion(contexto);
-                break;
-            default:
-                Mensajes.informarErrorGeneral(contexto);
-                break;
-        }
-    }
-
 }
