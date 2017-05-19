@@ -43,20 +43,5 @@ public class MapProximaPantalla {
         }
         return "errorGeneral";
     }
-    /*
-        switch (solicitud.getEstado()) {
-            case VACIA:
-                return "vistaProducto";
-            case LLENA:
-                return "vistaDomicilio";
-            case DOMICILIADA:
-                return "vistaPago";
-            case PAGADA:
-                return "vistaCompra";
-            // case COMPRADA:
-                // return "verCompraFinalizada";
-        }
-        return "errorGeneral";
-    }
-    */
+
 }

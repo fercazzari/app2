@@ -23,7 +23,6 @@ public class Item
         return this.cantidad;
     }
 
-
     public void agregarUnidad(Item i) {
         i.cantidad++;
     }

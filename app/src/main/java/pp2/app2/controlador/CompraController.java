@@ -22,6 +22,7 @@ import pp2.app2.presenter.ProductoPresenter;
 
 public class CompraController {
 
+
     private static MapProximaPantalla map = new MapProximaPantalla();
 
     private static ProductoPresenter productoPresenter = new ProductoPresenter();
@@ -51,6 +52,7 @@ public class CompraController {
         mostrarProximaVista(context, solicitud, map.obtenerProximaPantalla(solicitud));
     }
 
+
     private static void mostrarProximaVista(Context contexto, SolicitudDeCompra solicitud, String proximaVista)
     {
         if(contexto != null)    //Para los test.
@@ -71,6 +73,7 @@ public class CompraController {
                     break;
                 case "vistaCompra":
                     compraPresenter.armarVista(contexto, solicitud);
+                    break;
                 case "vistaCompraFinalizada":
                     compraFinalizadaPresenter.armarVista(contexto, solicitud);
                     break;
