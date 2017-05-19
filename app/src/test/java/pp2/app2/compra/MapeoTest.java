@@ -1,16 +1,71 @@
 package pp2.app2.compra;
 
+import org.junit.Test;
+
+import pp2.app2.controlador.MapProximaPantalla;
+import pp2.app2.modelo.domain.Domicilio;
+import pp2.app2.modelo.domain.Estado;
+import pp2.app2.modelo.domain.MedioDePago;
+import pp2.app2.modelo.domain.Producto;
+import pp2.app2.modelo.domain.SolicitudDeCompra;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
+
 /**
  * Created by Jony on 15/05/2017.
  */
 
 public class MapeoTest
 {
-    //Testear que si la solicitud de compra no tiene productos se vuelve a la pantalla productos mas alla del resto de atributos
+    private MapProximaPantalla map = new MapProximaPantalla();
+    private SolicitudDeCompra solicitud = new SolicitudDeCompra();
 
     //Testear que si la solicitud de compra no tiene domicilio de entrega pero si items se muestra la pantalla para elegir domicilio
+    @Test
+    public void proximaPantallaDomicilioTest()
+    {
+        assertNotEquals(map.obtenerProximaPantalla(solicitud), "vistaDomicilio");
+        solicitud.agregarProducto(new Producto());
+        assertEquals(map.obtenerProximaPantalla(solicitud), "vistaDomicilio");
+    }
 
-    //Testear que si la solicitud de compra no tiene medio de pago pero si items y domicilio se muestra la pantalla para elegir medio de pago
+    //Testear que si la solicitud de compra tiene productos y domicilio pero no medio de pago, se debe pedir el medio de pago
+    @Test
+    public void ProximaPantallaMedioDePagoTest()
+    {
+        assertNotEquals(map.obtenerProximaPantalla(solicitud), "vistaPago");
+        solicitud.agregarProducto(new Producto());
+        assertNotEquals(map.obtenerProximaPantalla(solicitud), "vistaPago");
+        solicitud.agregarDomicilio(new Domicilio("Calle falsa 123"));
+        assertEquals(map.obtenerProximaPantalla(solicitud), "vistaPago");
+    }
 
     //Testear que si la solicitud de compra tiene productos, domicilio y medio de pago, se puede finalizar la compra
+    @Test
+    public void ProximaPantallaAceptarCompraTest()
+    {
+        assertNotEquals(map.obtenerProximaPantalla(solicitud), "vistaCompra");
+        solicitud.agregarProducto(new Producto());
+        assertNotEquals(map.obtenerProximaPantalla(solicitud), "vistaCompra");
+        solicitud.agregarDomicilio(new Domicilio("Calle falsa 123"));
+        assertNotEquals(map.obtenerProximaPantalla(solicitud), "vistaCompra");
+        solicitud.agregarMedioDePago(new MedioDePago("Tarjeta"));
+        assertEquals(map.obtenerProximaPantalla(solicitud), "vistaCompra");
+    }
+
+    //Testear que si la solicitud de compra tiene medio de pago, items y domicilio se muestra la pantalla para elegir medio de pago
+    @Test
+    public void ProximaPantallaCompraFinalizadaTest()
+    {
+        assertNotEquals(map.obtenerProximaPantalla(solicitud), "verCompraFinalizada");
+        solicitud.agregarProducto(new Producto());
+        assertNotEquals(map.obtenerProximaPantalla(solicitud), "verCompraFinalizada");
+        solicitud.agregarDomicilio(new Domicilio("Calle falsa 123"));
+        assertNotEquals(map.obtenerProximaPantalla(solicitud), "verCompraFinalizada");
+        solicitud.agregarMedioDePago(new MedioDePago("Tarjeta"));
+        assertNotEquals(map.obtenerProximaPantalla(solicitud), "verCompraFinalizada");
+        solicitud.setEstado(Estado.PAGADA);
+        assertEquals(map.obtenerProximaPantalla(solicitud), "verCompraFinalizada");
+    }
 }
