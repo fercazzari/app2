@@ -10,18 +10,11 @@ import pp2.app2.modelo.domain.SolicitudDeCompra;
 
 public class CommandPagar {
 
-    SolicitudDeCompra solicitudDeCompra;
-
-    public CommandPagar() {
-        this.solicitudDeCompra = new SolicitudDeCompra();
-    }
-
     public SolicitudDeCompra administrar (SolicitudDeCompra solicitudDeCompra, MedioDePago medioDePago)  {
-        this.solicitudDeCompra = solicitudDeCompra;
         // this.solicitudDeCompra.pagar(medioDePago);
-        this.solicitudDeCompra.agregarMedioDePago(medioDePago);
-        this.solicitudDeCompra.setEstado(Estado.PAGADA);
-        return this.solicitudDeCompra;
+        solicitudDeCompra.agregarMedioDePago(medioDePago);
+        solicitudDeCompra.setEstado(Estado.PAGADA);
+        return solicitudDeCompra;
     }
 
 }

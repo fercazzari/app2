@@ -73,9 +73,9 @@ public class CompraController {
                     break;
                 case "vistaCompra":
                     compraPresenter.armarVista(contexto, solicitud);
-                /* case "verCompraFinalizada":
+                case "verCompraFinalizada":
                     compraFinalizadaPresenter.armarVista(contexto, solicitud);
-                    break; */
+                    break;
                 default:
                     break;
             }

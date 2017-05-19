@@ -58,7 +58,6 @@ public class SolicitudDeCompra
 
     public void agregarDomicilio (Domicilio domicilioEntrega) {
        if (VerificadorDomicilio.existeDomicilio(domicilioEntrega)){
-           this.domicilioEntrega = new Domicilio();
            this.domicilioEntrega = domicilioEntrega;
        }
     }

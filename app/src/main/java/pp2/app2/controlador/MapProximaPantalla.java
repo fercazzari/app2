@@ -13,7 +13,7 @@ public class MapProximaPantalla {
     {
         if (solicitud.getEstado() == Estado.PAGADA)
         {
-            return "vistaCompra";
+            return "verCompraFinalizada";
         }
         else
         {
