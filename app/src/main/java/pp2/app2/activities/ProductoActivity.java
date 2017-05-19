@@ -19,20 +19,32 @@ public class ProductoActivity extends AppCompatActivity {
     private DatosTemp datosTemp;
     private SolicitudDeCompra solicitud;
 
+    private TextView producto_nombre;
+    private Button btn_agregar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_producto);
 
+        init();
+        recibirIntent();
+        armarPantalla();
+        handleEventos();
+
+    }
+
+    public void init() {
+
         this.datosTemp = new DatosTemp();
         this.producto = datosTemp.obtenerProducto(102);
         this.solicitud = new SolicitudDeCompra();
-
         this.producto = new Producto(producto.getId(), producto.getNombre(), producto.getPrecio());
 
-        final TextView producto_nombre = (TextView)findViewById(R.id.producto_nombre);
-        producto_nombre.setText(producto.getNombre());
+    }
+
+    public void recibirIntent () {
 
         String sc_mensaje_error = getIntent().getStringExtra("sc_mensaje_error");
         if(sc_mensaje_error != null)
@@ -40,7 +52,17 @@ public class ProductoActivity extends AppCompatActivity {
             Toast.makeText(this, sc_mensaje_error, Toast.LENGTH_SHORT).show();
         }
 
-        Button btn_agregar = (Button) findViewById(R.id.button_agregar);
+    }
+
+    public void armarPantalla () {
+
+        this.producto_nombre = (TextView)findViewById(R.id.producto_nombre);
+        producto_nombre.setText(producto.getNombre());
+
+    }
+
+    public void handleEventos () {
+        btn_agregar = (Button) findViewById(R.id.button_agregar);
         btn_agregar.setOnClickListener( new View.OnClickListener() {
 
             @Override
@@ -48,6 +70,5 @@ public class ProductoActivity extends AppCompatActivity {
                 CompraController.agregarProducto(getApplicationContext(), solicitud, producto);
             }
         });
-
     }
 }

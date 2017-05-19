@@ -30,25 +30,41 @@ public class CompraActivity extends AppCompatActivity {
     private Carrito carrito;
     private Producto producto;
     private MedioDePago medioDePago;
+    private String id_producto, nombre_producto, precio_producto, sc_domicilio, sc_pago; // intent que viene
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_compra);
 
-        // todos los details de la solicitud para agregarlo al carrito
-        String id_producto = getIntent().getStringExtra("id_producto");
-        String nombre_producto = getIntent().getStringExtra("nombre_producto");
-        String precio_producto = getIntent().getStringExtra("precio_producto");
+        init();
+        recibirIntent();
+        rearmarSolicitud();
+        llenarCarrito();
+        armarPantalla();
+        handleEventos();
 
-        String sc_domicilio = getIntent().getStringExtra("sc_domicilio");
-        String sc_pago = getIntent().getStringExtra("sc_pago");
+    }
+
+    public void init() {
+        this.solicitud = new SolicitudDeCompra();
+        this.carrito = new Carrito();
+    }
+
+    public void recibirIntent() {
+        // todos los details de la solicitud para agregarlo al carrito
+        id_producto = getIntent().getStringExtra("id_producto");
+        nombre_producto = getIntent().getStringExtra("nombre_producto");
+        precio_producto = getIntent().getStringExtra("precio_producto");
+
+        sc_domicilio = getIntent().getStringExtra("sc_domicilio");
+        sc_pago = getIntent().getStringExtra("sc_pago");
+    }
+
+    public void rearmarSolicitud() {
 
         producto = new Producto
                 (new IdentityField(Integer.valueOf(id_producto)), nombre_producto, Double.valueOf(precio_producto));
-
-        // rearmo la solicitud que vino
-        this.solicitud = new SolicitudDeCompra();
 
         this.solicitud.agregarProducto(producto);
         this.solicitud.setDomicilioEntrega(new Domicilio(sc_domicilio));
@@ -60,18 +76,20 @@ public class CompraActivity extends AppCompatActivity {
             case "MercadoPago":
                 medioDePago = new MercadoPago("Visa");
                 break;
-
         }
 
         this.solicitud.setMedioDePago(medioDePago);
 
+    }
+
+    public void llenarCarrito () {
         this.carrito = new Carrito();
         for (Item item : this.solicitud.getItems()) {
             this.carrito.agregarItem(item.getProducto());
         }
+    }
 
-
-
+    public void armarPantalla() {
         TextView tv_cantidad = (TextView)findViewById(R.id.txt_cantidad);
         tv_cantidad.setText(String.valueOf(this.carrito.getCantidad()));
 
@@ -83,6 +101,9 @@ public class CompraActivity extends AppCompatActivity {
 
         TextView tv_pago = (TextView)findViewById(R.id.txt_pago);
         tv_pago.setText(this.solicitud.getMedioDePago().toString());
+    }
+
+    public void handleEventos() {
 
         Button button_finalizar = (Button)findViewById(R.id.button_finalizar);
         button_finalizar.setOnClickListener( new View.OnClickListener() {
@@ -92,7 +113,6 @@ public class CompraActivity extends AppCompatActivity {
                 CompraController.confirmarCompra(getApplicationContext(), solicitud);
             }
         });
-
     }
 
     public void sincronizar(View view, Carrito carrito, Button btn) {

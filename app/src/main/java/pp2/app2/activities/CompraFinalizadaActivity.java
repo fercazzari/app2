@@ -13,8 +13,12 @@ public class CompraFinalizadaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_compra_finalizada);
 
+        armarPantalla();
+
+    }
+
+    public void armarPantalla () {
         TextView lbl_compra_finalizada = (TextView)findViewById(R.id.lbl_compra_finalizada);
         lbl_compra_finalizada.setText("Compra finalizada correctamente!");
-
     }
 }

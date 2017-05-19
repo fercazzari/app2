@@ -23,25 +23,21 @@ public class PagoActivity extends AppCompatActivity {
     private Domicilio domicilio;
     private MedioDePago medioDePago;
     private RadioGroup radioPago;
+    private String sc_producto_id, sc_producto_nombre, sc_producto_precio, sc_domicilio;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pago);
 
-        this.solicitud = new SolicitudDeCompra();
+        init();
+        recibirIntent();
+        rearmarSolicitud();
+        handleEventos();
 
-        String sc_producto_id = getIntent().getStringExtra("sc_producto_id");
-        String sc_producto_nombre = getIntent().getStringExtra("sc_producto_nombre");
-        String sc_producto_precio = getIntent().getStringExtra("sc_producto_precio");
+    }
 
-        this.producto = new Producto(new IdentityField(Integer.valueOf(sc_producto_id)), sc_producto_nombre, Double.valueOf(sc_producto_precio));
-        this.solicitud.agregarProducto(producto);
-
-        String sc_domicilio = getIntent().getStringExtra("sc_domicilio");
-        
-        this.domicilio = new Domicilio(sc_domicilio);
-        this.solicitud.setDomicilioEntrega(domicilio);
+    private void handleEventos() {
 
         // por si no marca ningún rb y pone siguiente
         medioDePago = new Tarjeta("XXXX-XXXX-XXXX-XXXX");
@@ -72,6 +68,25 @@ public class PagoActivity extends AppCompatActivity {
 
         });
 
+    }
+
+    private void rearmarSolicitud() {
+        this.producto = new Producto(new IdentityField(Integer.valueOf(sc_producto_id)), sc_producto_nombre, Double.valueOf(sc_producto_precio));
+        this.solicitud.agregarProducto(producto);
+
+        this.domicilio = new Domicilio(sc_domicilio);
+        this.solicitud.setDomicilioEntrega(domicilio);
+    }
+
+    private void recibirIntent() {
+        sc_producto_id = getIntent().getStringExtra("sc_producto_id");
+        sc_producto_nombre = getIntent().getStringExtra("sc_producto_nombre");
+        sc_producto_precio = getIntent().getStringExtra("sc_producto_precio");
+        sc_domicilio = getIntent().getStringExtra("sc_domicilio");
+    }
+
+    private void init() {
+        this.solicitud = new SolicitudDeCompra();
     }
 
 }

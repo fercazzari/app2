@@ -15,21 +15,40 @@ import pp2.app2.modelo.domain.SolicitudDeCompra;
 
 public class SugerenciaActivity extends AppCompatActivity {
 
+    private Producto producto, recomendado;
+    private String id_producto, nombre_producto, precio_producto;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sugerencia);
 
-        // armo el producto que viene de la activity anterior
-        String id_producto = getIntent().getStringExtra("id_producto");
-        String nombre_producto = getIntent().getStringExtra("nombre_producto");
-        String precio_producto = getIntent().getStringExtra("precio_producto");
+        init();
+        recibirIntent();
+        rearmarProducto();
+        armarPantalla();
+        handleEventos();
 
-        final Producto producto = new Producto(new IdentityField(Integer.valueOf(id_producto)), nombre_producto, Double.valueOf(precio_producto));
+    }
 
+    public void init() {
         DatosTemp datosTemp = new DatosTemp();
-        Producto recomendado = new Producto();
+        recomendado = new Producto();
         recomendado = datosTemp.obtenerProducto(107);
+    }
+
+    public void recibirIntent() {
+        // armo el producto que viene de la activity anterior
+        id_producto = getIntent().getStringExtra("id_producto");
+        nombre_producto = getIntent().getStringExtra("nombre_producto");
+        precio_producto = getIntent().getStringExtra("precio_producto");
+    }
+
+    public void rearmarProducto() {
+        producto = new Producto(new IdentityField(Integer.valueOf(id_producto)), nombre_producto, Double.valueOf(precio_producto));
+    }
+
+    public void armarPantalla() {
 
         TextView lbl_compra = (TextView)findViewById(R.id.lbl_compra);
         lbl_compra.setText("Como compraste: ");
@@ -42,6 +61,10 @@ public class SugerenciaActivity extends AppCompatActivity {
 
         TextView tv_recomendado = (TextView)findViewById(R.id.txt_recomendado);
         tv_recomendado.setText(recomendado.getNombre());
+
+    }
+
+    public void handleEventos() {
 
         Button button_omitir = (Button)findViewById(R.id.button_omitir);
         button_omitir.setOnClickListener( new View.OnClickListener() {
@@ -61,6 +84,7 @@ public class SugerenciaActivity extends AppCompatActivity {
                 // CompraController.hacerAlgo()
             }
         });
+
     }
 
 
