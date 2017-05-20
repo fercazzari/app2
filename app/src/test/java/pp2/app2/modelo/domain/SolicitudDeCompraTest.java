@@ -4,12 +4,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 import pp2.app2.modelo.app.DatosTemp;
-import pp2.app2.modelo.domain.Domicilio;
-import pp2.app2.modelo.domain.Estado;
-import pp2.app2.modelo.domain.MercadoPago;
-import pp2.app2.modelo.domain.SolicitudDeCompra;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by fcazzari on 11/05/2017.
@@ -28,7 +25,7 @@ public class SolicitudDeCompraTest {
 
     @Test
     public void agregarProducto() throws Exception {
-        this.solicitudDeCompra.agregarProducto(datosTemp.obtenerProducto(100));
+        this.solicitudDeCompra.agregarProducto(datosTemp.obtenerProducto(102));
         int esperado, actual;
         esperado = 1;
         actual = this.solicitudDeCompra.getItems().size();
@@ -45,13 +42,9 @@ public class SolicitudDeCompraTest {
 
         this.solicitudDeCompra.agregarMedioDePago(new MercadoPago("Visa"));
         this.solicitudDeCompra.setMedioDePago(new MercadoPago("Visa"));
-        this.solicitudDeCompra.setEstado(Estado.PAGO_ELEGIDO);
         actual = this.solicitudDeCompra.getMedioDePago().toString();
         esperado = "MercadoPago";
         assertEquals(esperado, actual);
-
-        actual = this.solicitudDeCompra.getEstado().toString();
-        esperado = "PAGO_ELEGIDO";
 
         this.solicitudDeCompra.setEstado(Estado.FINALIZADA);
         actual = this.solicitudDeCompra.getEstado().toString();
@@ -61,5 +54,4 @@ public class SolicitudDeCompraTest {
         esperado = String.valueOf(0);
         assertEquals(esperado, actual);
     }
-
 }

@@ -5,5 +5,5 @@ package pp2.app2.modelo.domain;
  */
 
 public enum Estado {
-    PAGO_ELEGIDO, LISTA, FINALIZADA;
+    FINALIZADA;
 }
