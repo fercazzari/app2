@@ -34,7 +34,7 @@ public class CompraController {
 
     public static void agregarProducto (Context contexto, SolicitudDeCompra solicitud, Producto producto)
     {
-        solicitud = new CommandAgregarProducto().administrar(producto);
+        solicitud = new CommandAgregarProducto().administrar(solicitud, producto);
         mostrarProximaVista(contexto, solicitud, map.obtenerProximaPantalla(solicitud));
     }
 

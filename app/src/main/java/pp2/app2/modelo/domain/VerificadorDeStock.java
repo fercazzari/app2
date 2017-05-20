@@ -9,6 +9,8 @@ public class VerificadorDeStock
     public static boolean hayStock(Producto p)
     {
         //Conectarse y preguntar si hay stock de tal producto
+        if (p.getNombre().equals("anana"))
+            return false;
         return true;
     }
 }
