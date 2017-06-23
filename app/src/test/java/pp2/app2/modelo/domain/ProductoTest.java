@@ -31,7 +31,7 @@ public class ProductoTest {
         @Test
         public void getIdProducto () {
             Integer esperado = 100;
-            Integer actual = this.producto.getId().getField();
+            Integer actual = this.producto.getId();
             assertEquals(esperado, actual);
         }
 
@@ -54,7 +54,7 @@ public class ProductoTest {
     @Test
     public void test () {
         int id_esperado = 100;
-        int id_actual = this.producto.getId().getField();
+        int id_actual = this.producto.getId();
         String nombre_esperado = "anana";
         String nombre_actual = this.producto.getNombre();
 
@@ -66,7 +66,7 @@ public class ProductoTest {
         assertEquals(str_esperado, str_actual);
 
         id_esperado = 0;
-        id_actual = this.vacio.getId().getField();
+        id_actual = this.vacio.getId();
         nombre_esperado = "";
         nombre_actual = this.vacio.getNombre();
 
