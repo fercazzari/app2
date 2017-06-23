@@ -25,7 +25,7 @@ public class DomicilioPresenter {
             // y mandar cada uno de los productos de la solicitud? Crazy
         }
 
-        i.putExtra("sc_producto_id", String.valueOf(solicitud.getItems().get(0).getProducto().getId().getField()));
+        i.putExtra("sc_producto_id", String.valueOf(solicitud.getItems().get(0).getProducto().getId()));
         i.putExtra("sc_producto_nombre", solicitud.getItems().get(0).getProducto().getNombre());
         i.putExtra("sc_producto_precio", String.valueOf(solicitud.getItems().get(0).getProducto().getPrecio()));
 

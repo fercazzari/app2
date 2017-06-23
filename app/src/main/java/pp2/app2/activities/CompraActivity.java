@@ -4,7 +4,6 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.SwitchCompat;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -15,7 +14,6 @@ import pp2.app2.controlador.CompraController;
 import pp2.app2.modelo.app.Conexion;
 import pp2.app2.modelo.app.Constantes;
 import pp2.app2.modelo.domain.Domicilio;
-import pp2.app2.modelo.domain.IdentityField;
 import pp2.app2.modelo.domain.Carrito;
 import pp2.app2.modelo.domain.Item;
 import pp2.app2.modelo.domain.MedioDePago;
@@ -64,7 +62,7 @@ public class CompraActivity extends AppCompatActivity {
     public void rearmarSolicitud() {
 
         producto = new Producto
-                (new IdentityField(Integer.valueOf(id_producto)), nombre_producto, Double.valueOf(precio_producto));
+                (Integer.valueOf(id_producto), nombre_producto, Double.valueOf(precio_producto));
 
         this.solicitud.agregarProducto(producto);
         this.solicitud.setDomicilioEntrega(new Domicilio(sc_domicilio));

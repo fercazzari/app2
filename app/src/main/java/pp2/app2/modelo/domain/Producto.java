@@ -2,23 +2,23 @@ package pp2.app2.modelo.domain;
 
 public class Producto {
 
-    private IdentityField id;
+    private int id; // identity field
     private String nombre;
     private double precio;
 
     public Producto () {
-        this.id = new IdentityField(0);
+        this.id = 0;
         this.nombre = "";
         this.precio = 0.0;
     }
 
-    public Producto (IdentityField id, String nombre, double precio) {
+    public Producto (int id, String nombre, double precio) {
         this.id = id;
         this.nombre = nombre;
         this.precio = precio;
     }
 
-    public IdentityField getId() {
+    public int getId() {
         return id;
     }
 
@@ -42,7 +42,7 @@ public class Producto {
         if (getClass() != obj.getClass())
             return false;
         Producto other = (Producto) obj;
-        if (id.getField() != other.id.getField())
+        if (id!= other.id)
             return false;
         if (nombre == null) {
             if (other.nombre != null)

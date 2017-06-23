@@ -9,7 +9,6 @@ import android.widget.RadioGroup;
 import pp2.app2.R;
 import pp2.app2.controlador.CompraController;
 import pp2.app2.modelo.domain.Domicilio;
-import pp2.app2.modelo.domain.IdentityField;
 import pp2.app2.modelo.domain.MedioDePago;
 import pp2.app2.modelo.domain.MercadoPago;
 import pp2.app2.modelo.domain.Producto;
@@ -71,7 +70,7 @@ public class PagoActivity extends AppCompatActivity {
     }
 
     private void rearmarSolicitud() {
-        this.producto = new Producto(new IdentityField(Integer.valueOf(sc_producto_id)), sc_producto_nombre, Double.valueOf(sc_producto_precio));
+        this.producto = new Producto(Integer.valueOf(sc_producto_id), sc_producto_nombre, Double.valueOf(sc_producto_precio));
         this.solicitud.agregarProducto(producto);
 
         this.domicilio = new Domicilio(sc_domicilio);

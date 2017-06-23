@@ -7,11 +7,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import pp2.app2.R;
-import pp2.app2.controlador.CompraController;
-import pp2.app2.modelo.domain.IdentityField;
 import pp2.app2.modelo.app.DatosTemp;
 import pp2.app2.modelo.domain.Producto;
-import pp2.app2.modelo.domain.SolicitudDeCompra;
 
 public class SugerenciaActivity extends AppCompatActivity {
 
@@ -45,7 +42,7 @@ public class SugerenciaActivity extends AppCompatActivity {
     }
 
     public void rearmarProducto() {
-        producto = new Producto(new IdentityField(Integer.valueOf(id_producto)), nombre_producto, Double.valueOf(precio_producto));
+        producto = new Producto(Integer.valueOf(id_producto), nombre_producto, Double.valueOf(precio_producto));
     }
 
     public void armarPantalla() {

@@ -20,7 +20,7 @@ public class SugerenciaPresenter {
         Intent i = new Intent(context, SugerenciaActivity.class);
         i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
-        i.putExtra("id_producto", String.valueOf(producto.getId().getField()));
+        i.putExtra("id_producto", String.valueOf(producto.getId()));
         i.putExtra("nombre_producto", producto.getNombre());
         i.putExtra("precio_producto", String.valueOf(producto.getPrecio()));
 
