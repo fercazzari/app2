@@ -24,7 +24,7 @@ before_script:
   - adb shell input keyevent 82 &
   
 ignore:
-  - "activities"  # ignore folders and all its contents
+  - "app/src/main/java/pp2/app2/activities"  # ignore folders and all its contents
 
 script: 
   - ./gradlew build jacocoTestReport
