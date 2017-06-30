@@ -56,9 +56,14 @@ public class CompraTest
     public void agregarVariosProductoSolicitud()
     {
         SolicitudDeCompra solicitud = new SolicitudDeCompra();
+        assertTrue(solicitud.getItems().isEmpty());
         solicitud.agregarProducto(productoConStock);
+        assertEquals(solicitud.getItems().get(0).getCantidad(), 1);
         assertFalse(solicitud.getItems().isEmpty());
+        solicitud.agregarProducto(productoConStock);
+        assertEquals(solicitud.getItems().get(0).getCantidad(), 2);
         solicitud.agregarProducto(producto2ConStock);
+        assertEquals(solicitud.getItems().get(1).getCantidad(), 1);
         assertEquals(solicitud.getItems().size(), 2);
     }
 
