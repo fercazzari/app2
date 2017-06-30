@@ -44,13 +44,13 @@ public class Producto {
         Producto other = (Producto) obj;
         if (id!= other.id)
             return false;
-        if (nombre == null) {
+        /*if (nombre == null) {
             if (other.nombre != null)
                 return false;
         } else if (!nombre.equals(other.nombre)) {
             return false;
         } else if (precio != other.precio)
-            return false;
+            return false;*/
         return true;
     }
 }
