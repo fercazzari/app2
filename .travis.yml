@@ -26,6 +26,10 @@ before_script:
 script: 
   - ./gradlew jacocoTestReport
   - ./gradlew connectedCheck
+  
+before_install:
+  - pip install --user codecov    #Install codecov
 
-after_success: 
-- bash <(curl -s https://codecov.io/bash)
+after_success:
+  - codecov                       #Run codeco
+  - bash <(curl -s https://codecov.io/bash)
