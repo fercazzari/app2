@@ -49,6 +49,16 @@ public class CompraTest
         solicitudVacia.agregarProducto(productoSinStock);
         assertTrue(solicitudVacia.getItems().isEmpty());
     }
+    
+    @Test
+    public void agregarVariosProductoSolicitud()
+    {
+        SolicitudDeCompra solicitud = new SolicitudDeCompra();
+        solicitudVacia.agregarProducto(productoConStock);
+        assertFalse(solicitud.getItems().isEmpty());
+        solicitudVacia.agregarProducto(productoConStock);
+        assertTrue(solicitud.getItems().size(), 2);
+    }
 
     //Testear que al llamar al método del appController confirmarDomicilio se obtiene una solicitud con el domicilio dado
     @Test
