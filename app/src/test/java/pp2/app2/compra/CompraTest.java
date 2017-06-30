@@ -24,6 +24,7 @@ public class CompraTest
 {
     private static DatosTemp datosTemp = new DatosTemp();
     private static Producto productoConStock = datosTemp.obtenerProducto(102);
+    private static Producto producto2ConStock = datosTemp.obtenerProducto(104);
     private static Producto productoSinStock = datosTemp.obtenerProducto(100);
     private static Domicilio domicilio = new Domicilio("Las Malvinas 4023");
 
@@ -57,7 +58,7 @@ public class CompraTest
         SolicitudDeCompra solicitud = new SolicitudDeCompra();
         solicitud.agregarProducto(productoConStock);
         assertFalse(solicitud.getItems().isEmpty());
-        solicitud.agregarProducto(productoConStock);
+        solicitud.agregarProducto(producto2ConStock);
         assertEquals(solicitud.getItems().size(), 2);
     }
 
