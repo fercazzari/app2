@@ -3,6 +3,7 @@ package pp2.app2.compra;
 import org.junit.Test;
 
 import pp2.app2.controlador.CompraController;
+import pp2.app2.modelo.app.Conexion;
 import pp2.app2.modelo.app.DatosTemp;
 import pp2.app2.modelo.domain.Domicilio;
 import pp2.app2.modelo.domain.Estado;
@@ -54,10 +55,10 @@ public class CompraTest
     public void agregarVariosProductoSolicitud()
     {
         SolicitudDeCompra solicitud = new SolicitudDeCompra();
-        solicitudVacia.agregarProducto(productoConStock);
+        solicitud.agregarProducto(productoConStock);
         assertFalse(solicitud.getItems().isEmpty());
-        solicitudVacia.agregarProducto(productoConStock);
-        assertTrue(solicitud.getItems().size(), 2);
+        solicitud.agregarProducto(productoConStock);
+        assertEquals(solicitud.getItems().size(), 2);
     }
 
     //Testear que al llamar al método del appController confirmarDomicilio se obtiene una solicitud con el domicilio dado
@@ -83,11 +84,14 @@ public class CompraTest
     @Test
     public void confirmarCompraTest()
     {
-        Estado esperado, actual;
-        SolicitudDeCompra solicitudVacia = new SolicitudDeCompra();
-        CompraController.confirmarCompra(null, solicitudVacia);
-        esperado = Estado.FINALIZADA;
-        actual = solicitudVacia.getEstado();
-        assertEquals(esperado, actual);
+
+        if (Conexion.hayConexion()) {
+            Estado esperado, actual;
+            SolicitudDeCompra solicitudVacia = new SolicitudDeCompra();
+            CompraController.confirmarCompra(null, solicitudVacia);
+            esperado = Estado.FINALIZADA;
+            actual = solicitudVacia.getEstado();
+            assertEquals(esperado, actual);
+        }
     }
 }

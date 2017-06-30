@@ -115,7 +115,8 @@ public class CompraActivity extends AppCompatActivity {
 
     public void sincronizar(View view, Carrito carrito, Button btn) {
 
-        if (Conexion.hayConexion((ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE))) {
+        if (Conexion.hayConexion()) {
+        // if (Conexion.hayConexion((ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE))) {
 
             if (carrito.hayQueSincronizar())
             {

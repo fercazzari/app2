@@ -17,9 +17,12 @@ public class Conexion {
         return Constantes.getRespuestaDeSincronizacion();
     }
 
-    public static boolean hayConexion(ConnectivityManager cm) {
+    public static boolean hayConexion() {
+        return true;
+    }
+    /* public static boolean hayConexion(ConnectivityManager cm) {
         ConnectivityManager connectivityManager = cm;
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
-    }
+    } */
 }
