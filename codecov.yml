@@ -1,2 +1,2 @@
 ignore:
-  - "app2/app/src/main/java/pp2/app2/activities"  # ignore folders and all its contents
+  - "app/src/main/java/pp2/app2/activities"  # ignore folders and all its contents
