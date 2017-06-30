@@ -22,16 +22,10 @@ before_script:
   - emulator -avd test -no-skin -no-audio -no-window &
   - android-wait-for-emulator
   - adb shell input keyevent 82 &
-  
-ignore:
-  - "app/src/main/java/pp2/app2/activities"
-  - "app/src/main/java/pp2/app2/controlador"
 
 script: 
   - ./gradlew build jacocoTestReport
   - ./gradlew connectedCheck
 
 after_success: 
-- bash <(curl -s https://codecov.io/bash) -J 'app2'
-
-
+- bash <(curl -s https://codecov.io/bash)
